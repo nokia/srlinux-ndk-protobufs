@@ -19,7 +19,7 @@ Since NDK is defined with protocol buffers, SR Linux application developers can 
 Currently Nokia SR Linux team maintains the following generated language bindings for NDK:
 
 - [srlinux-ndk-go](https://github.com/nokia/srlinux-ndk-go) - Go bindings
-- [srlinux-ndk-python](https://github.com/nokia/srlinux-ndk-python) - Python bindings
+- [srlinux-ndk-py](https://github.com/nokia/srlinux-ndk-py) - Python bindings
 
 To generate NDK code in other languages, consult with the official [protocol buffers documentation](https://developers.google.com/protocol-buffers/docs/tutorials) for a given language.
 
