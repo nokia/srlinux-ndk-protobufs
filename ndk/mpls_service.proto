@@ -1,0 +1,103 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents service for MPLS programming.
+ */
+service SdkMgrMplsRouteService
+{
+    /// MPLS route add or update; can add or update more than one MPLS route in one request
+    rpc MplsRouteAddOrUpdate (MplsRouteAddRequest) returns (MplsRouteAddResponse) {
+        option deprecated = true;
+    };
+
+    /// MPLS route delete; can delete more than one MPLS route in one request
+    rpc MplsRouteDelete (MplsRouteDeleteRequest) returns (MplsRouteDeleteResponse) {
+        option deprecated = true;
+    };
+
+    /// Synchronization start to begin synchronization operation
+    rpc SyncStart(SyncRequest) returns (SyncResponse) {}
+
+    /// Synchronization end to close synchronization operation
+    rpc SyncEnd(SyncRequest) returns (SyncResponse) {}
+}
+
+/**
+ * Represents MPLS route key.
+ */
+message MplsRouteKeyPb
+{
+    MplsLabel           top_label     = 1;  // Top label
+    string              net_inst_name = 2;  // Network instance name
+}
+
+/**
+ * Represents MPLS route data.
+ */
+message MplsRoutePb
+{
+    /// Represents MPLS operation.
+    enum Operation
+    {
+        INVALID_OP = 0;  // Invalid operation
+        POP        = 1;  // Pop operation
+        SWAP       = 2;  // Swap operation
+    }
+    string         nexthop_group_name  = 1;  // Next hop group name
+    Operation      operation           = 2;  // Operation such as POP or SWAP
+    uint32         preference          = 3;  // Route preference
+}
+
+/**
+ * Represents MPLS route information; contains key and data.
+ */
+message MplsRouteInfo
+{
+    MplsRouteKeyPb key = 1;  // MPLS route key
+    MplsRoutePb    data = 2; // MPLS route data
+}
+
+/**
+ * Represents MPLS route add request, which can include one or more MPLS routes.
+ */
+message MplsRouteAddRequest
+{
+    repeated MplsRouteInfo routes = 2;  // MPLS routes
+}
+
+/**
+ * Represents MPLS route add response.
+ */
+message MplsRouteAddResponse
+{
+    SdkMgrStatus  status     = 1;  // Status of MPLS route add request
+    string error_str         = 2;  // Detailed error string
+}
+
+/**
+ * Represents MPLS route delete request, which can include one or more MPLS routes.
+ */
+message MplsRouteDeleteRequest
+{
+    repeated MplsRouteKeyPb routes = 2;  // MPLS routes
+}
+
+/**
+ * Represents MPLS route delete response.
+ */
+message MplsRouteDeleteResponse
+{
+    SdkMgrStatus  status     = 1;  // Status of MPLS route delete request
+    string error_str         = 2;  // Detailed error string
+}

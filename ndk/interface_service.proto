@@ -1,0 +1,53 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents interface subscription request.
+ */
+message InterfaceSubscriptionRequest
+{
+    InterfaceKey key      = 1; // Optional, to filter on name
+}
+
+/**
+ *  Represents interface key.
+ */
+message InterfaceKey
+{
+    string if_name                              = 1;  // Interface name; for example, ethernet 1/1
+}
+
+/**
+ * Represents interface data.
+ */
+message InterfaceData
+{
+    uint32 admin_is_up                          = 1;  // Admin state
+    uint32 mtu                                  = 2;  // Maximum transmission unit
+    IfMgrIfType if_type                         = 3;  // Interface type; for example, loopback, physical, or LAG
+    PortIdPb port_id                            = 4;  // Port identifier
+    string description                          = 5;  // Interface description
+    MacAddressPb mac_addr                       = 6;  // MAC address
+    string aggregate_id                         = 7;  // associated aggregate id
+    uint32 oper_is_up                           = 8;  // Operational state
+}
+
+/**
+ * Represents interface notification.
+ */
+message InterfaceNotification
+{
+    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    InterfaceKey  key                           = 2;  // Interface key
+    InterfaceData data                          = 3;  // Interface data
+}

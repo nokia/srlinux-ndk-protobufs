@@ -1,0 +1,49 @@
+/**********************************************************************************************************************
+ *  Description: application identification between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents appid subscription request.
+ */
+message AppIdentSubscriptionRequest
+{
+    AppIdentKey key = 1; // Optional, to filter on name
+}
+
+/**
+ *  Represents appid key.
+ */
+message AppIdentKey
+{
+    uint32 id = 1;  // Application id
+}
+
+/**
+ * Represents appid data.
+ */
+message AppIdentData
+{
+    string name         = 1;  // Application name
+    string author       = 2;  // Author name
+    bool   is_connected = 3;  // Connected to IDB or not
+    string version      = 4;  // Version string
+}
+
+/**
+ * Represents appid notification.
+ */
+message AppIdentNotification
+{
+    SdkMgrOperation op = 1;  // Operation such as create, delete, or update
+    AppIdentKey  key   = 2;  // AppIdent key
+    AppIdentData data  = 3;  // AppIdent data
+}

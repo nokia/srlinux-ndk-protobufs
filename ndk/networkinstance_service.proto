@@ -1,0 +1,55 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents network instance subscription request.
+ */
+message NetworkInstanceSubscriptionRequest
+{
+}
+
+/**
+ * Represents network instance key.
+ */
+message NetworkInstanceKey
+{
+    string inst_name                            = 1;  // Network instance name
+}
+
+/**
+ * Represents network instance data.
+ */
+message NetworkInstanceData
+{
+    uint32 net_inst_id                          = 1;  /* Network instance identifier */
+    string base_name                            = 2;  // Base name
+    IpAddrPrefLenPb loopback_addr               = 3;  // Loopback address of network instance
+    bool   oper_is_up                           = 4;  // Operation status
+    string router_id                            = 5;  // Router identifier
+    /// Represents network instance type.
+    enum NetInstType {
+        DEFAULT = 0;  // Default network instance type
+        L3VRF = 1;    // L3VRF network instance type
+    }
+    NetInstType inst_type                       = 6;  // Network instance type
+}
+
+/**
+ * Represents network instance notification.
+ */
+message NetworkInstanceNotification
+{
+    SdkMgrOperation op = 1;       // Operation such as create, delete, or update
+    NetworkInstanceKey  key = 2;  // Network key
+    NetworkInstanceData data = 3; // Network data
+}

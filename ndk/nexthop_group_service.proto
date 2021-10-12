@@ -1,0 +1,143 @@
+/**********************************************************************************************************************
+ *  Description: Interface between SDK service manager and Next Hop Group agent
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+/**
+ * Represents service for next-hop group operations.
+ */
+service SdkMgrNextHopGroupService
+{
+    /// Add or update one or more next-hop groups.
+    rpc NextHopGroupAddOrUpdate (NextHopGroupRequest) returns (NextHopGroupResponse) {}
+
+    /// Delete next-hop group.
+    rpc NextHopGroupDelete (NextHopGroupDeleteRequest) returns (NextHopGroupDeleteResponse) {}
+
+    /// Synchronization start to open synchronization operation.
+    rpc SyncStart(SyncRequest) returns (SyncResponse) {}
+
+    /// Synchronization end to close synchronization operation.
+    rpc SyncEnd(SyncRequest) returns (SyncResponse) {}
+}
+
+/**
+ * Represents next-hop group delete request.
+ */
+message NextHopGroupDeleteRequest
+{
+    repeated NextHopGroupKey group_key      = 1;  // Next-hop group key details
+}
+
+/**
+ * Represents next-hop group delete response.
+ */
+message NextHopGroupDeleteResponse
+{
+    SdkMgrStatus  status    = 1;  // Response for next-hop group request
+    string        error_str = 2;  // Detailed error string
+}
+
+/**
+ * Represents next-hop group request.
+ */
+message NextHopGroupRequest
+{
+    repeated NextHopGroupInfo group_info      = 1;  // Next-hop group details
+}
+
+/**
+ * Represents next-hop group response.
+ */
+message NextHopGroupResponse
+{
+    SdkMgrStatus  status    = 1;  // Response for next-hop group request
+    string        error_str = 2;  // Detailed error string
+}
+
+/**
+ * Represents MPLS next hop.
+ */
+message MplsNextHop
+{
+    IpAddressPb                        ip_nexthop       = 1;  // Next-hop IP address
+    repeated MplsLabel                 label_stack      = 2;  // MPLS label stack
+}
+
+/**
+ * Represents next-hop.
+ */
+message NextHop
+{
+    ///  Represents resolve-to type.
+    enum ResolveToType {
+        LOCAL         = 0;  // Resolve to local routes
+        DIRECT        = 1;  // Resolve to direct routes
+        INDIRECT      = 2;  // Resolve to indirect routes
+    }
+
+    /// Represents resolution type.
+    enum ResolutionType {
+        INVALID       = 0;  // Invalid resolution
+        REGULAR       = 1;  // Regular resolution
+        MPLS          = 2;  // MPLS resolution
+    }
+    ResolveToType        resolve_to             = 1;  // Resolve-to type
+    ResolutionType       type                   = 2;  // Resolution type
+    oneof nexthop
+    {
+        IpAddressPb       ip_nexthop         = 3;  // IP next-hop address
+        MplsNextHop       mpls_nexthop       = 4;  // MPLS next-hop
+    }
+}
+
+/**
+ * Represents next-hop group.
+ */
+message NextHopGroup
+{
+    repeated NextHop next_hop              = 1;  // Next-hops
+}
+
+/**
+ * Represents next-hop group key.
+ */
+message NextHopGroupKey
+{
+    string name = 1;                   // Next-hop group name
+    string network_instance_name = 2;  // Next-hop group network instance name
+}
+
+/**
+ * Represents next-hop group information.
+ */
+message NextHopGroupInfo
+{
+    NextHopGroupKey              key  = 1;  // Next-hop group key
+    NextHopGroup               data = 2;    // Next-hop group data
+}
+
+/**
+ * Represents next-hop group subscription request.
+ */
+message NextHopGroupSubscriptionRequest
+{
+    NextHopGroupKey key      = 1; // Optional, to filter on name
+}
+
+/**
+ * Represents next-hop group notification.
+ */
+message NextHopGroupNotification
+{
+    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    uint64          key                         = 2;  // Next-hop group key
+    NextHopGroup    data                        = 3;  // Next-hop group data
+}

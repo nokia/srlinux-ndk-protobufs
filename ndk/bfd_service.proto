@@ -1,0 +1,98 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents BFD session subscription request.
+ */
+message BfdSessionSubscriptionRequest
+{
+    BfdmgrGeneralSessionKeyPb key      = 1; // Optional, to filter on name
+}
+
+/*
+When getting the session status via the GeneralSessionDataPb entry, the status corresponds to the meaning in RFC 5880.
+When a protocol (such as BGP) is getting a session status update, the meaning of each state is as follows:
+ADMIN_DOWN means one end of the session is admin down so the session is not monitoring connectivity.
+DOWN means the session has failed
+(INIT is only provided via the GeneralSessionDataPb)
+UP means the session is established and working normally
+*/
+
+/// Represents BFD session status.
+enum BfdmgrSessionStatus {
+    INVALID = 0;     // Session invalid
+    ADMIN_DOWN = 1;  // Admin down
+    DOWN = 2;        // Status down
+    INIT = 3;        // Status initializing
+    UP = 4;          // Status up and running
+}
+
+/// Represents BFD session type.
+enum BfdmgrSessionType {
+    SESSION_TYPE_UNKNOWN  = 0; // Unknown session type
+    SESSION_TYPE_P2P      = 1; // Peer-to-peer session type
+    SESSION_TYPE_MICROBFD = 2; // microbfd session type
+}
+
+
+
+/**********************************************************************************************************************
+* general session info  db_key: bfd_mgr:bfd-general-session-info
+*                       key  [BfdmgrGeneralSessionKeyPb] : Key information to uniquely identify session
+*                       data [BfdmgrGeneralSessionDataPb]: Information about the specified session
+***********************************************************************************************************************/
+/**
+ * Represents BFD session key.
+ */
+message BfdmgrGeneralSessionKeyPb
+{
+    // type is always present, other key field presence is determined by type
+    BfdmgrSessionType   type                    = 1;  // Session type
+    // key for type == SESSION_TYPE_P2P (if ipv6 link local also uses ipv6_ll_if_id below)
+    IpAddressPb src_ip_addr                     = 2;  // Source IP address of the session
+    IpAddressPb dst_ip_addr                     = 3;  // Destination IP address of the session
+    uint32      instance_id                     = 4;  // Network instance identifier
+    // type == SESSION_TYPE_MICROBFD 
+    string interface_name                       = 5;
+    // key for type == SESSION_TYPE_P2P (only ipv6 link local, in addition to other P2P fields above)
+    uint32      ipv6_ll_if_id                   = 6;  // Global if id for ipv6 link local session, otherwise 0
+}
+
+/**
+ * Represents BFD session data.
+ */
+message BfdmgrGeneralSessionDataPb
+{
+    /// Represents BFD session subtype.
+    enum BfdmgrSessionSubType {
+        SESSION_SUB_TYPE_UNKNOWN = 0;     // Session subtype unknown
+        SESSION_SUB_TYPE_SINGLE_HOP = 1;  // Single-hop session
+        SESSION_SUB_TYPE_MULTI_HOP = 2;   // Multi-hop session
+        SESSION_SUB_TYPE_MICROBFD = 3;    // microbfd session
+    }
+
+    BfdmgrSessionStatus status                  = 1;  // Status of the session
+    BfdmgrSessionSubType sub_type               = 2;  // Subtype of the session
+    // src_if_id is only populated for P2P type
+    uint32              src_if_id               = 3;  // Source interface ID
+}
+
+/**
+ * Represents BFD session notification.
+ */
+message BfdSessionNotification
+{
+    SdkMgrOperation op                                  = 1;  // Operation such as session create, delete, or update
+    BfdmgrGeneralSessionKeyPb  key                      = 2;  // Session key
+    BfdmgrGeneralSessionDataPb data                     = 3;  // Session data
+}

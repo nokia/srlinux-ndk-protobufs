@@ -1,0 +1,114 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+import "ndk/nexthop_group_service.proto";
+
+/**
+ * Represents service for IP route operations.
+ */
+service SdkMgrRouteService
+{
+    /// Add or update IP routes.
+    rpc RouteAddOrUpdate (RouteAddRequest) returns (RouteAddResponse) {}
+
+    /// Delete IP routes.
+    rpc RouteDelete (RouteDeleteRequest) returns (RouteDeleteResponse) {}
+
+    /// Synchronization start for IP routes
+    rpc SyncStart(SyncRequest) returns (SyncResponse) {}
+
+    /// Synchronization end for IP routes
+    rpc SyncEnd(SyncRequest) returns (SyncResponse) {}
+}
+
+/**
+ * Represents route key.
+ */
+message RouteKeyPb
+{
+    string              net_inst_name = 1;  // Network instance name
+    IpAddrPrefLenPb     ip_prefix     = 2;  // IP prefix
+}
+
+/**
+ * Represents route data.
+ */
+message RoutePb
+{
+    string                  nexthop_group_name  = 1;  // Next hop group name
+    uint32                  preference          = 2;  // Preference
+    uint32                  metric              = 3;  // Metric
+    repeated NextHop        nexthop             = 4;  // List of next hops
+    uint32                  owner_id            = 5;  // Next hop owner identifier returned only on notification.
+    uint64                  nhg_id              = 6;  // Next-hop group identifier returned only on notification.
+}
+
+/**
+ * Represents route information.
+ */
+message RouteInfo
+{
+    RouteKeyPb key = 1;  // Route key
+    RoutePb    data = 2; // Route data
+}
+
+/**
+ * Represents route add request; can contain more than one route.
+ */
+message RouteAddRequest
+{
+    repeated RouteInfo routes = 2;  // IP routes
+}
+
+/**
+ * Represents route add response.
+ */
+message RouteAddResponse
+{
+    SdkMgrStatus  status     = 1;  // Status of route add operation
+    string error_str = 2;          // Detailed error string
+}
+
+/**
+ * Represents route delete request; can contain more than one route.
+ */
+message RouteDeleteRequest
+{
+    repeated RouteKeyPb routes = 2;  // IP routes
+}
+
+/**
+ * Represents route delete response.
+ */
+message RouteDeleteResponse
+{
+    SdkMgrStatus  status     = 1;  // Status of route delete operation
+    string error_str = 2;          // Detailed error string
+}
+
+/**
+ * Represents IP route subscription request.
+ */
+message IpRouteSubscriptionRequest
+{
+    RouteKeyPb key      = 1; // Optional, to filter on name
+}
+
+/**
+ * Represents IP route notification.
+ */
+message IpRouteNotification
+{
+    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    RouteKeyPb  key                             = 2;  // IP route key
+    RoutePb data                                = 3;  // IP route data
+}

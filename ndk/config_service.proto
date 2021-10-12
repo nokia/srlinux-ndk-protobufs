@@ -1,0 +1,47 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents configuration subscription request.
+ */
+message ConfigSubscriptionRequest
+{
+    ConfigKey key                               = 1; // Optional, to filter on name
+}
+
+/**
+ * Represents configuration key.
+ */
+message ConfigKey
+{
+    string js_path                              = 1;  // JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field
+    repeated string keys                        = 2;  // Value for keys
+}
+
+/**
+ * Represents configuration data.
+ */
+message ConfigData
+{
+    string json                                 = 1;  // Entire configuration fragment as JSON string
+}
+
+/**
+ * Represents configuration notification message to subscribe to configuration events
+ */
+message ConfigNotification
+{
+    SdkMgrOperation op                          = 1;  // Operation indicating create, delete, or update
+    ConfigKey  key                              = 2;  // Configuration key
+    ConfigData data                             = 3;  // Configuration data
+}

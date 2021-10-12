@@ -1,0 +1,79 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents LLDP neighbor subscription request.
+ */
+message LldpNeighborSubscriptionRequest
+{
+    LldpNeighborKeyPb key      = 1; // Optional, to filter on name
+}
+
+/**
+ * Represents LLDP neighbor key.
+ */
+message LldpNeighborKeyPb
+{
+    /// Represents chassis type.
+    enum ChassisIdType {
+        RESERVED          = 0;  // Reserved for future use
+        CHASSIS_COMPONENT = 1;  // Chassis identifier based on a locally defined chassis component
+        INTERFACE_ALIAS   = 2;  // Alias of the interface
+        PORT_COMPONENT    = 3;  // Chassis identifier based on a locally defined port component
+        MAC_ADDRESS       = 4;  // MAC address
+        NETWORK_ADDRESS   = 5;  // Network address
+        INTERFACE_NAME    = 6;  // Name of the interface
+        LOCALLY_ASSIGNED  = 7;  // Chassis identifier based on a locally defined value
+    }
+
+    string          interface_name = 1;  // Local interface name
+    string          chassis_id     = 2;  // Chassis identifier
+    ChassisIdType   chassis_type   = 3;  // Chassis type
+}
+
+/**
+ * Represents LLDP neighbor data.
+ */
+message LldpNeighborDataPb
+{
+    /// Represents port subtype.
+    enum PortSubType
+    {
+        RESERVED         = 0;  // Reserved for future use
+        INTERFACE_ALIAS  = 1;  // Alias of the interface
+        PORT_COMPONENT   = 2;  // Port identifier based on a locally defined port component
+        MAC_ADDRESS      = 3;  // MAC address
+        NETWORK_ADDRESS  = 4;  // Network address
+        INTERFACE_NAME   = 5;  // Name of the interface
+        AGENT_CIRCUIT_ID = 6;  // Port identifier based on the circuit ID in the DHCP relay agent information option
+        LOCALLY_ASSIGNED = 7;  // Port identifier based on a locally defined alphanumeric string
+    }
+
+    string port_id                        = 1;  // Port identifier
+    PortSubType port_type                 = 2;  // Port type
+    MacAddressPb source_mac               = 3;  // Port MAC address
+    repeated IpAddressPb bgp_peer_address = 4;  // LLDP BGP autodiscovered addresses
+    uint32 bgp_group_id                   = 5;  // BGP group identifier
+    string system_name                    = 6;  // System name
+    string system_description             = 7;  // System description
+}
+
+/**
+ * Represents LLDP neighbor notification.
+ */
+message LldpNeighborNotification
+{
+    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    LldpNeighborKeyPb  key                      = 2;  // LLDP neighbor key
+    LldpNeighborDataPb data                     = 3;  // LLDP neighbor data
+}

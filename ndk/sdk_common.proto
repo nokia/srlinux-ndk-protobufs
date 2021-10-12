@@ -1,0 +1,227 @@
+/**********************************************************************************************************************
+ *  Description: interface between router agents and SDK service manager
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+/**
+ * Represents interface type.
+ */
+enum IfMgrIfType {
+    ETHERNET = 0;    // Ethernet interface
+    LOOPBACK = 1;    // Loopback interface
+    MANAGEMENT = 2;  // Management interface
+    AGGREGATE = 3;   // Aggregate(LAG) interface
+    IRB = 4;         // Integrated Routing and Bridging (IRB) interface
+    SYSTEM = 5;      // System interface
+    MAX = 6;
+}
+
+/**
+ * Represents IP address.
+ */
+message IpAddressPb
+{
+    bytes addr                                  = 1;  // IP address
+}
+
+/**
+ * Represents IP prefix.
+ */
+message IpAddrPrefLenPb
+{
+    IpAddressPb ip_addr                         = 1;  // IP address
+    uint32      prefix_length                   = 2;  // IP address prefix length
+}
+
+/**
+ * Represents IP address state.
+ */
+enum IpAddressState {
+    IPADDR_STATE_UNKNOWN      = 0;  // IP address state unknown
+    IPADDR_STATE_TENTATIVE    = 1;  // IP address state tentative
+    IPADDR_STATE_DUPLICATED   = 2;  // IP address state duplicated
+    IPADDR_STATE_INACCESSIBLE = 3;  // IP address state inaccessible
+    IPADDR_STATE_DEPRECATED   = 4;  // IP address state deprecated
+    IPADDR_STATE_PREFERRED    = 5;  // IP address state preferred
+}
+
+/**
+ * Represents interface operational state.
+ */
+enum IfOperStateType {
+    IF_OPER_STATE_UP               = 0;  // Interface operational state up
+    IF_OPER_STATE_DOWN             = 1;  // Interface operational state down
+    IF_OPER_STATE_TESTING          = 2;  // Interface operational state testing
+    IF_OPER_STATE_UNKNOWN          = 3;  // Interface operational state unknown
+    IF_OPER_STATE_DORMANT          = 4;  // Interface operational state dormant
+    IF_OPER_STATE_NOT_PRESENT      = 5;  // Interface operational state not present
+    IF_OPER_STATE_LOWER_LAYER_DOWN = 6;  // Interface operational state lower layer down
+}
+
+enum IfOperDownReason {
+    IF_OPER_DOWN_NONE                   = 0;
+    IF_OPER_DOWN_PORT_ADMIN_DISABLED    = 1;
+    IF_OPER_DOWN_MDA_ADMIN_DISABLED     = 2;
+    IF_OPER_DOWN_TRANS_LASER_DISABLED   = 3;
+    IF_OPER_DOWN_MDA_NOT_PRESENT        = 4;
+    IF_OPER_DOWN_TRANS_NOT_PRESENT      = 5;
+    IF_OPER_DOWN_PHY_INIT               = 6;
+    IF_OPER_DOWN_LOOPBACK               = 7;
+    IF_OPER_DOWN_LOWER_LAYER_DOWN       = 8;
+    IF_OPER_DOWN_MTU_RESOURCES          = 9;
+    IF_OPER_DOWN_UNSUPPORTED_SPEED      = 10;
+    IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC  = 11;
+    IF_OPER_DOWN_OTHER                  = 12;
+    IF_OPER_DOWN_PORT_NOT_PRESENT       = 13; // used internally by chassis mgr only - never publish to IDB!
+    IF_OPER_DOWN_FABRIC_AVAILABILITY    = 14; // used internally by chassis mgr only - never publish to IDB!
+    IF_OPER_DOWN_NO_ACTIVE_LINKS        = 15; // lag interface only
+    IF_OPER_DOWN_MIN_LINK_THRESHOLD     = 16; // lag interface only
+    IF_OPER_DOWN_9_12_SPEED_MISMATCH    = 17; // Vodka port 9-12 must all be same speed as port 9
+    IF_OPER_DOWN_LAG_RESOURCES          = 18; // lag interface only
+    IF_OPER_DOWN_LAG_MEMBER_RESOURCES   = 19; // lag member interface only
+    IF_OPER_DOWN_STANDBY_SIGNALING      = 20; // ESM multihoming
+    IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE    = 21; // interface hold-time up is actively holding the interface down
+    IF_OPER_DOWN_RELOAD_TIME_ACTIVE     = 22; // interface reload time is actively holding the interface down
+    IF_OPER_DOWN_CONNECTOR_DOWN         = 23; // parent connector oper down forces breakout port oper down
+}
+
+/**
+ * Represents interface ethernet port speed. Corresponds to yang values
+ */
+enum IfEthernetPortSpeedType {
+    IF_ETH_PORT_SPEED_UNSET        = 0;  // Speed unknown
+    IF_ETH_PORT_SPEED_10M          = 1;
+    IF_ETH_PORT_SPEED_100M         = 2;
+    IF_ETH_PORT_SPEED_1G           = 3;
+    IF_ETH_PORT_SPEED_10G          = 4;
+    IF_ETH_PORT_SPEED_25G          = 5;
+    IF_ETH_PORT_SPEED_40G          = 6;
+    IF_ETH_PORT_SPEED_50G          = 7;
+    IF_ETH_PORT_SPEED_100G         = 8;
+    IF_ETH_PORT_SPEED_200G         = 9;
+    IF_ETH_PORT_SPEED_400G         = 10;
+    IF_ETH_PORT_SPEED_1T           = 11;
+}
+
+/**
+ * Represents interface ethernet duplex mode. Corresponds to yang values
+ */
+enum IfEthernetDuplexModeType {
+    IF_ETH_DUPLEX_MODE_UNSET        = 0;  // duplex mode not supported
+    IF_ETH_DUPLEX_MODE_FULL         = 1;
+    IF_ETH_DUPLEX_MODE_HALF         = 2;
+}
+
+/**
+ * Represents interface transceiver fec. Corresponds to yang values
+ */
+enum IfTransceiverFecType {
+    IF_TRANS_FEC_UNSET        = 0;  // Fec unknown
+    IF_TRANS_FEC_DISABLED     = 1;
+    IF_TRANS_FEC_RS528        = 2;
+    IF_TRANS_FEC_RS544        = 3;
+    IF_TRANS_FEC_BASER        = 4;
+    IF_TRANS_FEC_RS108        = 5;
+}
+
+/**
+ * Represents IP prefix state.
+ */
+message IpInterfaceAddrPrefixPb
+{
+    IpAddrPrefLenPb prefix                      = 1;  // IP prefix
+    IpAddressState  state                       = 2;  // IP prefix state
+}
+
+/**
+ * Represents MAC address.
+ */
+message MacAddressPb
+{
+    bytes mac_address                           = 1;  // MAC address
+}
+
+/**
+ * Represents global interface identifier.
+ */
+message GlobalIfId
+{
+    uint32 global_if_id                         = 1;  // Global interface identifier
+}
+
+/**
+ * Represents network instance identifier.
+ */
+message NetInstanceId
+{
+    uint32 instance_id                          = 1;  // Network instance identifier
+}
+
+/**
+ * Represents port identifier.
+ */
+message PortIdPb
+{
+    uint64 port_id                              = 1;  // Port identifier
+}
+
+/**
+ * Represents MPLS label.
+ */
+message MplsLabel
+{
+    uint32 mpls_label                           = 1;  // MPLS label
+}
+
+/**
+ * Represents enumeration value for operation in subscription.
+ */
+enum SdkMgrOperation
+{
+    Create = 0;  // Create operation
+    Change = 1;  // Change operation
+    Delete = 2;  // Delete operation
+}
+
+/**
+ * Represents status of network programming service calls.
+ */
+enum SdkMgrStatus
+{
+    kSdkMgrSuccess = 0;  // Successful service call
+    kSdkMgrFailed  = 1;  // Failed service call
+}
+
+/**
+ * Empty message from agent.
+ */
+message AgentReply
+{
+}
+
+/**
+ * Empty message for synchronization request.
+ */
+message SyncRequest
+{
+}
+
+/**
+ * Empty message for synchronization end.
+ */
+message SyncResponse
+{
+    SdkMgrStatus  status    = 1;  // Error code
+    string        error_str = 2;  // Detailed error string
+}
+
+message EvpnEthSegIdPb
+{
+    bytes es_id = 1; //Type 0 for now. hard-coded id 
+}

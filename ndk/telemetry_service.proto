@@ -1,0 +1,84 @@
+/**********************************************************************************************************************
+ *  Description: Interface between SDK service manager and Next Hop Group agent
+ *
+ *  Copyright (c) 2018 Nokia
+ ***********************************************************************************************************************/
+
+syntax = "proto3";
+
+
+package ndk;
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+import "ndk/sdk_common.proto";
+
+/**
+ * Represents service for telemetry service to store state data.
+ */
+service SdkMgrTelemetryService
+{
+    /// Add or update telemetry data
+    rpc TelemetryAddOrUpdate (TelemetryUpdateRequest) returns (TelemetryUpdateResponse) {}
+
+    /// Delete telemetry data
+    rpc TelemetryDelete (TelemetryDeleteRequest) returns (TelemetryDeleteResponse) {}
+}
+
+/**
+ * Represents telemetry key.
+ */
+message TelemetryKey
+{
+    string js_path  = 1;  // JSON path referencing the key for telemetry data
+}
+
+/**
+ * Represents telemetry data.
+ */
+message TelemetryData
+{
+    string json_content = 1;  // Structured JSON telemetry data
+}
+
+/**
+ * Represents telemetry information.
+ */
+message TelemetryInfo
+{
+    TelemetryKey key   = 1;  // Telemetry key
+    TelemetryData data = 2;  // Telemetry data
+}
+
+/**
+ * Represents telemetry update request.
+ */
+message TelemetryUpdateRequest
+{
+    repeated TelemetryInfo state = 1;  // State of application
+}
+
+/**
+ * Represents telemetry update response.
+ */
+message TelemetryUpdateResponse
+{
+    SdkMgrStatus  status = 1;  // Status of telemetry update request
+    string  error_str    = 2;  // Detailed error message
+}
+
+/**
+ * Represents telemetry delete request.
+ */
+message TelemetryDeleteRequest
+{
+    repeated TelemetryKey key = 1;  // Telemetry key
+}
+
+/**
+ * Represents telemetry delete response.
+ */
+message TelemetryDeleteResponse
+{
+    SdkMgrStatus  status = 1;  // Status of delete request
+    string  error_str    = 2;  // Detailed error message
+}
