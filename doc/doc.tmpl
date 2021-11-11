@@ -1,0 +1,395 @@
+<html>
+  <head>
+    <title>Protocol Documentation</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Siva Sivakumar">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <style>
+      @font-face {
+        font-family: 'NokiaPureHeadline';
+        src: url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_regular.eot');
+        src: url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_regular.woff2') format('woff2'),
+        url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_regular.woff') format('woff'),
+        url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_regular.ttf') format('truetype'),
+        url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_regular.svg#svgFontName') format('svg');
+      }
+      @font-face {
+        font-family: 'NokiaPureHeadlineLight';
+        src: url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_light.eot'); 
+        src: url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_light.woff2') format('woff2'),
+        url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_light.woff') format('woff'),
+        url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_light.ttf') format('truetype'),
+        url('https://www.nokia.com/themes/custom/onenokia_base_theme/fonts/nokia/nokiapureheadline_light.svg#svgFontName') format('svg');
+      }
+
+      body {
+        font-family: "NokiaPureHeadline", sans-serif;
+      }
+      .has-fira {
+        font-family: "Fira Code", monospace;
+      }
+
+      .title, .divider {
+        font-family: "NokiaPureHeadlineLight", sans-serif;
+      }
+      .divider {
+        padding-bottom: 0.5ex;
+        border-bottom: 1px solid #aaa;
+      }
+
+      .menu .list-item, .menu-item {
+        color: #124191;
+      }
+      td a {
+        color: #124191;
+        font-weight: 800;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 1px 5px 0 5px;
+        border-radius: 5px;
+        margin-right: 10px;
+        font-size: 14px;
+        width: 17px;
+      }
+      .message {
+        color: black;
+        background-color: #D9E8AC;
+      }
+      .enum {
+        color: white;
+        background-color: #4D5766;
+      }
+      .extension {
+        color: black;
+        background-color: #BEC8D2;
+      }
+      .service {
+        color: white;
+        background-color: #124191;
+      }
+
+      .file-heading {
+        width: 100%;
+        display: table;
+        margin: 4em 0 1.5em 0;
+        border-bottom: 1px solid #aaa;
+      }
+      .file-heading .title {
+        border: none;
+        display: table-cell;
+      }
+      .file-heading a {
+        text-align: right;
+        display: table-cell;
+      }
+
+      .table {
+        font-size: 14px;
+        font-family: "Fira Code", monospace;
+      }
+      .table thead {
+        font-weight: 700;
+        background-color: #dcdcdc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="title" class="section">
+      <div class="container">
+        <div class="content">
+          <p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTE4cHQiIGhlaWdodD0iMjBwdCIgdmlld0JveD0iMCAwIDExOCAyMCIgdmVyc2lvbj0iMS4xIj4KPGcgaWQ9InN1cmZhY2UxIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigxMC45ODAzOTIlLDI3LjA1ODgyNCUsNTkuNjA3ODQzJSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDUuNjgzNTk0IDE5LjcwNzAzMSBMIDAgMTkuNzA3MDMxIEwgMCAwLjM2NzE4OCBMIDkuODI4MTI1IDAuMzY3MTg4IEwgMjEuMTAxNTYyIDE0LjgwODU5NCBMIDIxLjEwMTU2MiAwLjM2NzE4OCBMIDI2Ljc4MTI1IDAuMzY3MTg4IEwgMjYuNzgxMjUgMTkuNzA3MDMxIEwgMTcuMTUyMzQ0IDE5LjcwNzAzMSBMIDUuNjgzNTk0IDUuMDIzNDM4IEwgNS42ODM1OTQgMTkuNzA3MDMxIE0gNTMuOTY0ODQ0IDEzLjcyNjU2MiBDIDUzLjk2NDg0NCAxNi40MTc5NjkgNTMuNDkyMTg4IDE3LjM0Mzc1IDUyLjcwMzEyNSAxOC4yMzQzNzUgQyA1MS41IDE5LjU1NDY4OCA0OS43NDYwOTQgMTkuOTUzMTI1IDQ2LjM2NzE4OCAxOS45NTMxMjUgTCAzNi42NjQwNjIgMTkuOTUzMTI1IEMgMzMuMjg1MTU2IDE5Ljk1MzEyNSAzMS41MzEyNSAxOS41NTQ2ODggMzAuMzI0MjE5IDE4LjIzNDM3NSBDIDI5LjUzOTA2MiAxNy4zNDM3NSAyOS4wNjY0MDYgMTYuNDE3OTY5IDI5LjA2NjQwNiAxMy43MjY1NjIgTCAyOS4wNjY0MDYgNi4yNzM0MzggQyAyOS4wNjY0MDYgMy41ODU5MzggMjkuNTM5MDYyIDIuNjYwMTU2IDMwLjMyNDIxOSAxLjc2OTUzMSBDIDMxLjUzMTI1IDAuNDQ1MzEyIDMzLjI4NTE1NiAwLjA0Njg3NSAzNi42NjQwNjIgMC4wNDY4NzUgTCA0Ni4zNjcxODggMC4wNDY4NzUgQyA0OS43NDYwOTQgMC4wNDY4NzUgNTEuNSAwLjQ0NTMxMiA1Mi43MDMxMjUgMS43Njk1MzEgQyA1My40OTIxODggMi42NjAxNTYgNTMuOTY0ODQ0IDMuNTg1OTM4IDUzLjk2NDg0NCA2LjI3MzQzOCBMIDUzLjk2NDg0NCAxMy43MjY1NjIgTSA0Ni4xMjg5MDYgMTUuMDU0Njg4IEMgNDcuNDI1NzgxIDE1LjA1NDY4OCA0Ny44ODI4MTIgMTQuOTc2NTYyIDQ4LjE5NTMxMiAxNC42OTUzMTIgQyA0OC40ODQzNzUgMTQuNDI5Njg4IDQ4LjYxMzI4MSAxNC4wODk4NDQgNDguNjEzMjgxIDEyLjk1MzEyNSBMIDQ4LjYxMzI4MSA3LjA0Njg3NSBDIDQ4LjYxMzI4MSA1LjkxMDE1NiA0OC40ODQzNzUgNS41NzQyMTkgNDguMTk1MzEyIDUuMzA4NTk0IEMgNDcuODgyODEyIDUuMDIzNDM4IDQ3LjQyNTc4MSA0Ljk0OTIxOSA0Ni4xMjg5MDYgNC45NDkyMTkgTCAzNi45MDIzNDQgNC45NDkyMTkgQyAzNS42MDU0NjkgNC45NDkyMTkgMzUuMTQ4NDM4IDUuMDIzNDM4IDM0LjgzOTg0NCA1LjMwODU5NCBDIDM0LjU0Njg3NSA1LjU3NDIxOSAzNC40MTc5NjkgNS45MTAxNTYgMzQuNDE3OTY5IDcuMDQ2ODc1IEwgMzQuNDE3OTY5IDEyLjk1MzEyNSBDIDM0LjQxNzk2OSAxNC4wODk4NDQgMzQuNTQ2ODc1IDE0LjQyOTY4OCAzNC44Mzk4NDQgMTQuNjk1MzEyIEMgMzUuMTQ4NDM4IDE0Ljk3NjU2MiAzNS42MDU0NjkgMTUuMDU0Njg4IDM2LjkwMjM0NCAxNS4wNTQ2ODggTCA0Ni4xMjg5MDYgMTUuMDU0Njg4IE0gNjIuMjIyNjU2IDAuMzY3MTg4IEwgNjIuMjIyNjU2IDE5LjcwNzAzMSBMIDU2LjI4NTE1NiAxOS43MDcwMzEgTCA1Ni4yODUxNTYgMC4zNjcxODggTCA2Mi4yMjI2NTYgMC4zNjcxODggTSA3Mi4yNTM5MDYgMC4zNjcxODggTCA4MC4wODk4NDQgMC4zNjcxODggTCA2OS41MTE3MTkgOS40MTQwNjIgTCA4MS40NDUzMTIgMTkuNzA3MDMxIEwgNzMuMDU4NTk0IDE5LjcwNzAzMSBMIDYyLjIyMjY1NiA5LjYyMTA5NCBMIDcyLjI1MzkwNiAwLjM2NzE4OCBNIDgyLjUzOTA2MiAwLjM2NzE4OCBMIDg4LjQ3NjU2MiAwLjM2NzE4OCBMIDg4LjQ3NjU2MiAxOS43MDcwMzEgTCA4Mi41MzkwNjIgMTkuNzA3MDMxIE0gMTExLjExMzI4MSAxOS43MDcwMzEgTCAxMDkuMzU1NDY5IDE2LjMzOTg0NCBMIDk3Ljg2NzE4OCAxNi4zMzk4NDQgTCA5Ni4xMzI4MTIgMTkuNzA3MDMxIEwgODkuNTc0MjE5IDE5LjcwNzAzMSBMIDEwMC4wOTc2NTYgMC4zNjcxODggTCAxMDcuNDc2NTYyIDAuMzY3MTg4IEwgMTE4IDE5LjcwNzAzMSBMIDExMS4xMTMyODEgMTkuNzA3MDMxIE0gOTkuOTI5Njg4IDEyLjE0MDYyNSBMIDEwNy4zMTI1IDEyLjE0MDYyNSBMIDEwMy42MjEwOTQgNS4xMzY3MTkgTCA5OS45Mjk2ODggMTIuMTQwNjI1ICIvPgo8L2c+Cjwvc3ZnPgo=" width="100"/></p>
+          <p class="title is-4 divider has-text-weight-normal">Protocol Documentation</p>
+        </div>
+
+        <div class="menu">
+          <p class="menu-label">Table of Contents</p>
+          <ul class="menu-list">
+            {{range .Files}}
+              {{$file_name := .Name}}
+              <li>
+                <a href="#{{.Name}}">{{.Name}}</a>
+                <ul>
+                  {{range .Messages}}
+                    <li><a class="list-item has-fira" href="#{{.FullName}}"><span class="badge message">M</span>{{.LongName}}</a></li>
+                  {{end}}
+                  {{range .Enums}}
+                    <li><a class="list-item has-fira" href="#{{.FullName}}"><span class="badge enum">E</span>{{.LongName}}</a></li>
+                  {{end}}
+                  {{range .Extensions}}
+                    <li><a class="list-item has-fira" href="#{{$file_name}}-extensions"><span class="badge extension">X</span>File-level Extensions</a></li>
+                  {{end}}
+                  {{range .Services}}
+                    <li><a class="list-item has-fira" href="#{{.FullName}}"><span class="badge service">S</span>{{.Name}}</a></li>
+                  {{end}}
+                </ul>
+              </li>
+            {{end}}
+          </ul>
+        </div>
+
+        {{range .Files}}
+          {{$file_name := .Name}}
+          <div class="file-heading divider">
+            <p class="is-size-4 has-text-weight-normal">
+              <a class="has-text-black" id="{{.Name}}" href="#{{.Name}}">{{.Name}}</a>
+            </p>
+            <a href="#title">Top</a>
+          </div>
+          {{if .Description}}
+            <p class="mb-5">{{.Description}}</p>
+          {{end}}
+
+          {{range .Messages}}
+            <p class="is-size-5"><a class="menu-item has-fira" id="{{.FullName}}" href="#{{.FullName}}">{{.LongName}}</a></p>
+            <p class="mb-4">{{.Description}}</p>
+            {{if .HasFields}}
+              <div class="table-container">
+                <table class="table is-fullwidth">
+                  <thead>
+                    <tr>
+                      <td>Field</td>
+                      <td>Type</td>
+                      <td>Label</td>
+                      <td>Description</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {{range .Fields}}
+                      <tr>
+                        <td>{{.Name}}</td>
+                        <td><a href="#{{.FullType}}">{{.LongType}}</a></td>
+                        <td>{{.Label}}</td>
+                        <td><p>{{if (index .Options "deprecated"|default false)}}<strong>Deprecated.</strong> {{end}}{{.Description}} {{if .DefaultValue}}Default: {{.DefaultValue}}{{end}}</p></td>
+                      </tr>
+                    {{end}}
+                  </tbody>
+                </table>
+              </div>
+
+              {{$message := .}}
+              {{- range .FieldOptions}}
+                {{$option := .}}
+                {{if eq . "validator.field" "validate.rules" }}
+                <h4>Validated Fields</h4>
+                <div class="table-container">
+                  <table class="table is-fullwidth">
+                    <thead>
+                      <tr>
+                        <td>Field</td>
+                        <td>Validations</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {{range $message.FieldsWithOption .}}
+                      <tr>
+                        <td>{{.Name}}</td>
+                        <td>
+                          <ul>
+                          {{range (.Option $option).Rules}}
+                            <li>{{.Name}}: {{.Value}}</li>
+                          {{end}}
+                          </ul>
+                        </td>
+                      </tr>
+                    {{end}}
+                    </tbody>
+                  </table>
+                </div>
+                {{else}}
+                <h4>Fields with {{.}} option</h4>
+                <div class="table-container">
+                  <table class="table is-fullwidth">
+                    <thead>
+                      <tr>
+                        <td>Name</td>
+                        <td>Option</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {{range $message.FieldsWithOption .}}
+                      <tr>
+                        <td>{{.Name}}</td>
+                        <td><p>{{ printf "%+v" (.Option $option)}}</p></td>
+                      </tr>
+                    {{end}}
+                    </tbody>
+                  </table>
+                </div>
+                {{end}}
+              {{end -}}
+            {{end}}
+
+            {{if .HasExtensions}}
+              <br>
+              <div class="table-container">
+                <table class="table is-fullwidth">
+                  <thead>
+                    <tr><td>Extension</td><td>Type</td><td>Base</td><td>Number</td><td>Description</td></tr>
+                  </thead>
+                  <tbody>
+                    {{range .Extensions}}
+                      <tr>
+                        <td>{{.Name}}</td>
+                        <td><a href="#{{.FullType}}">{{.LongType}}</a></td>
+                        <td><a href="#{{.ContainingFullType}}">{{.ContainingLongType}}</a></td>
+                        <td>{{.Number}}</td>
+                        <td><p>{{.Description}}{{if .DefaultValue}} Default: {{.DefaultValue}}{{end}}</p></td>
+                      </tr>
+                    {{end}}
+                  </tbody>
+                </table>
+              </div>
+            {{end}}
+          {{end}}
+
+          {{range .Enums}}
+            <p class="is-size-5"><a class="menu-item has-fira" id="{{.FullName}}" href="#{{.FullName}}">{{.LongName}}</a></p>
+            <p class="mb-4">{{.Description}}</p>
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  {{range .Values}}
+                    <tr>
+                      <td>{{.Name}}</td>
+                      <td>{{.Number}}</td>
+                      <td><p>{{.Description}}</p></td>
+                    </tr>
+                  {{end}}
+                </tbody>
+              </table>
+            </div>
+          {{end}}
+
+          {{if .HasExtensions}}
+            <p class="is-size-5 mb-4"><a class="menu-item has-fira" id="{{$file_name}}-extensions" href="#{{$file_name}}-extensions">File-level Extensions</a></p>
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr><td>Extension</td><td>Type</td><td>Base</td><td>Number</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  {{range .Extensions}}
+                    <tr>
+                      <td>{{.Name}}</td>
+                      <td><a href="#{{.FullType}}">{{.LongType}}</a></td>
+                      <td><a href="#{{.ContainingFullType}}">{{.ContainingLongType}}</a></td>
+                      <td>{{.Number}}</td>
+                      <td><p>{{.Description}}{{if .DefaultValue}} Default: {{.DefaultValue}}{{end}}</p></td>
+                    </tr>
+                  {{end}}
+                </tbody>
+              </table>
+            </div>
+          {{end}}
+
+          {{range .Services}}
+            <p class="is-size-5"><a class="menu-item has-fira" id="{{.FullName}}" href="#{{.FullName}}">{{.LongName}}</a></p>
+            <p class="mb-4">{{.Description}}</p>
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  {{range .Methods}}
+                    <tr>
+                      <td>{{.Name}}</td>
+                      <td><a href="#{{.RequestFullType}}">{{.RequestLongType}}</a>{{if .RequestStreaming}} stream{{end}}</td>
+                      <td><a href="#{{.ResponseFullType}}">{{.ResponseLongType}}</a>{{if .ResponseStreaming}} stream{{end}}</td>
+                      <td><p>{{.Description}}</p></td>
+                    </tr>
+                  {{end}}
+                </tbody>
+              </table>
+            </div>
+
+            {{$service := .}}
+            {{- range .MethodOptions}}
+              {{$option := .}}
+              {{if eq . "google.api.http"}}
+              <h4>Methods with HTTP bindings</h4>
+              <div class="table-container">
+                <table class="table is-fullwidth">
+                  <thead>
+                    <tr>
+                      <td>Method Name</td>
+                      <td>Method</td>
+                      <td>Pattern</td>
+                      <td>Body</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {{range $service.MethodsWithOption .}}
+                    {{$name := .Name}}
+                    {{range (.Option $option).Rules}}
+                    <tr>
+                      <td>{{$name}}</td>
+                      <td>{{.Method}}</td>
+                      <td>{{.Pattern}}</td>
+                      <td>{{.Body}}</td>
+                    </tr>
+                    {{end}}
+                  {{end}}
+                  </tbody>
+                </table>
+              </div>
+              {{else}}
+              <h4>Methods with {{.}} option</h4>
+              <div class="table-container">
+                <table class="table is-fullwidth">
+                  <thead>
+                    <tr>
+                      <td>Method Name</td>
+                      <td>Option</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {{range $service.MethodsWithOption .}}
+                    <tr>
+                      <td>{{.Name}}</td>
+                      <td><p>{{ printf "%+v" (.Option $option)}}</p></td>
+                    </tr>
+                  {{end}}
+                  </tbody>
+                </table>
+              </div>
+              {{end}}
+            {{end -}}
+          {{end}}
+        {{end}}
+
+        <p class="is-size-5 mb-4"><a class="menu-item has-fira" id="scalar-value-types" href="#scalar-value-types">Scalar Value Types</a></p>
+        <div class="table-container">
+          <table class="table is-fullwidth">
+            <thead>
+              <tr><td>.proto Type</td><td>Notes</td><td>C++</td><td>Java</td><td>Python</td><td>Go</td><td>C#</td><td>PHP</td><td>Ruby</td></tr>
+            </thead>
+            <tbody>
+              {{range .Scalars}}
+                <tr id="{{.ProtoType}}">
+                  <td>{{.ProtoType}}</td>
+                  <td>{{.Notes}}</td>
+                  <td>{{.CppType}}</td>
+                  <td>{{.JavaType}}</td>
+                  <td>{{.PythonType}}</td>
+                  <td>{{.GoType}}</td>
+                  <td>{{.CSharp}}</td>
+                  <td>{{.PhpType}}</td>
+                  <td>{{.RubyType}}</td>
+                </tr>
+              {{end}}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
