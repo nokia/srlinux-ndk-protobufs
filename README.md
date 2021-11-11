@@ -1,8 +1,10 @@
 <p align=center><a href="https://learn.srlinux.dev"><img src=https://gitlab.com/rdodin/pics/-/wikis/uploads/00f61ff15f4f165c89174c46a5201820/srl-ndk-proto.svg?sanitize=true/></a></p>
 
+[![Docs](https://img.shields.io/badge/Docs-learn.srlinux.dev-blue?style=flat-square&color=00c9ff&labelColor=bec8d2)](https://learn.srlinux.dev/ndk/intro/)
+
 ---
 
-The Nokia SR Linux NetOps Development Kit (NDK) allows operators to program high-performance, integrated agents that run alongside the Nokia Service Router Linux (SR Linux). This repository provides `.proto` files that define the gRPC APIs used with the NDK.
+The Nokia SR Linux [NetOps Development Kit (NDK)](https://learn.srlinux.dev/ndk/intro/) allows operators to program high-performance, integrated agents that run alongside the Nokia Service Router Linux (SR Linux). This repository provides `.proto` files that define the gRPC APIs used with the NDK.
  
 NDK protobufs are common across all SR Linux hardware platforms.
 
@@ -33,12 +35,12 @@ git clone -b v21.6.2 --depth 1 https://github.com/nokia/srlinux-ndk-protobufs
 ```
 
 ### Download archives
-To download the proto files for a specific release in the `zip` or `tgz` containers navigate to the github `releases`(https://github.com/nokia/srlinux-ndk-protobufs/releases) page which contains the links to the archives.
+To download the proto files for a specific release in the `zip` or `tgz` containers navigate to the github [`tags`](https://github.com/nokia/srlinux-ndk-protobufs/tags) page which contains the links to the archives.
 
 If needed, the download link can be programmatically derived using the following rule:
 
 **for zip**
-`https://github.com/nokia/srlinux-ndk-protobufs/archive/` + `tag` + `zip`
+`https://github.com/nokia/srlinux-ndk-protobufs/archive/tags/` + `$tag` + `.zip`
 
 **for tar.gz**
-`https://github.com/nokia/srlinux-ndk-protobufs/archive/` + `tag` + `tar.gz`
+`https://github.com/nokia/srlinux-ndk-protobufs/archive/tags/` + `$tag` + `.tar.gz`
