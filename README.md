@@ -12,4 +12,6 @@ docker run --rm \
   --entrypoint '' \
   pseudomuto/protoc-gen-doc \
   bash -c "protoc -I /protos --doc_out=/out /protos/ndk/*.proto --doc_opt=/out/doc.tmpl,index.html"
+
+sed -i "s|SRL_REL|21.6.2|g" ./doc/index.html
 ```
