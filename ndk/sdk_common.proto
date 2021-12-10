@@ -6,7 +6,7 @@
 
 syntax = "proto3";
 
-package ndk;
+package srlinux.sdk;
 option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
 
 /**
