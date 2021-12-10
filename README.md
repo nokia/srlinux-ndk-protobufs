@@ -12,4 +12,7 @@ docker run --rm \
   --entrypoint '' \
   pseudomuto/protoc-gen-doc \
   bash -c "protoc -I /protos --doc_out=/out /protos/ndk/*.proto --doc_opt=/out/doc.tmpl,index.html"
+
+# specify version accordingly
+sed -i "s|__NDK_VER__|0.1.0|g" ./doc/index.html
 ```
