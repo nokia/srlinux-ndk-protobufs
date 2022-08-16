@@ -49,7 +49,7 @@ message NetworkInstanceData
  */
 message NetworkInstanceNotification
 {
-    SdkMgrOperation op = 1;       // Operation such as create, delete, or update
+    SdkMgrOperation op = 1;       // Operation such as create, change, or delete
     NetworkInstanceKey  key = 2;  // Network key
     NetworkInstanceData data = 3; // Network data
 }

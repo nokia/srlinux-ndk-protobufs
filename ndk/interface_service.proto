@@ -47,7 +47,7 @@ message InterfaceData
  */
 message InterfaceNotification
 {
-    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    SdkMgrOperation op                          = 1;  // Operation such as create, change, or delete
     InterfaceKey  key                           = 2;  // Interface key
     InterfaceData data                          = 3;  // Interface data
 }

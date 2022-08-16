@@ -108,7 +108,7 @@ message IpRouteSubscriptionRequest
  */
 message IpRouteNotification
 {
-    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    SdkMgrOperation op                          = 1;  // Operation such as create, change, or delete
     RouteKeyPb  key                             = 2;  // IP route key
     RoutePb data                                = 3;  // IP route data
 }

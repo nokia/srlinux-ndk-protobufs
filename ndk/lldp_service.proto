@@ -73,7 +73,7 @@ message LldpNeighborDataPb
  */
 message LldpNeighborNotification
 {
-    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    SdkMgrOperation op                          = 1;  // Operation such as create, change, or delete
     LldpNeighborKeyPb  key                      = 2;  // LLDP neighbor key
     LldpNeighborDataPb data                     = 3;  // LLDP neighbor data
 }

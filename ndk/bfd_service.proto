@@ -92,7 +92,7 @@ message BfdmgrGeneralSessionDataPb
  */
 message BfdSessionNotification
 {
-    SdkMgrOperation op                                  = 1;  // Operation such as session create, delete, or update
+    SdkMgrOperation op                                  = 1;  // Operation such as session create, change, or delete
     BfdmgrGeneralSessionKeyPb  key                      = 2;  // Session key
     BfdmgrGeneralSessionDataPb data                     = 3;  // Session data
 }

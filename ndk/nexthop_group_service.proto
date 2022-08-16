@@ -137,7 +137,7 @@ message NextHopGroupSubscriptionRequest
  */
 message NextHopGroupNotification
 {
-    SdkMgrOperation op                          = 1;  // Operation such as create, delete, or update
+    SdkMgrOperation op                          = 1;  // Operation such as create, change, or delete
     uint64          key                         = 2;  // Next-hop group key
     NextHopGroup    data                        = 3;  // Next-hop group data
 }

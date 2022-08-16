@@ -43,7 +43,7 @@ message AppIdentData
  */
 message AppIdentNotification
 {
-    SdkMgrOperation op = 1;  // Operation such as create, delete, or update
+    SdkMgrOperation op = 1;  // Operation such as create, change, or delete
     AppIdentKey  key   = 2;  // AppIdent key
     AppIdentData data  = 3;  // AppIdent data
 }
