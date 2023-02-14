@@ -33,7 +33,10 @@ message ConfigKey
  */
 message ConfigData
 {
-    string json                                 = 1;  // Entire configuration fragment as JSON string
+    oneof data_type {
+        string json = 1;  // Entire configuration fragment as JSON string
+        bytes data = 2;   // Entire configuration fragment as binary data
+    }
 }
 
 /**

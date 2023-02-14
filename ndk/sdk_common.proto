@@ -19,7 +19,12 @@ enum IfMgrIfType {
     AGGREGATE = 3;   // Aggregate(LAG) interface
     IRB = 4;         // Integrated Routing and Bridging (IRB) interface
     SYSTEM = 5;      // System interface
-    MAX = 6;
+    LIF = 6;         // linux interface
+    NIC = 7;         // linux nic interface (bus/dev/fn)
+    VHOST = 8;       // vhost-net interface, vhn-<name> name for sock-path
+    KKLIF = 9;       // temp name for new style of lif interface
+    KKVHOST = 10;    // temp name for new style of vhost interface
+    MAX = 11;
 }
 
 /**
@@ -78,8 +83,8 @@ enum IfOperDownReason {
     IF_OPER_DOWN_UNSUPPORTED_SPEED      = 10;
     IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC  = 11;
     IF_OPER_DOWN_OTHER                  = 12;
-    IF_OPER_DOWN_PORT_NOT_PRESENT       = 13; // used internally by chassis mgr only - never publish to IDB!
-    IF_OPER_DOWN_FABRIC_AVAILABILITY    = 14; // used internally by chassis mgr only - never publish to IDB!
+    IF_OPER_DOWN_PORT_NOT_PRESENT       = 13; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_FABRIC_AVAILABILITY    = 14; // used internally by chassis mgr only - xdp never publish to IDB!
     IF_OPER_DOWN_NO_ACTIVE_LINKS        = 15; // lag interface only
     IF_OPER_DOWN_MIN_LINK_THRESHOLD     = 16; // lag interface only
     IF_OPER_DOWN_9_12_SPEED_MISMATCH    = 17; // Vodka port 9-12 must all be same speed as port 9
@@ -89,6 +94,8 @@ enum IfOperDownReason {
     IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE    = 21; // interface hold-time up is actively holding the interface down
     IF_OPER_DOWN_RELOAD_TIME_ACTIVE     = 22; // interface reload time is actively holding the interface down
     IF_OPER_DOWN_CONNECTOR_DOWN         = 23; // parent connector oper down forces breakout port oper down
+    IF_OPER_DOWN_AUTO_NEG_MISMATCH      = 24;
+    IF_OPER_DOWN_EVENT_HANDLER          = 25; // used internally by chassis mgr only - xdp never publish to IDB!
 }
 
 /**
@@ -185,7 +192,7 @@ message MplsLabel
 enum SdkMgrOperation
 {
     Create = 0;  // Create operation
-    Change = 1;  // Change operation
+    Update = 1;  // Update operation
     Delete = 2;  // Delete operation
 }
 

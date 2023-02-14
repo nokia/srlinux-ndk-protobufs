@@ -33,7 +33,6 @@ message NetworkInstanceData
 {
     uint32 net_inst_id                          = 1;  /* Network instance identifier */
     string base_name                            = 2;  // Base name
-    IpAddrPrefLenPb loopback_addr               = 3;  // Loopback address of network instance
     bool   oper_is_up                           = 4;  // Operation status
     string router_id                            = 5;  // Router identifier
     /// Represents network instance type.

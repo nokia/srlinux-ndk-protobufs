@@ -42,6 +42,7 @@ enum BfdmgrSessionType {
     SESSION_TYPE_UNKNOWN  = 0; // Unknown session type
     SESSION_TYPE_P2P      = 1; // Peer-to-peer session type
     SESSION_TYPE_MICROBFD = 2; // microbfd session type
+    SESSION_TYPE_SBFD_ECHO = 3; // seamless BFD session type, echo initiator
 }
 
 
@@ -56,16 +57,38 @@ enum BfdmgrSessionType {
  */
 message BfdmgrGeneralSessionKeyPb
 {
+
+    message P2pKey
+    {
+        IpAddressPb src_ip_addr                     = 1;  // Source IP address of the session
+        IpAddressPb dst_ip_addr                     = 2;  // Destination IP address of the session
+        uint32      instance_id                     = 3;  // Network instance identifier
+        uint32      ipv6_ll_if_id                   = 4;  // Global if id for ipv6 link local session, otherwise 0
+        bool        specified_discr                 = 5;  // True if discriminators are specified
+    }
+
+    message MicrobfdKey
+    {
+        string interface_name                       = 1;
+    }
+
+    message SbfdechoKey
+    {
+        uint32      instance_id                     = 1;  // Network instance identifier
+        uint32      sr_policy_segment_list_id       = 2;
+        uint32      sr_policy_color                 = 3;
+        IpAddressPb sr_policy_endpoint              = 4;
+    }
+
     // type is always present, other key field presence is determined by type
-    BfdmgrSessionType   type                    = 1;  // Session type
-    // key for type == SESSION_TYPE_P2P (if ipv6 link local also uses ipv6_ll_if_id below)
-    IpAddressPb src_ip_addr                     = 2;  // Source IP address of the session
-    IpAddressPb dst_ip_addr                     = 3;  // Destination IP address of the session
-    uint32      instance_id                     = 4;  // Network instance identifier
-    // type == SESSION_TYPE_MICROBFD 
-    string interface_name                       = 5;
-    // key for type == SESSION_TYPE_P2P (only ipv6 link local, in addition to other P2P fields above)
-    uint32      ipv6_ll_if_id                   = 6;  // Global if id for ipv6 link local session, otherwise 0
+    BfdmgrSessionType   type                    = 10;  // Session type
+
+    oneof Key
+    {
+        P2pKey p2p = 20;
+        MicrobfdKey microbfd = 30;
+        SbfdechoKey sbfdecho = 40;
+    }
 }
 
 /**
@@ -79,6 +102,7 @@ message BfdmgrGeneralSessionDataPb
         SESSION_SUB_TYPE_SINGLE_HOP = 1;  // Single-hop session
         SESSION_SUB_TYPE_MULTI_HOP = 2;   // Multi-hop session
         SESSION_SUB_TYPE_MICROBFD = 3;    // microbfd session
+        SESSION_SUB_TYPE_SBFD_ECHO = 4;   // microbfd session
     }
 
     BfdmgrSessionStatus status                  = 1;  // Status of the session
