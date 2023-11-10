@@ -24,8 +24,9 @@ message ConfigSubscriptionRequest
  */
 message ConfigKey
 {
-    string js_path                              = 1;  // JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field
+    string js_path                              = 1;  // JSON path formatted string from YANG; for example, interface.my_field
     repeated string keys                        = 2;  // Value for keys
+    string js_path_with_keys                    = 3;  // JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field
 }
 
 /**

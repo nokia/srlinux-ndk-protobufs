@@ -24,7 +24,7 @@ enum IfMgrIfType {
     VHOST = 8;       // vhost-net interface, vhn-<name> name for sock-path
     KKLIF = 9;       // temp name for new style of lif interface
     KKVHOST = 10;    // temp name for new style of vhost interface
-    MAX = 11;
+    IF_TYPE_MAX = 11;
 }
 
 /**
@@ -77,25 +77,25 @@ enum IfOperDownReason {
     IF_OPER_DOWN_MDA_NOT_PRESENT        = 4;
     IF_OPER_DOWN_TRANS_NOT_PRESENT      = 5;
     IF_OPER_DOWN_PHY_INIT               = 6;
-    IF_OPER_DOWN_LOOPBACK               = 7;
-    IF_OPER_DOWN_LOWER_LAYER_DOWN       = 8;
-    IF_OPER_DOWN_MTU_RESOURCES          = 9;
-    IF_OPER_DOWN_UNSUPPORTED_SPEED      = 10;
-    IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC  = 11;
-    IF_OPER_DOWN_OTHER                  = 12;
-    IF_OPER_DOWN_PORT_NOT_PRESENT       = 13; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_FABRIC_AVAILABILITY    = 14; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_NO_ACTIVE_LINKS        = 15; // lag interface only
-    IF_OPER_DOWN_MIN_LINK_THRESHOLD     = 16; // lag interface only
-    IF_OPER_DOWN_9_12_SPEED_MISMATCH    = 17; // Vodka port 9-12 must all be same speed as port 9
-    IF_OPER_DOWN_LAG_RESOURCES          = 18; // lag interface only
-    IF_OPER_DOWN_LAG_MEMBER_RESOURCES   = 19; // lag member interface only
-    IF_OPER_DOWN_STANDBY_SIGNALING      = 20; // ESM multihoming
-    IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE    = 21; // interface hold-time up is actively holding the interface down
-    IF_OPER_DOWN_RELOAD_TIME_ACTIVE     = 22; // interface reload time is actively holding the interface down
-    IF_OPER_DOWN_CONNECTOR_DOWN         = 23; // parent connector oper down forces breakout port oper down
-    IF_OPER_DOWN_AUTO_NEG_MISMATCH      = 24;
-    IF_OPER_DOWN_EVENT_HANDLER          = 25; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_LOWER_LAYER_DOWN       = 7;
+    IF_OPER_DOWN_MTU_RESOURCES          = 8;
+    IF_OPER_DOWN_UNSUPPORTED_SPEED      = 9;
+    IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC  = 10;
+    IF_OPER_DOWN_OTHER                  = 11;
+    IF_OPER_DOWN_PORT_NOT_PRESENT       = 12; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_FABRIC_AVAILABILITY    = 13; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_NO_ACTIVE_LINKS        = 14; // lag interface only
+    IF_OPER_DOWN_MIN_LINK_THRESHOLD     = 15; // lag interface only
+    IF_OPER_DOWN_9_12_SPEED_MISMATCH    = 16; // Vodka port 9-12 must all be same speed as port 9
+    IF_OPER_DOWN_LAG_RESOURCES          = 17; // lag interface only
+    IF_OPER_DOWN_LAG_MEMBER_RESOURCES   = 18; // lag member interface only
+    IF_OPER_DOWN_STANDBY_SIGNALING      = 19; // ESM multihoming
+    IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE    = 20; // interface hold-time up is actively holding the interface down
+    IF_OPER_DOWN_RELOAD_TIME_ACTIVE     = 21; // interface reload time is actively holding the interface down
+    IF_OPER_DOWN_CONNECTOR_DOWN         = 22; // parent connector oper down forces breakout port oper down
+    IF_OPER_DOWN_AUTO_NEG_MISMATCH      = 23;
+    IF_OPER_DOWN_EVENT_HANDLER          = 24; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_UNSUPPORTED_BREAKOUT   = 25; // interface doesn't support breakout config
 }
 
 /**
@@ -123,6 +123,16 @@ enum IfEthernetDuplexModeType {
     IF_ETH_DUPLEX_MODE_UNSET        = 0;  // duplex mode not supported
     IF_ETH_DUPLEX_MODE_FULL         = 1;
     IF_ETH_DUPLEX_MODE_HALF         = 2;
+}
+
+/**
+ * Represents interface loopback mode. Corresponds to yang values
+ */
+enum IfLoopbackModeType {
+    IF_LOOPBACK_MODE_UNSET       = 0;  // loopback mode not supported
+    IF_LOOPBACK_MODE_NONE        = 1;
+    IF_LOOPBACK_MODE_FACILITY    = 2;
+    IF_LOOPBACK_MODE_TERMINAL    = 3;
 }
 
 /**
