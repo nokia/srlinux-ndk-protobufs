@@ -4,7 +4,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
 
 <html>
   <head>
-    <title>SR Linux NDK 0.1.1 Protobuf Documentation</title>
+    <title>SR Linux NDK 0.2.0 Protobuf Documentation</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE0MS43IDE0MS43IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxNDEuNyAxNDEuNzsiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDojMTI0MTkxO30KCS5zdDF7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KICA8cmVjdCBjbGFzcz0ic3QwIiB3aWR0aD0iMTQxLjciIGhlaWdodD0iMTQxLjciLz4KICA8Zz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik00NS4yLDU5LjRjMC45LDAuNiwyLjIsMS4xLDQsMS43YzEuOCwwLjYsMy44LDAuOSw2LjIsMC45YzIuNSwwLDQuMy0wLjUsNS41LTEuNWMxLjItMSwxLjgtMi40LDEuOC00LjEgYzAtMC42LTAuMS0xLjItMC4yLTEuOGMtMC4yLTAuNi0wLjUtMS4xLTAuOS0xLjZjLTAuNC0wLjUtMS0xLTEuOC0xLjRjLTAuOC0wLjQtMS43LTAuOC0yLjktMS4xbC00LjEtMS4yIGMtMi43LTAuNy00LjgtMS45LTYuNS0zLjRjLTEuNi0xLjUtMi40LTMuNi0yLjQtNi4yYzAtMS40LDAuMi0yLjcsMC44LTMuOXMxLjItMi4zLDIuMi0zLjJjMS0wLjksMi4yLTEuNywzLjctMi4yIGMxLjQtMC41LDMuMS0wLjgsNS0wLjhjMi4zLDAsNC40LDAuMyw2LjIsMC44YzEuOSwwLjUsMy4zLDEuMiw0LjQsMS45bC0xLjcsMy41Yy0wLjMtMC4yLTAuOC0wLjQtMS41LTAuNyBjLTAuNi0wLjItMS40LTAuNS0yLjItMC43Yy0wLjgtMC4yLTEuNy0wLjQtMi42LTAuNWMtMC45LTAuMi0xLjktMC4yLTIuOC0wLjJjLTIuMiwwLTQsMC41LTUuMiwxLjVjLTEuMiwxLTEuOCwyLjQtMS44LDQuMSBjMCwxLjUsMC41LDIuNywxLjQsMy42YzAuOSwwLjksMi40LDEuNiw0LjYsMi4ybDQuMSwxLjJjMi45LDAuOCw1LjIsMiw2LjcsMy41YzEuNSwxLjUsMi4yLDMuNywyLjIsNi40YzAsMS41LTAuMywyLjktMC44LDQuMSBzLTEuMywyLjMtMi4zLDMuMmMtMSwwLjktMi4zLDEuNi0zLjgsMi4xYy0xLjUsMC41LTMuMiwwLjctNS4xLDAuN2MtMS43LDAtMy4yLTAuMS00LjYtMC40Yy0xLjQtMC4zLTIuNi0wLjYtMy42LTAuOSBjLTEtMC4zLTEuOS0wLjctMi41LTEuMWMtMC43LTAuNC0xLjEtMC42LTEuNC0wLjhMNDUuMiw1OS40eiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTSA5Ny41IDY1LjQgTCA5Mi4xIDY1LjQgTCA4My43IDUxLjIgTCA3OC41IDUxLjIgTCA3OC41IDY1LjQgTCA3NCA2NS40IEwgNzQgMzAuMyBMIDg0LjIgMzAuMyBDIDg2LjQgMzAuMyA4OC4yIDMwLjYgODkuNiAzMS4zIEMgOTEuMSAzMiA5Mi4yIDMyLjggOTMuMSAzMy45IEMgOTQgMzUgOTQuNiAzNi4xIDk1IDM3LjMgQyA5NS40IDM4LjUgOTUuNSAzOS43IDk1LjUgNDAuOCBDIDk1LjUgNDMuMyA5NC45IDQ1LjQgOTMuNiA0NyBDIDkyLjMgNDguNiA5MC41IDQ5LjggODguMiA1MC42IEwgOTcuNSA2NS40IFogTSA4My44MDggNDcuMjAzIEMgODYuMjA4IDQ3LjIwMyA4OCA0Ni43IDg5LjIgNDUuNiBDIDkwLjQgNDQuNCA5MSA0Mi45IDkxIDQwLjggQyA5MSAzOC44IDkwLjQgMzcuMiA4OS4yIDM2IEMgODggMzQuOCA4Ni4zIDM0LjIgODQuMSAzNC4yIEwgNzguNiAzNC4yIEwgNzguNiA0Ny4yIEwgODMuOCA0Ny4yIEwgODMuODA4IDQ3LjIwMyBaIi8+CiAgPC9nPgogIDxnPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTQ2LjIsMTA5LjloLTE0Vjg1LjNoMy4yVjEwN2gxMC43VjEwOS45eiIvPgogICAgPHBhdGggY2xhc3M9InN0MSIgZD0iTTUxLjUsODguOGMtMC42LDAtMS4xLTAuMi0xLjUtMC42Yy0wLjQtMC40LTAuNS0wLjktMC41LTEuNWMwLTAuNiwwLjItMS4xLDAuNS0xLjVjMC40LTAuNCwwLjktMC42LDEuNS0wLjYgczEuMSwwLjIsMS41LDAuNmMwLjQsMC40LDAuNSwwLjksMC41LDEuNXMtMC4yLDEuMS0wLjUsMS41QzUyLjYsODguNiw1Mi4xLDg4LjgsNTEuNSw4OC44eiBNNTMuMSwxMDkuOUg1MFY5Mi40aDMuMVYxMDkuOXoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik03MywxMDkuOWgtMy4xVjk5LjFjMC0wLjktMC4xLTEuNi0wLjMtMi4yYy0wLjItMC42LTAuNC0xLTAuOC0xLjRjLTAuMy0wLjMtMC43LTAuNi0xLjItMC43cy0wLjktMC4yLTEuNC0wLjIgYy0wLjksMC0xLjcsMC4yLTIuMywwLjVjLTAuNiwwLjQtMS4yLDAuOS0xLjYsMS41Yy0wLjQsMC42LTAuNywxLjMtMC45LDIuMWMtMC4yLDAuOC0wLjMsMS42LTAuMywyLjV2OC42aC0zLjFWOTIuNEg2MWwwLjEsMi40IGMwLjEtMC4zLDAuNC0wLjYsMC43LTAuOWMwLjMtMC4zLDAuNy0wLjcsMS4yLTAuOWMwLjUtMC4zLDEtMC41LDEuNy0wLjdzMS40LTAuMywyLjItMC4zYzIsMCwzLjYsMC42LDQuNiwxLjdzMS42LDIuOCwxLjYsNC44IFYxMDkuOXoiLz4KICAgIDxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik05Mi43LDEwOS45aC0yLjlsLTAuMS0yLjNjLTAuMSwwLjMtMC40LDAuNi0wLjcsMC45Yy0wLjMsMC4zLTAuNywwLjYtMS4yLDAuOWMtMC41LDAuMy0xLDAuNS0xLjcsMC43IGMtMC42LDAuMi0xLjQsMC4zLTIuMiwwLjNjLTIsMC0zLjYtMC42LTQuNi0xLjdjLTEuMS0xLjItMS42LTIuOC0xLjYtNC44VjkyLjRIODF2MTFjMCwwLjgsMC4xLDEuNSwwLjMsMi4xYzAuMiwwLjUsMC40LDEsMC43LDEuMyBjMC4zLDAuMywwLjcsMC42LDEuMSwwLjdjMC40LDAuMSwwLjksMC4yLDEuNSwwLjJjMC45LDAsMS43LTAuMiwyLjMtMC41YzAuNi0wLjQsMS4yLTAuOSwxLjYtMS41czAuNy0xLjMsMC45LTIuMSBjMC4yLTAuOCwwLjMtMS42LDAuMy0yLjV2LTguNmgzLjFWMTA5Ljl6Ii8+CiAgICA8cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTEyLDEwOS45aC0zLjdsLTQuNi02LjdsLTQuNiw2LjdoLTMuM2w2LjMtOWwtNS45LTguNWgzLjdsNCw1LjhsNC01LjhoMy4zbC01LjcsOC4yTDExMiwxMDkuOXoiLz4KICA8L2c+Cjwvc3ZnPg==">
     <meta charset="UTF-8">
     <meta name="author" content="Siva Sivakumar">
@@ -107,7 +107,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
       <div class="container">
         <div class="content">
           <p><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTE4cHQiIGhlaWdodD0iMjBwdCIgdmlld0JveD0iMCAwIDExOCAyMCIgdmVyc2lvbj0iMS4xIj4KPGcgaWQ9InN1cmZhY2UxIj4KPHBhdGggc3R5bGU9IiBzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOnJnYigxMC45ODAzOTIlLDI3LjA1ODgyNCUsNTkuNjA3ODQzJSk7ZmlsbC1vcGFjaXR5OjE7IiBkPSJNIDUuNjgzNTk0IDE5LjcwNzAzMSBMIDAgMTkuNzA3MDMxIEwgMCAwLjM2NzE4OCBMIDkuODI4MTI1IDAuMzY3MTg4IEwgMjEuMTAxNTYyIDE0LjgwODU5NCBMIDIxLjEwMTU2MiAwLjM2NzE4OCBMIDI2Ljc4MTI1IDAuMzY3MTg4IEwgMjYuNzgxMjUgMTkuNzA3MDMxIEwgMTcuMTUyMzQ0IDE5LjcwNzAzMSBMIDUuNjgzNTk0IDUuMDIzNDM4IEwgNS42ODM1OTQgMTkuNzA3MDMxIE0gNTMuOTY0ODQ0IDEzLjcyNjU2MiBDIDUzLjk2NDg0NCAxNi40MTc5NjkgNTMuNDkyMTg4IDE3LjM0Mzc1IDUyLjcwMzEyNSAxOC4yMzQzNzUgQyA1MS41IDE5LjU1NDY4OCA0OS43NDYwOTQgMTkuOTUzMTI1IDQ2LjM2NzE4OCAxOS45NTMxMjUgTCAzNi42NjQwNjIgMTkuOTUzMTI1IEMgMzMuMjg1MTU2IDE5Ljk1MzEyNSAzMS41MzEyNSAxOS41NTQ2ODggMzAuMzI0MjE5IDE4LjIzNDM3NSBDIDI5LjUzOTA2MiAxNy4zNDM3NSAyOS4wNjY0MDYgMTYuNDE3OTY5IDI5LjA2NjQwNiAxMy43MjY1NjIgTCAyOS4wNjY0MDYgNi4yNzM0MzggQyAyOS4wNjY0MDYgMy41ODU5MzggMjkuNTM5MDYyIDIuNjYwMTU2IDMwLjMyNDIxOSAxLjc2OTUzMSBDIDMxLjUzMTI1IDAuNDQ1MzEyIDMzLjI4NTE1NiAwLjA0Njg3NSAzNi42NjQwNjIgMC4wNDY4NzUgTCA0Ni4zNjcxODggMC4wNDY4NzUgQyA0OS43NDYwOTQgMC4wNDY4NzUgNTEuNSAwLjQ0NTMxMiA1Mi43MDMxMjUgMS43Njk1MzEgQyA1My40OTIxODggMi42NjAxNTYgNTMuOTY0ODQ0IDMuNTg1OTM4IDUzLjk2NDg0NCA2LjI3MzQzOCBMIDUzLjk2NDg0NCAxMy43MjY1NjIgTSA0Ni4xMjg5MDYgMTUuMDU0Njg4IEMgNDcuNDI1NzgxIDE1LjA1NDY4OCA0Ny44ODI4MTIgMTQuOTc2NTYyIDQ4LjE5NTMxMiAxNC42OTUzMTIgQyA0OC40ODQzNzUgMTQuNDI5Njg4IDQ4LjYxMzI4MSAxNC4wODk4NDQgNDguNjEzMjgxIDEyLjk1MzEyNSBMIDQ4LjYxMzI4MSA3LjA0Njg3NSBDIDQ4LjYxMzI4MSA1LjkxMDE1NiA0OC40ODQzNzUgNS41NzQyMTkgNDguMTk1MzEyIDUuMzA4NTk0IEMgNDcuODgyODEyIDUuMDIzNDM4IDQ3LjQyNTc4MSA0Ljk0OTIxOSA0Ni4xMjg5MDYgNC45NDkyMTkgTCAzNi45MDIzNDQgNC45NDkyMTkgQyAzNS42MDU0NjkgNC45NDkyMTkgMzUuMTQ4NDM4IDUuMDIzNDM4IDM0LjgzOTg0NCA1LjMwODU5NCBDIDM0LjU0Njg3NSA1LjU3NDIxOSAzNC40MTc5NjkgNS45MTAxNTYgMzQuNDE3OTY5IDcuMDQ2ODc1IEwgMzQuNDE3OTY5IDEyLjk1MzEyNSBDIDM0LjQxNzk2OSAxNC4wODk4NDQgMzQuNTQ2ODc1IDE0LjQyOTY4OCAzNC44Mzk4NDQgMTQuNjk1MzEyIEMgMzUuMTQ4NDM4IDE0Ljk3NjU2MiAzNS42MDU0NjkgMTUuMDU0Njg4IDM2LjkwMjM0NCAxNS4wNTQ2ODggTCA0Ni4xMjg5MDYgMTUuMDU0Njg4IE0gNjIuMjIyNjU2IDAuMzY3MTg4IEwgNjIuMjIyNjU2IDE5LjcwNzAzMSBMIDU2LjI4NTE1NiAxOS43MDcwMzEgTCA1Ni4yODUxNTYgMC4zNjcxODggTCA2Mi4yMjI2NTYgMC4zNjcxODggTSA3Mi4yNTM5MDYgMC4zNjcxODggTCA4MC4wODk4NDQgMC4zNjcxODggTCA2OS41MTE3MTkgOS40MTQwNjIgTCA4MS40NDUzMTIgMTkuNzA3MDMxIEwgNzMuMDU4NTk0IDE5LjcwNzAzMSBMIDYyLjIyMjY1NiA5LjYyMTA5NCBMIDcyLjI1MzkwNiAwLjM2NzE4OCBNIDgyLjUzOTA2MiAwLjM2NzE4OCBMIDg4LjQ3NjU2MiAwLjM2NzE4OCBMIDg4LjQ3NjU2MiAxOS43MDcwMzEgTCA4Mi41MzkwNjIgMTkuNzA3MDMxIE0gMTExLjExMzI4MSAxOS43MDcwMzEgTCAxMDkuMzU1NDY5IDE2LjMzOTg0NCBMIDk3Ljg2NzE4OCAxNi4zMzk4NDQgTCA5Ni4xMzI4MTIgMTkuNzA3MDMxIEwgODkuNTc0MjE5IDE5LjcwNzAzMSBMIDEwMC4wOTc2NTYgMC4zNjcxODggTCAxMDcuNDc2NTYyIDAuMzY3MTg4IEwgMTE4IDE5LjcwNzAzMSBMIDExMS4xMTMyODEgMTkuNzA3MDMxIE0gOTkuOTI5Njg4IDEyLjE0MDYyNSBMIDEwNy4zMTI1IDEyLjE0MDYyNSBMIDEwMy42MjEwOTQgNS4xMzY3MTkgTCA5OS45Mjk2ODggMTIuMTQwNjI1ICIvPgo8L2c+Cjwvc3ZnPgo=" width="100"/></p>
-          <p class="title is-4 divider has-text-weight-normal">SR Linux <a href="https://learn.srlinux.dev/ndk/intro/">NDK</a> 0.1.1 Protobuf Documentation<sup><a href="https://github.com/nokia/srlinux-ndk-protobufs/tree/v0.1.1/ndk">[src]</a></sup></p>
+          <p class="title is-4 divider has-text-weight-normal">SR Linux <a href="https://learn.srlinux.dev/ndk/intro/">NDK</a> 0.2.0 Protobuf Documentation<sup><a href="https://github.com/nokia/srlinux-ndk-protobufs/tree/v0.2.0/ndk">[src]</a></sup></p>
         </div>
 
         <div class="menu">
@@ -119,13 +119,13 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/appid_service.proto">ndk/appid_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AppIdentData"><span class="badge message">M</span>AppIdentData</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AppIdentData"><span class="badge message">M</span>AppIdentData</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AppIdentKey"><span class="badge message">M</span>AppIdentKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AppIdentKey"><span class="badge message">M</span>AppIdentKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AppIdentNotification"><span class="badge message">M</span>AppIdentNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AppIdentNotification"><span class="badge message">M</span>AppIdentNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AppIdentSubscriptionRequest"><span class="badge message">M</span>AppIdentSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AppIdentSubscriptionRequest"><span class="badge message">M</span>AppIdentSubscriptionRequest</a></li>
                   
                   
                   
@@ -138,26 +138,26 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/bfd_service.proto">ndk/bfd_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdSessionNotification"><span class="badge message">M</span>BfdSessionNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdSessionNotification"><span class="badge message">M</span>BfdSessionNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdSessionSubscriptionRequest"><span class="badge message">M</span>BfdSessionSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdSessionSubscriptionRequest"><span class="badge message">M</span>BfdSessionSubscriptionRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrGeneralSessionDataPb"><span class="badge message">M</span>BfdmgrGeneralSessionDataPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrGeneralSessionDataPb"><span class="badge message">M</span>BfdmgrGeneralSessionDataPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrGeneralSessionKeyPb"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrGeneralSessionKeyPb.MicrobfdKey"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb.MicrobfdKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.MicrobfdKey"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb.MicrobfdKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrGeneralSessionKeyPb.P2pKey"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb.P2pKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.P2pKey"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb.P2pKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrGeneralSessionKeyPb.SbfdechoKey"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb.SbfdechoKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.SbfdechoKey"><span class="badge message">M</span>BfdmgrGeneralSessionKeyPb.SbfdechoKey</a></li>
                   
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType"><span class="badge enum">E</span>BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType"><span class="badge enum">E</span>BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrSessionStatus"><span class="badge enum">E</span>BfdmgrSessionStatus</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrSessionStatus"><span class="badge enum">E</span>BfdmgrSessionStatus</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.BfdmgrSessionType"><span class="badge enum">E</span>BfdmgrSessionType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.BfdmgrSessionType"><span class="badge enum">E</span>BfdmgrSessionType</a></li>
                   
                   
                   
@@ -169,13 +169,13 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/config_service.proto">ndk/config_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.ConfigData"><span class="badge message">M</span>ConfigData</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.ConfigData"><span class="badge message">M</span>ConfigData</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.ConfigKey"><span class="badge message">M</span>ConfigKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.ConfigKey"><span class="badge message">M</span>ConfigKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.ConfigNotification"><span class="badge message">M</span>ConfigNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.ConfigNotification"><span class="badge message">M</span>ConfigNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.ConfigSubscriptionRequest"><span class="badge message">M</span>ConfigSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.ConfigSubscriptionRequest"><span class="badge message">M</span>ConfigSubscriptionRequest</a></li>
                   
                   
                   
@@ -188,13 +188,13 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/interface_service.proto">ndk/interface_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.InterfaceData"><span class="badge message">M</span>InterfaceData</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.InterfaceData"><span class="badge message">M</span>InterfaceData</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.InterfaceKey"><span class="badge message">M</span>InterfaceKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.InterfaceKey"><span class="badge message">M</span>InterfaceKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.InterfaceNotification"><span class="badge message">M</span>InterfaceNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.InterfaceNotification"><span class="badge message">M</span>InterfaceNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.InterfaceSubscriptionRequest"><span class="badge message">M</span>InterfaceSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.InterfaceSubscriptionRequest"><span class="badge message">M</span>InterfaceSubscriptionRequest</a></li>
                   
                   
                   
@@ -207,18 +207,18 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/lldp_service.proto">ndk/lldp_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.LldpNeighborDataPb"><span class="badge message">M</span>LldpNeighborDataPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.LldpNeighborDataPb"><span class="badge message">M</span>LldpNeighborDataPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.LldpNeighborKeyPb"><span class="badge message">M</span>LldpNeighborKeyPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.LldpNeighborKeyPb"><span class="badge message">M</span>LldpNeighborKeyPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.LldpNeighborNotification"><span class="badge message">M</span>LldpNeighborNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.LldpNeighborNotification"><span class="badge message">M</span>LldpNeighborNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.LldpNeighborSubscriptionRequest"><span class="badge message">M</span>LldpNeighborSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.LldpNeighborSubscriptionRequest"><span class="badge message">M</span>LldpNeighborSubscriptionRequest</a></li>
                   
                   
-                    <li><a class="list-item has-fira" href="#ndk.LldpNeighborDataPb.PortSubType"><span class="badge enum">E</span>LldpNeighborDataPb.PortSubType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.LldpNeighborDataPb.PortSubType"><span class="badge enum">E</span>LldpNeighborDataPb.PortSubType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.LldpNeighborKeyPb.ChassisIdType"><span class="badge enum">E</span>LldpNeighborKeyPb.ChassisIdType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.LldpNeighborKeyPb.ChassisIdType"><span class="badge enum">E</span>LldpNeighborKeyPb.ChassisIdType</a></li>
                   
                   
                   
@@ -230,26 +230,26 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/mpls_service.proto">ndk/mpls_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRouteAddRequest"><span class="badge message">M</span>MplsRouteAddRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRouteAddRequest"><span class="badge message">M</span>MplsRouteAddRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRouteAddResponse"><span class="badge message">M</span>MplsRouteAddResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRouteAddResponse"><span class="badge message">M</span>MplsRouteAddResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRouteDeleteRequest"><span class="badge message">M</span>MplsRouteDeleteRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRouteDeleteRequest"><span class="badge message">M</span>MplsRouteDeleteRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRouteDeleteResponse"><span class="badge message">M</span>MplsRouteDeleteResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRouteDeleteResponse"><span class="badge message">M</span>MplsRouteDeleteResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRouteInfo"><span class="badge message">M</span>MplsRouteInfo</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRouteInfo"><span class="badge message">M</span>MplsRouteInfo</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRouteKeyPb"><span class="badge message">M</span>MplsRouteKeyPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRouteKeyPb"><span class="badge message">M</span>MplsRouteKeyPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsRoutePb"><span class="badge message">M</span>MplsRoutePb</a></li>
-                  
-                  
-                    <li><a class="list-item has-fira" href="#ndk.MplsRoutePb.Operation"><span class="badge enum">E</span>MplsRoutePb.Operation</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRoutePb"><span class="badge message">M</span>MplsRoutePb</a></li>
                   
                   
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsRoutePb.Operation"><span class="badge enum">E</span>MplsRoutePb.Operation</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrMplsRouteService"><span class="badge service">S</span>SdkMgrMplsRouteService</a></li>
+                  
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrMplsRouteService"><span class="badge service">S</span>SdkMgrMplsRouteService</a></li>
                   
                 </ul>
               </li>
@@ -259,16 +259,16 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/networkinstance_service.proto">ndk/networkinstance_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NetworkInstanceData"><span class="badge message">M</span>NetworkInstanceData</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NetworkInstanceData"><span class="badge message">M</span>NetworkInstanceData</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NetworkInstanceKey"><span class="badge message">M</span>NetworkInstanceKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NetworkInstanceKey"><span class="badge message">M</span>NetworkInstanceKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NetworkInstanceNotification"><span class="badge message">M</span>NetworkInstanceNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NetworkInstanceNotification"><span class="badge message">M</span>NetworkInstanceNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NetworkInstanceSubscriptionRequest"><span class="badge message">M</span>NetworkInstanceSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NetworkInstanceSubscriptionRequest"><span class="badge message">M</span>NetworkInstanceSubscriptionRequest</a></li>
                   
                   
-                    <li><a class="list-item has-fira" href="#ndk.NetworkInstanceData.NetInstType"><span class="badge enum">E</span>NetworkInstanceData.NetInstType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NetworkInstanceData.NetInstType"><span class="badge enum">E</span>NetworkInstanceData.NetInstType</a></li>
                   
                   
                   
@@ -280,36 +280,36 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/nexthop_group_service.proto">ndk/nexthop_group_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsNextHop"><span class="badge message">M</span>MplsNextHop</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsNextHop"><span class="badge message">M</span>MplsNextHop</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHop"><span class="badge message">M</span>NextHop</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHop"><span class="badge message">M</span>NextHop</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroup"><span class="badge message">M</span>NextHopGroup</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroup"><span class="badge message">M</span>NextHopGroup</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupDeleteRequest"><span class="badge message">M</span>NextHopGroupDeleteRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupDeleteRequest"><span class="badge message">M</span>NextHopGroupDeleteRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupDeleteResponse"><span class="badge message">M</span>NextHopGroupDeleteResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupDeleteResponse"><span class="badge message">M</span>NextHopGroupDeleteResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupInfo"><span class="badge message">M</span>NextHopGroupInfo</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupInfo"><span class="badge message">M</span>NextHopGroupInfo</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupKey"><span class="badge message">M</span>NextHopGroupKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupKey"><span class="badge message">M</span>NextHopGroupKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupNotification"><span class="badge message">M</span>NextHopGroupNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupNotification"><span class="badge message">M</span>NextHopGroupNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupRequest"><span class="badge message">M</span>NextHopGroupRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupRequest"><span class="badge message">M</span>NextHopGroupRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupResponse"><span class="badge message">M</span>NextHopGroupResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupResponse"><span class="badge message">M</span>NextHopGroupResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NextHopGroupSubscriptionRequest"><span class="badge message">M</span>NextHopGroupSubscriptionRequest</a></li>
-                  
-                  
-                    <li><a class="list-item has-fira" href="#ndk.NextHop.ResolutionType"><span class="badge enum">E</span>NextHop.ResolutionType</a></li>
-                  
-                    <li><a class="list-item has-fira" href="#ndk.NextHop.ResolveToType"><span class="badge enum">E</span>NextHop.ResolveToType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHopGroupSubscriptionRequest"><span class="badge message">M</span>NextHopGroupSubscriptionRequest</a></li>
                   
                   
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHop.ResolutionType"><span class="badge enum">E</span>NextHop.ResolutionType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrNextHopGroupService"><span class="badge service">S</span>SdkMgrNextHopGroupService</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NextHop.ResolveToType"><span class="badge enum">E</span>NextHop.ResolveToType</a></li>
+                  
+                  
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrNextHopGroupService"><span class="badge service">S</span>SdkMgrNextHopGroupService</a></li>
                   
                 </ul>
               </li>
@@ -319,28 +319,28 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/route_service.proto">ndk/route_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IpRouteNotification"><span class="badge message">M</span>IpRouteNotification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IpRouteNotification"><span class="badge message">M</span>IpRouteNotification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IpRouteSubscriptionRequest"><span class="badge message">M</span>IpRouteSubscriptionRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IpRouteSubscriptionRequest"><span class="badge message">M</span>IpRouteSubscriptionRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RouteAddRequest"><span class="badge message">M</span>RouteAddRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RouteAddRequest"><span class="badge message">M</span>RouteAddRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RouteAddResponse"><span class="badge message">M</span>RouteAddResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RouteAddResponse"><span class="badge message">M</span>RouteAddResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RouteDeleteRequest"><span class="badge message">M</span>RouteDeleteRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RouteDeleteRequest"><span class="badge message">M</span>RouteDeleteRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RouteDeleteResponse"><span class="badge message">M</span>RouteDeleteResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RouteDeleteResponse"><span class="badge message">M</span>RouteDeleteResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RouteInfo"><span class="badge message">M</span>RouteInfo</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RouteInfo"><span class="badge message">M</span>RouteInfo</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RouteKeyPb"><span class="badge message">M</span>RouteKeyPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RouteKeyPb"><span class="badge message">M</span>RouteKeyPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.RoutePb"><span class="badge message">M</span>RoutePb</a></li>
-                  
-                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.RoutePb"><span class="badge message">M</span>RoutePb</a></li>
                   
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrRouteService"><span class="badge service">S</span>SdkMgrRouteService</a></li>
+                  
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrRouteService"><span class="badge service">S</span>SdkMgrRouteService</a></li>
                   
                 </ul>
               </li>
@@ -350,48 +350,50 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/sdk_common.proto">ndk/sdk_common.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AgentReply"><span class="badge message">M</span>AgentReply</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AgentReply"><span class="badge message">M</span>AgentReply</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.EvpnEthSegIdPb"><span class="badge message">M</span>EvpnEthSegIdPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.EvpnEthSegIdPb"><span class="badge message">M</span>EvpnEthSegIdPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.GlobalIfId"><span class="badge message">M</span>GlobalIfId</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.GlobalIfId"><span class="badge message">M</span>GlobalIfId</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IpAddrPrefLenPb"><span class="badge message">M</span>IpAddrPrefLenPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IpAddrPrefLenPb"><span class="badge message">M</span>IpAddrPrefLenPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IpAddressPb"><span class="badge message">M</span>IpAddressPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IpAddressPb"><span class="badge message">M</span>IpAddressPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IpInterfaceAddrPrefixPb"><span class="badge message">M</span>IpInterfaceAddrPrefixPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IpInterfaceAddrPrefixPb"><span class="badge message">M</span>IpInterfaceAddrPrefixPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MacAddressPb"><span class="badge message">M</span>MacAddressPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MacAddressPb"><span class="badge message">M</span>MacAddressPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.MplsLabel"><span class="badge message">M</span>MplsLabel</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.MplsLabel"><span class="badge message">M</span>MplsLabel</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NetInstanceId"><span class="badge message">M</span>NetInstanceId</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NetInstanceId"><span class="badge message">M</span>NetInstanceId</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.PortIdPb"><span class="badge message">M</span>PortIdPb</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.PortIdPb"><span class="badge message">M</span>PortIdPb</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SyncRequest"><span class="badge message">M</span>SyncRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SyncRequest"><span class="badge message">M</span>SyncRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SyncResponse"><span class="badge message">M</span>SyncResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SyncResponse"><span class="badge message">M</span>SyncResponse</a></li>
                   
                   
-                    <li><a class="list-item has-fira" href="#ndk.IfEthernetDuplexModeType"><span class="badge enum">E</span>IfEthernetDuplexModeType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfEthernetDuplexModeType"><span class="badge enum">E</span>IfEthernetDuplexModeType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IfEthernetPortSpeedType"><span class="badge enum">E</span>IfEthernetPortSpeedType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfEthernetPortSpeedType"><span class="badge enum">E</span>IfEthernetPortSpeedType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IfMgrIfType"><span class="badge enum">E</span>IfMgrIfType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfLoopbackModeType"><span class="badge enum">E</span>IfLoopbackModeType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IfOperDownReason"><span class="badge enum">E</span>IfOperDownReason</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfMgrIfType"><span class="badge enum">E</span>IfMgrIfType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IfOperStateType"><span class="badge enum">E</span>IfOperStateType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfOperDownReason"><span class="badge enum">E</span>IfOperDownReason</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IfTransceiverFecType"><span class="badge enum">E</span>IfTransceiverFecType</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfOperStateType"><span class="badge enum">E</span>IfOperStateType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.IpAddressState"><span class="badge enum">E</span>IpAddressState</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IfTransceiverFecType"><span class="badge enum">E</span>IfTransceiverFecType</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrOperation"><span class="badge enum">E</span>SdkMgrOperation</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.IpAddressState"><span class="badge enum">E</span>IpAddressState</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrStatus"><span class="badge enum">E</span>SdkMgrStatus</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrOperation"><span class="badge enum">E</span>SdkMgrOperation</a></li>
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrStatus"><span class="badge enum">E</span>SdkMgrStatus</a></li>
                   
                   
                   
@@ -403,42 +405,42 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/sdk_service.proto">ndk/sdk_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AgentRegistrationRequest"><span class="badge message">M</span>AgentRegistrationRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AgentRegistrationRequest"><span class="badge message">M</span>AgentRegistrationRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AgentRegistrationResponse"><span class="badge message">M</span>AgentRegistrationResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AgentRegistrationResponse"><span class="badge message">M</span>AgentRegistrationResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AppIdRequest"><span class="badge message">M</span>AppIdRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AppIdRequest"><span class="badge message">M</span>AppIdRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.AppIdResponse"><span class="badge message">M</span>AppIdResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.AppIdResponse"><span class="badge message">M</span>AppIdResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.KeepAliveRequest"><span class="badge message">M</span>KeepAliveRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.KeepAliveRequest"><span class="badge message">M</span>KeepAliveRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.KeepAliveResponse"><span class="badge message">M</span>KeepAliveResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.KeepAliveResponse"><span class="badge message">M</span>KeepAliveResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.Notification"><span class="badge message">M</span>Notification</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.Notification"><span class="badge message">M</span>Notification</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationQueryRequest"><span class="badge message">M</span>NotificationQueryRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationQueryRequest"><span class="badge message">M</span>NotificationQueryRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationQueryResponse"><span class="badge message">M</span>NotificationQueryResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationQueryResponse"><span class="badge message">M</span>NotificationQueryResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationQuerySubscription"><span class="badge message">M</span>NotificationQuerySubscription</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationQuerySubscription"><span class="badge message">M</span>NotificationQuerySubscription</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationRegisterRequest"><span class="badge message">M</span>NotificationRegisterRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationRegisterRequest"><span class="badge message">M</span>NotificationRegisterRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationRegisterResponse"><span class="badge message">M</span>NotificationRegisterResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationRegisterResponse"><span class="badge message">M</span>NotificationRegisterResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationStreamRequest"><span class="badge message">M</span>NotificationStreamRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationStreamRequest"><span class="badge message">M</span>NotificationStreamRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.NotificationStreamResponse"><span class="badge message">M</span>NotificationStreamResponse</a></li>
-                  
-                  
-                    <li><a class="list-item has-fira" href="#ndk.NotificationRegisterRequest.Operation"><span class="badge enum">E</span>NotificationRegisterRequest.Operation</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationStreamResponse"><span class="badge message">M</span>NotificationStreamResponse</a></li>
                   
                   
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.NotificationRegisterRequest.Operation"><span class="badge enum">E</span>NotificationRegisterRequest.Operation</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrService"><span class="badge service">S</span>SdkMgrService</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkNotificationService"><span class="badge service">S</span>SdkNotificationService</a></li>
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrService"><span class="badge service">S</span>SdkMgrService</a></li>
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkNotificationService"><span class="badge service">S</span>SdkNotificationService</a></li>
                   
                 </ul>
               </li>
@@ -448,24 +450,24 @@ SPDX-License-Identifier: BSD-3-Clause -->
                 <a href="#ndk/telemetry_service.proto">ndk/telemetry_service.proto</a>
                 <ul>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryData"><span class="badge message">M</span>TelemetryData</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryData"><span class="badge message">M</span>TelemetryData</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryDeleteRequest"><span class="badge message">M</span>TelemetryDeleteRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryDeleteRequest"><span class="badge message">M</span>TelemetryDeleteRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryDeleteResponse"><span class="badge message">M</span>TelemetryDeleteResponse</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryDeleteResponse"><span class="badge message">M</span>TelemetryDeleteResponse</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryInfo"><span class="badge message">M</span>TelemetryInfo</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryInfo"><span class="badge message">M</span>TelemetryInfo</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryKey"><span class="badge message">M</span>TelemetryKey</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryKey"><span class="badge message">M</span>TelemetryKey</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryUpdateRequest"><span class="badge message">M</span>TelemetryUpdateRequest</a></li>
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryUpdateRequest"><span class="badge message">M</span>TelemetryUpdateRequest</a></li>
                   
-                    <li><a class="list-item has-fira" href="#ndk.TelemetryUpdateResponse"><span class="badge message">M</span>TelemetryUpdateResponse</a></li>
-                  
-                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.TelemetryUpdateResponse"><span class="badge message">M</span>TelemetryUpdateResponse</a></li>
                   
                   
-                    <li><a class="list-item has-fira" href="#ndk.SdkMgrTelemetryService"><span class="badge service">S</span>SdkMgrTelemetryService</a></li>
+                  
+                  
+                    <li><a class="list-item has-fira" href="#srlinux.sdk.SdkMgrTelemetryService"><span class="badge service">S</span>SdkMgrTelemetryService</a></li>
                   
                 </ul>
               </li>
@@ -484,7 +486,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AppIdentData" href="#ndk.AppIdentData">AppIdentData</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AppIdentData" href="#srlinux.sdk.AppIdentData">AppIdentData</a></p>
             <p class="mb-4">Represents appid data.</p>
             
               <div class="table-container">
@@ -535,7 +537,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AppIdentKey" href="#ndk.AppIdentKey">AppIdentKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AppIdentKey" href="#srlinux.sdk.AppIdentKey">AppIdentKey</a></p>
             <p class="mb-4">Represents appid key.</p>
             
               <div class="table-container">
@@ -565,7 +567,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AppIdentNotification" href="#ndk.AppIdentNotification">AppIdentNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AppIdentNotification" href="#srlinux.sdk.AppIdentNotification">AppIdentNotification</a></p>
             <p class="mb-4">Represents appid notification.</p>
             
               <div class="table-container">
@@ -582,21 +584,21 @@ SPDX-License-Identifier: BSD-3-Clause -->
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.AppIdentKey">AppIdentKey</a></td>
+                        <td><a href="#srlinux.sdk.AppIdentKey">AppIdentKey</a></td>
                         <td></td>
                         <td><p>AppIdent key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.AppIdentData">AppIdentData</a></td>
+                        <td><a href="#srlinux.sdk.AppIdentData">AppIdentData</a></td>
                         <td></td>
                         <td><p>AppIdent data </p></td>
                       </tr>
@@ -609,7 +611,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AppIdentSubscriptionRequest" href="#ndk.AppIdentSubscriptionRequest">AppIdentSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AppIdentSubscriptionRequest" href="#srlinux.sdk.AppIdentSubscriptionRequest">AppIdentSubscriptionRequest</a></p>
             <p class="mb-4">Represents appid subscription request.</p>
             
               <div class="table-container">
@@ -626,7 +628,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.AppIdentKey">AppIdentKey</a></td>
+                        <td><a href="#srlinux.sdk.AppIdentKey">AppIdentKey</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -656,7 +658,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdSessionNotification" href="#ndk.BfdSessionNotification">BfdSessionNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdSessionNotification" href="#srlinux.sdk.BfdSessionNotification">BfdSessionNotification</a></p>
             <p class="mb-4">Represents BFD session notification.</p>
             
               <div class="table-container">
@@ -673,21 +675,21 @@ SPDX-License-Identifier: BSD-3-Clause -->
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as session create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionKeyPb">BfdmgrGeneralSessionKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb">BfdmgrGeneralSessionKeyPb</a></td>
                         <td></td>
                         <td><p>Session key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionDataPb">BfdmgrGeneralSessionDataPb</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionDataPb">BfdmgrGeneralSessionDataPb</a></td>
                         <td></td>
                         <td><p>Session data </p></td>
                       </tr>
@@ -700,7 +702,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdSessionSubscriptionRequest" href="#ndk.BfdSessionSubscriptionRequest">BfdSessionSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdSessionSubscriptionRequest" href="#srlinux.sdk.BfdSessionSubscriptionRequest">BfdSessionSubscriptionRequest</a></p>
             <p class="mb-4">Represents BFD session subscription request.</p>
             
               <div class="table-container">
@@ -717,7 +719,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionKeyPb">BfdmgrGeneralSessionKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb">BfdmgrGeneralSessionKeyPb</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -730,7 +732,7 @@ SPDX-License-Identifier: BSD-3-Clause -->
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrGeneralSessionDataPb" href="#ndk.BfdmgrGeneralSessionDataPb">BfdmgrGeneralSessionDataPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrGeneralSessionDataPb" href="#srlinux.sdk.BfdmgrGeneralSessionDataPb">BfdmgrGeneralSessionDataPb</a></p>
             <p class="mb-4">Represents BFD session data.</p>
             
               <div class="table-container">
@@ -747,14 +749,14 @@ SPDX-License-Identifier: BSD-3-Clause -->
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.BfdmgrSessionStatus">BfdmgrSessionStatus</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrSessionStatus">BfdmgrSessionStatus</a></td>
                         <td></td>
                         <td><p>Status of the session </p></td>
                       </tr>
                     
                       <tr>
                         <td>sub_type</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType">BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType">BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType</a></td>
                         <td></td>
                         <td><p>Subtype of the session </p></td>
                       </tr>
@@ -776,7 +778,7 @@ Source interface ID </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrGeneralSessionKeyPb" href="#ndk.BfdmgrGeneralSessionKeyPb">BfdmgrGeneralSessionKeyPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrGeneralSessionKeyPb" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb">BfdmgrGeneralSessionKeyPb</a></p>
             <p class="mb-4">Represents BFD session key.</p>
             
               <div class="table-container">
@@ -793,7 +795,7 @@ Source interface ID </p></td>
                     
                       <tr>
                         <td>type</td>
-                        <td><a href="#ndk.BfdmgrSessionType">BfdmgrSessionType</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrSessionType">BfdmgrSessionType</a></td>
                         <td></td>
                         <td><p>type is always present, other key field presence is determined by type
 
@@ -802,21 +804,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>p2p</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionKeyPb.P2pKey">BfdmgrGeneralSessionKeyPb.P2pKey</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.P2pKey">BfdmgrGeneralSessionKeyPb.P2pKey</a></td>
                         <td></td>
                         <td><p> </p></td>
                       </tr>
                     
                       <tr>
                         <td>microbfd</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionKeyPb.MicrobfdKey">BfdmgrGeneralSessionKeyPb.MicrobfdKey</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.MicrobfdKey">BfdmgrGeneralSessionKeyPb.MicrobfdKey</a></td>
                         <td></td>
                         <td><p> </p></td>
                       </tr>
                     
                       <tr>
                         <td>sbfdecho</td>
-                        <td><a href="#ndk.BfdmgrGeneralSessionKeyPb.SbfdechoKey">BfdmgrGeneralSessionKeyPb.SbfdechoKey</a></td>
+                        <td><a href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.SbfdechoKey">BfdmgrGeneralSessionKeyPb.SbfdechoKey</a></td>
                         <td></td>
                         <td><p> </p></td>
                       </tr>
@@ -829,7 +831,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrGeneralSessionKeyPb.MicrobfdKey" href="#ndk.BfdmgrGeneralSessionKeyPb.MicrobfdKey">BfdmgrGeneralSessionKeyPb.MicrobfdKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrGeneralSessionKeyPb.MicrobfdKey" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.MicrobfdKey">BfdmgrGeneralSessionKeyPb.MicrobfdKey</a></p>
             <p class="mb-4"></p>
             
               <div class="table-container">
@@ -859,7 +861,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrGeneralSessionKeyPb.P2pKey" href="#ndk.BfdmgrGeneralSessionKeyPb.P2pKey">BfdmgrGeneralSessionKeyPb.P2pKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrGeneralSessionKeyPb.P2pKey" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.P2pKey">BfdmgrGeneralSessionKeyPb.P2pKey</a></p>
             <p class="mb-4"></p>
             
               <div class="table-container">
@@ -876,14 +878,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>src_ip_addr</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td></td>
                         <td><p>Source IP address of the session </p></td>
                       </tr>
                     
                       <tr>
                         <td>dst_ip_addr</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td></td>
                         <td><p>Destination IP address of the session </p></td>
                       </tr>
@@ -917,7 +919,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrGeneralSessionKeyPb.SbfdechoKey" href="#ndk.BfdmgrGeneralSessionKeyPb.SbfdechoKey">BfdmgrGeneralSessionKeyPb.SbfdechoKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrGeneralSessionKeyPb.SbfdechoKey" href="#srlinux.sdk.BfdmgrGeneralSessionKeyPb.SbfdechoKey">BfdmgrGeneralSessionKeyPb.SbfdechoKey</a></p>
             <p class="mb-4"></p>
             
               <div class="table-container">
@@ -955,7 +957,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>sr_policy_endpoint</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td></td>
                         <td><p> </p></td>
                       </tr>
@@ -970,7 +972,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType" href="#ndk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType">BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType" href="#srlinux.sdk.BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType">BfdmgrGeneralSessionDataPb.BfdmgrSessionSubType</a></p>
             <p class="mb-4">Represents BFD session subtype.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -1013,7 +1015,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrSessionStatus" href="#ndk.BfdmgrSessionStatus">BfdmgrSessionStatus</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrSessionStatus" href="#srlinux.sdk.BfdmgrSessionStatus">BfdmgrSessionStatus</a></p>
             <p class="mb-4">Represents BFD session status.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -1056,7 +1058,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.BfdmgrSessionType" href="#ndk.BfdmgrSessionType">BfdmgrSessionType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.BfdmgrSessionType" href="#srlinux.sdk.BfdmgrSessionType">BfdmgrSessionType</a></p>
             <p class="mb-4">Represents BFD session type.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -1108,7 +1110,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.ConfigData" href="#ndk.ConfigData">ConfigData</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.ConfigData" href="#srlinux.sdk.ConfigData">ConfigData</a></p>
             <p class="mb-4">Represents configuration data.</p>
             
               <div class="table-container">
@@ -1145,7 +1147,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.ConfigKey" href="#ndk.ConfigKey">ConfigKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.ConfigKey" href="#srlinux.sdk.ConfigKey">ConfigKey</a></p>
             <p class="mb-4">Represents configuration key.</p>
             
               <div class="table-container">
@@ -1164,7 +1166,7 @@ Session type </p></td>
                         <td>js_path</td>
                         <td><a href="#string">string</a></td>
                         <td></td>
-                        <td><p>JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field </p></td>
+                        <td><p>JSON path formatted string from YANG; for example, interface.my_field </p></td>
                       </tr>
                     
                       <tr>
@@ -1172,6 +1174,13 @@ Session type </p></td>
                         <td><a href="#string">string</a></td>
                         <td>repeated</td>
                         <td><p>Value for keys </p></td>
+                      </tr>
+                    
+                      <tr>
+                        <td>js_path_with_keys</td>
+                        <td><a href="#string">string</a></td>
+                        <td></td>
+                        <td><p>JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field </p></td>
                       </tr>
                     
                   </tbody>
@@ -1182,7 +1191,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.ConfigNotification" href="#ndk.ConfigNotification">ConfigNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.ConfigNotification" href="#srlinux.sdk.ConfigNotification">ConfigNotification</a></p>
             <p class="mb-4">Represents configuration notification message to subscribe to configuration events</p>
             
               <div class="table-container">
@@ -1199,21 +1208,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation indicating create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.ConfigKey">ConfigKey</a></td>
+                        <td><a href="#srlinux.sdk.ConfigKey">ConfigKey</a></td>
                         <td></td>
                         <td><p>Configuration key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.ConfigData">ConfigData</a></td>
+                        <td><a href="#srlinux.sdk.ConfigData">ConfigData</a></td>
                         <td></td>
                         <td><p>Configuration data </p></td>
                       </tr>
@@ -1226,7 +1235,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.ConfigSubscriptionRequest" href="#ndk.ConfigSubscriptionRequest">ConfigSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.ConfigSubscriptionRequest" href="#srlinux.sdk.ConfigSubscriptionRequest">ConfigSubscriptionRequest</a></p>
             <p class="mb-4">Represents configuration subscription request.</p>
             
               <div class="table-container">
@@ -1243,7 +1252,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.ConfigKey">ConfigKey</a></td>
+                        <td><a href="#srlinux.sdk.ConfigKey">ConfigKey</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -1273,7 +1282,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.InterfaceData" href="#ndk.InterfaceData">InterfaceData</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.InterfaceData" href="#srlinux.sdk.InterfaceData">InterfaceData</a></p>
             <p class="mb-4">Represents interface data.</p>
             
               <div class="table-container">
@@ -1304,14 +1313,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>if_type</td>
-                        <td><a href="#ndk.IfMgrIfType">IfMgrIfType</a></td>
+                        <td><a href="#srlinux.sdk.IfMgrIfType">IfMgrIfType</a></td>
                         <td></td>
                         <td><p>Interface type; for example, loopback, physical, or LAG </p></td>
                       </tr>
                     
                       <tr>
                         <td>port_id</td>
-                        <td><a href="#ndk.PortIdPb">PortIdPb</a></td>
+                        <td><a href="#srlinux.sdk.PortIdPb">PortIdPb</a></td>
                         <td></td>
                         <td><p>Port identifier </p></td>
                       </tr>
@@ -1325,7 +1334,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>mac_addr</td>
-                        <td><a href="#ndk.MacAddressPb">MacAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.MacAddressPb">MacAddressPb</a></td>
                         <td></td>
                         <td><p>MAC address </p></td>
                       </tr>
@@ -1352,7 +1361,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.InterfaceKey" href="#ndk.InterfaceKey">InterfaceKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.InterfaceKey" href="#srlinux.sdk.InterfaceKey">InterfaceKey</a></p>
             <p class="mb-4">Represents interface key.</p>
             
               <div class="table-container">
@@ -1382,7 +1391,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.InterfaceNotification" href="#ndk.InterfaceNotification">InterfaceNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.InterfaceNotification" href="#srlinux.sdk.InterfaceNotification">InterfaceNotification</a></p>
             <p class="mb-4">Represents interface notification.</p>
             
               <div class="table-container">
@@ -1399,21 +1408,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.InterfaceKey">InterfaceKey</a></td>
+                        <td><a href="#srlinux.sdk.InterfaceKey">InterfaceKey</a></td>
                         <td></td>
                         <td><p>Interface key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.InterfaceData">InterfaceData</a></td>
+                        <td><a href="#srlinux.sdk.InterfaceData">InterfaceData</a></td>
                         <td></td>
                         <td><p>Interface data </p></td>
                       </tr>
@@ -1426,7 +1435,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.InterfaceSubscriptionRequest" href="#ndk.InterfaceSubscriptionRequest">InterfaceSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.InterfaceSubscriptionRequest" href="#srlinux.sdk.InterfaceSubscriptionRequest">InterfaceSubscriptionRequest</a></p>
             <p class="mb-4">Represents interface subscription request.</p>
             
               <div class="table-container">
@@ -1443,7 +1452,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.InterfaceKey">InterfaceKey</a></td>
+                        <td><a href="#srlinux.sdk.InterfaceKey">InterfaceKey</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -1473,7 +1482,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.LldpNeighborDataPb" href="#ndk.LldpNeighborDataPb">LldpNeighborDataPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.LldpNeighborDataPb" href="#srlinux.sdk.LldpNeighborDataPb">LldpNeighborDataPb</a></p>
             <p class="mb-4">Represents LLDP neighbor data.</p>
             
               <div class="table-container">
@@ -1497,21 +1506,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>port_type</td>
-                        <td><a href="#ndk.LldpNeighborDataPb.PortSubType">LldpNeighborDataPb.PortSubType</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborDataPb.PortSubType">LldpNeighborDataPb.PortSubType</a></td>
                         <td></td>
                         <td><p>Port type </p></td>
                       </tr>
                     
                       <tr>
                         <td>source_mac</td>
-                        <td><a href="#ndk.MacAddressPb">MacAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.MacAddressPb">MacAddressPb</a></td>
                         <td></td>
                         <td><p>Port MAC address </p></td>
                       </tr>
                     
                       <tr>
                         <td>bgp_peer_address</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td>repeated</td>
                         <td><p>LLDP BGP autodiscovered addresses </p></td>
                       </tr>
@@ -1545,7 +1554,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.LldpNeighborKeyPb" href="#ndk.LldpNeighborKeyPb">LldpNeighborKeyPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.LldpNeighborKeyPb" href="#srlinux.sdk.LldpNeighborKeyPb">LldpNeighborKeyPb</a></p>
             <p class="mb-4">Represents LLDP neighbor key.</p>
             
               <div class="table-container">
@@ -1576,7 +1585,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>chassis_type</td>
-                        <td><a href="#ndk.LldpNeighborKeyPb.ChassisIdType">LldpNeighborKeyPb.ChassisIdType</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborKeyPb.ChassisIdType">LldpNeighborKeyPb.ChassisIdType</a></td>
                         <td></td>
                         <td><p>Chassis type </p></td>
                       </tr>
@@ -1589,7 +1598,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.LldpNeighborNotification" href="#ndk.LldpNeighborNotification">LldpNeighborNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.LldpNeighborNotification" href="#srlinux.sdk.LldpNeighborNotification">LldpNeighborNotification</a></p>
             <p class="mb-4">Represents LLDP neighbor notification.</p>
             
               <div class="table-container">
@@ -1606,21 +1615,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.LldpNeighborKeyPb">LldpNeighborKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborKeyPb">LldpNeighborKeyPb</a></td>
                         <td></td>
                         <td><p>LLDP neighbor key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.LldpNeighborDataPb">LldpNeighborDataPb</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborDataPb">LldpNeighborDataPb</a></td>
                         <td></td>
                         <td><p>LLDP neighbor data </p></td>
                       </tr>
@@ -1633,7 +1642,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.LldpNeighborSubscriptionRequest" href="#ndk.LldpNeighborSubscriptionRequest">LldpNeighborSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.LldpNeighborSubscriptionRequest" href="#srlinux.sdk.LldpNeighborSubscriptionRequest">LldpNeighborSubscriptionRequest</a></p>
             <p class="mb-4">Represents LLDP neighbor subscription request.</p>
             
               <div class="table-container">
@@ -1650,7 +1659,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.LldpNeighborKeyPb">LldpNeighborKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborKeyPb">LldpNeighborKeyPb</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -1665,7 +1674,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.LldpNeighborDataPb.PortSubType" href="#ndk.LldpNeighborDataPb.PortSubType">LldpNeighborDataPb.PortSubType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.LldpNeighborDataPb.PortSubType" href="#srlinux.sdk.LldpNeighborDataPb.PortSubType">LldpNeighborDataPb.PortSubType</a></p>
             <p class="mb-4">Represents port subtype.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -1726,7 +1735,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.LldpNeighborKeyPb.ChassisIdType" href="#ndk.LldpNeighborKeyPb.ChassisIdType">LldpNeighborKeyPb.ChassisIdType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.LldpNeighborKeyPb.ChassisIdType" href="#srlinux.sdk.LldpNeighborKeyPb.ChassisIdType">LldpNeighborKeyPb.ChassisIdType</a></p>
             <p class="mb-4">Represents chassis type.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -1802,7 +1811,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRouteAddRequest" href="#ndk.MplsRouteAddRequest">MplsRouteAddRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRouteAddRequest" href="#srlinux.sdk.MplsRouteAddRequest">MplsRouteAddRequest</a></p>
             <p class="mb-4">Represents MPLS route add request, which can include one or more MPLS routes.</p>
             
               <div class="table-container">
@@ -1819,7 +1828,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>routes</td>
-                        <td><a href="#ndk.MplsRouteInfo">MplsRouteInfo</a></td>
+                        <td><a href="#srlinux.sdk.MplsRouteInfo">MplsRouteInfo</a></td>
                         <td>repeated</td>
                         <td><p>MPLS routes </p></td>
                       </tr>
@@ -1832,7 +1841,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRouteAddResponse" href="#ndk.MplsRouteAddResponse">MplsRouteAddResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRouteAddResponse" href="#srlinux.sdk.MplsRouteAddResponse">MplsRouteAddResponse</a></p>
             <p class="mb-4">Represents MPLS route add response.</p>
             
               <div class="table-container">
@@ -1849,7 +1858,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of MPLS route add request </p></td>
                       </tr>
@@ -1869,7 +1878,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRouteDeleteRequest" href="#ndk.MplsRouteDeleteRequest">MplsRouteDeleteRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRouteDeleteRequest" href="#srlinux.sdk.MplsRouteDeleteRequest">MplsRouteDeleteRequest</a></p>
             <p class="mb-4">Represents MPLS route delete request, which can include one or more MPLS routes.</p>
             
               <div class="table-container">
@@ -1886,7 +1895,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>routes</td>
-                        <td><a href="#ndk.MplsRouteKeyPb">MplsRouteKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.MplsRouteKeyPb">MplsRouteKeyPb</a></td>
                         <td>repeated</td>
                         <td><p>MPLS routes </p></td>
                       </tr>
@@ -1899,7 +1908,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRouteDeleteResponse" href="#ndk.MplsRouteDeleteResponse">MplsRouteDeleteResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRouteDeleteResponse" href="#srlinux.sdk.MplsRouteDeleteResponse">MplsRouteDeleteResponse</a></p>
             <p class="mb-4">Represents MPLS route delete response.</p>
             
               <div class="table-container">
@@ -1916,7 +1925,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of MPLS route delete request </p></td>
                       </tr>
@@ -1936,7 +1945,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRouteInfo" href="#ndk.MplsRouteInfo">MplsRouteInfo</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRouteInfo" href="#srlinux.sdk.MplsRouteInfo">MplsRouteInfo</a></p>
             <p class="mb-4">Represents MPLS route information; contains key and data.</p>
             
               <div class="table-container">
@@ -1953,14 +1962,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.MplsRouteKeyPb">MplsRouteKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.MplsRouteKeyPb">MplsRouteKeyPb</a></td>
                         <td></td>
                         <td><p>MPLS route key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.MplsRoutePb">MplsRoutePb</a></td>
+                        <td><a href="#srlinux.sdk.MplsRoutePb">MplsRoutePb</a></td>
                         <td></td>
                         <td><p>MPLS route data </p></td>
                       </tr>
@@ -1973,7 +1982,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRouteKeyPb" href="#ndk.MplsRouteKeyPb">MplsRouteKeyPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRouteKeyPb" href="#srlinux.sdk.MplsRouteKeyPb">MplsRouteKeyPb</a></p>
             <p class="mb-4">Represents MPLS route key.</p>
             
               <div class="table-container">
@@ -1990,7 +1999,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>top_label</td>
-                        <td><a href="#ndk.MplsLabel">MplsLabel</a></td>
+                        <td><a href="#srlinux.sdk.MplsLabel">MplsLabel</a></td>
                         <td></td>
                         <td><p>Top label </p></td>
                       </tr>
@@ -2010,7 +2019,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRoutePb" href="#ndk.MplsRoutePb">MplsRoutePb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRoutePb" href="#srlinux.sdk.MplsRoutePb">MplsRoutePb</a></p>
             <p class="mb-4">Represents MPLS route data.</p>
             
               <div class="table-container">
@@ -2034,7 +2043,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>operation</td>
-                        <td><a href="#ndk.MplsRoutePb.Operation">MplsRoutePb.Operation</a></td>
+                        <td><a href="#srlinux.sdk.MplsRoutePb.Operation">MplsRoutePb.Operation</a></td>
                         <td></td>
                         <td><p>Operation such as POP or SWAP </p></td>
                       </tr>
@@ -2056,7 +2065,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsRoutePb.Operation" href="#ndk.MplsRoutePb.Operation">MplsRoutePb.Operation</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsRoutePb.Operation" href="#srlinux.sdk.MplsRoutePb.Operation">MplsRoutePb.Operation</a></p>
             <p class="mb-4">Represents MPLS operation.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -2091,7 +2100,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrMplsRouteService" href="#ndk.SdkMgrMplsRouteService">SdkMgrMplsRouteService</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrMplsRouteService" href="#srlinux.sdk.SdkMgrMplsRouteService">SdkMgrMplsRouteService</a></p>
             <p class="mb-4">Represents service for MPLS programming.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -2102,29 +2111,29 @@ Session type </p></td>
                   
                     <tr>
                       <td>MplsRouteAddOrUpdate</td>
-                      <td><a href="#ndk.MplsRouteAddRequest">MplsRouteAddRequest</a></td>
-                      <td><a href="#ndk.MplsRouteAddResponse">MplsRouteAddResponse</a></td>
+                      <td><a href="#srlinux.sdk.MplsRouteAddRequest">MplsRouteAddRequest</a></td>
+                      <td><a href="#srlinux.sdk.MplsRouteAddResponse">MplsRouteAddResponse</a></td>
                       <td><p>MPLS route add or update; can add or update more than one MPLS route in one request</p></td>
                     </tr>
                   
                     <tr>
                       <td>MplsRouteDelete</td>
-                      <td><a href="#ndk.MplsRouteDeleteRequest">MplsRouteDeleteRequest</a></td>
-                      <td><a href="#ndk.MplsRouteDeleteResponse">MplsRouteDeleteResponse</a></td>
+                      <td><a href="#srlinux.sdk.MplsRouteDeleteRequest">MplsRouteDeleteRequest</a></td>
+                      <td><a href="#srlinux.sdk.MplsRouteDeleteResponse">MplsRouteDeleteResponse</a></td>
                       <td><p>MPLS route delete; can delete more than one MPLS route in one request</p></td>
                     </tr>
                   
                     <tr>
                       <td>SyncStart</td>
-                      <td><a href="#ndk.SyncRequest">SyncRequest</a></td>
-                      <td><a href="#ndk.SyncResponse">SyncResponse</a></td>
+                      <td><a href="#srlinux.sdk.SyncRequest">SyncRequest</a></td>
+                      <td><a href="#srlinux.sdk.SyncResponse">SyncResponse</a></td>
                       <td><p>Synchronization start to begin synchronization operation</p></td>
                     </tr>
                   
                     <tr>
                       <td>SyncEnd</td>
-                      <td><a href="#ndk.SyncRequest">SyncRequest</a></td>
-                      <td><a href="#ndk.SyncResponse">SyncResponse</a></td>
+                      <td><a href="#srlinux.sdk.SyncRequest">SyncRequest</a></td>
+                      <td><a href="#srlinux.sdk.SyncResponse">SyncResponse</a></td>
                       <td><p>Synchronization end to close synchronization operation</p></td>
                     </tr>
                   
@@ -2172,7 +2181,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NetworkInstanceData" href="#ndk.NetworkInstanceData">NetworkInstanceData</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NetworkInstanceData" href="#srlinux.sdk.NetworkInstanceData">NetworkInstanceData</a></p>
             <p class="mb-4">Represents network instance data.</p>
             
               <div class="table-container">
@@ -2217,7 +2226,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>inst_type</td>
-                        <td><a href="#ndk.NetworkInstanceData.NetInstType">NetworkInstanceData.NetInstType</a></td>
+                        <td><a href="#srlinux.sdk.NetworkInstanceData.NetInstType">NetworkInstanceData.NetInstType</a></td>
                         <td></td>
                         <td><p>Network instance type </p></td>
                       </tr>
@@ -2230,7 +2239,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NetworkInstanceKey" href="#ndk.NetworkInstanceKey">NetworkInstanceKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NetworkInstanceKey" href="#srlinux.sdk.NetworkInstanceKey">NetworkInstanceKey</a></p>
             <p class="mb-4">Represents network instance key.</p>
             
               <div class="table-container">
@@ -2260,7 +2269,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NetworkInstanceNotification" href="#ndk.NetworkInstanceNotification">NetworkInstanceNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NetworkInstanceNotification" href="#srlinux.sdk.NetworkInstanceNotification">NetworkInstanceNotification</a></p>
             <p class="mb-4">Represents network instance notification.</p>
             
               <div class="table-container">
@@ -2277,21 +2286,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.NetworkInstanceKey">NetworkInstanceKey</a></td>
+                        <td><a href="#srlinux.sdk.NetworkInstanceKey">NetworkInstanceKey</a></td>
                         <td></td>
                         <td><p>Network key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.NetworkInstanceData">NetworkInstanceData</a></td>
+                        <td><a href="#srlinux.sdk.NetworkInstanceData">NetworkInstanceData</a></td>
                         <td></td>
                         <td><p>Network data </p></td>
                       </tr>
@@ -2304,7 +2313,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NetworkInstanceSubscriptionRequest" href="#ndk.NetworkInstanceSubscriptionRequest">NetworkInstanceSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NetworkInstanceSubscriptionRequest" href="#srlinux.sdk.NetworkInstanceSubscriptionRequest">NetworkInstanceSubscriptionRequest</a></p>
             <p class="mb-4">Represents network instance subscription request.</p>
             
 
@@ -2312,7 +2321,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NetworkInstanceData.NetInstType" href="#ndk.NetworkInstanceData.NetInstType">NetworkInstanceData.NetInstType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NetworkInstanceData.NetInstType" href="#srlinux.sdk.NetworkInstanceData.NetInstType">NetworkInstanceData.NetInstType</a></p>
             <p class="mb-4">Represents network instance type.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -2352,7 +2361,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsNextHop" href="#ndk.MplsNextHop">MplsNextHop</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsNextHop" href="#srlinux.sdk.MplsNextHop">MplsNextHop</a></p>
             <p class="mb-4">Represents MPLS next hop.</p>
             
               <div class="table-container">
@@ -2369,14 +2378,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>ip_nexthop</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td></td>
                         <td><p>Next-hop IP address </p></td>
                       </tr>
                     
                       <tr>
                         <td>label_stack</td>
-                        <td><a href="#ndk.MplsLabel">MplsLabel</a></td>
+                        <td><a href="#srlinux.sdk.MplsLabel">MplsLabel</a></td>
                         <td>repeated</td>
                         <td><p>MPLS label stack </p></td>
                       </tr>
@@ -2389,7 +2398,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHop" href="#ndk.NextHop">NextHop</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHop" href="#srlinux.sdk.NextHop">NextHop</a></p>
             <p class="mb-4">Represents next-hop.</p>
             
               <div class="table-container">
@@ -2406,28 +2415,28 @@ Session type </p></td>
                     
                       <tr>
                         <td>resolve_to</td>
-                        <td><a href="#ndk.NextHop.ResolveToType">NextHop.ResolveToType</a></td>
+                        <td><a href="#srlinux.sdk.NextHop.ResolveToType">NextHop.ResolveToType</a></td>
                         <td></td>
                         <td><p>Resolve-to type </p></td>
                       </tr>
                     
                       <tr>
                         <td>type</td>
-                        <td><a href="#ndk.NextHop.ResolutionType">NextHop.ResolutionType</a></td>
+                        <td><a href="#srlinux.sdk.NextHop.ResolutionType">NextHop.ResolutionType</a></td>
                         <td></td>
                         <td><p>Resolution type </p></td>
                       </tr>
                     
                       <tr>
                         <td>ip_nexthop</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td></td>
                         <td><p>IP next-hop address </p></td>
                       </tr>
                     
                       <tr>
                         <td>mpls_nexthop</td>
-                        <td><a href="#ndk.MplsNextHop">MplsNextHop</a></td>
+                        <td><a href="#srlinux.sdk.MplsNextHop">MplsNextHop</a></td>
                         <td></td>
                         <td><p>MPLS next-hop </p></td>
                       </tr>
@@ -2440,7 +2449,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroup" href="#ndk.NextHopGroup">NextHopGroup</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroup" href="#srlinux.sdk.NextHopGroup">NextHopGroup</a></p>
             <p class="mb-4">Represents next-hop group.</p>
             
               <div class="table-container">
@@ -2457,7 +2466,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>next_hop</td>
-                        <td><a href="#ndk.NextHop">NextHop</a></td>
+                        <td><a href="#srlinux.sdk.NextHop">NextHop</a></td>
                         <td>repeated</td>
                         <td><p>Next-hops </p></td>
                       </tr>
@@ -2470,7 +2479,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupDeleteRequest" href="#ndk.NextHopGroupDeleteRequest">NextHopGroupDeleteRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupDeleteRequest" href="#srlinux.sdk.NextHopGroupDeleteRequest">NextHopGroupDeleteRequest</a></p>
             <p class="mb-4">Represents next-hop group delete request.</p>
             
               <div class="table-container">
@@ -2487,7 +2496,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>group_key</td>
-                        <td><a href="#ndk.NextHopGroupKey">NextHopGroupKey</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroupKey">NextHopGroupKey</a></td>
                         <td>repeated</td>
                         <td><p>Next-hop group key details </p></td>
                       </tr>
@@ -2500,7 +2509,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupDeleteResponse" href="#ndk.NextHopGroupDeleteResponse">NextHopGroupDeleteResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupDeleteResponse" href="#srlinux.sdk.NextHopGroupDeleteResponse">NextHopGroupDeleteResponse</a></p>
             <p class="mb-4">Represents next-hop group delete response.</p>
             
               <div class="table-container">
@@ -2517,7 +2526,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Response for next-hop group request </p></td>
                       </tr>
@@ -2537,7 +2546,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupInfo" href="#ndk.NextHopGroupInfo">NextHopGroupInfo</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupInfo" href="#srlinux.sdk.NextHopGroupInfo">NextHopGroupInfo</a></p>
             <p class="mb-4">Represents next-hop group information.</p>
             
               <div class="table-container">
@@ -2554,14 +2563,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.NextHopGroupKey">NextHopGroupKey</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroupKey">NextHopGroupKey</a></td>
                         <td></td>
                         <td><p>Next-hop group key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.NextHopGroup">NextHopGroup</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroup">NextHopGroup</a></td>
                         <td></td>
                         <td><p>Next-hop group data </p></td>
                       </tr>
@@ -2574,7 +2583,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupKey" href="#ndk.NextHopGroupKey">NextHopGroupKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupKey" href="#srlinux.sdk.NextHopGroupKey">NextHopGroupKey</a></p>
             <p class="mb-4">Represents next-hop group key.</p>
             
               <div class="table-container">
@@ -2611,7 +2620,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupNotification" href="#ndk.NextHopGroupNotification">NextHopGroupNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupNotification" href="#srlinux.sdk.NextHopGroupNotification">NextHopGroupNotification</a></p>
             <p class="mb-4">Represents next-hop group notification.</p>
             
               <div class="table-container">
@@ -2628,7 +2637,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as create, delete, or update </p></td>
                       </tr>
@@ -2642,7 +2651,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.NextHopGroup">NextHopGroup</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroup">NextHopGroup</a></td>
                         <td></td>
                         <td><p>Next-hop group data </p></td>
                       </tr>
@@ -2655,7 +2664,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupRequest" href="#ndk.NextHopGroupRequest">NextHopGroupRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupRequest" href="#srlinux.sdk.NextHopGroupRequest">NextHopGroupRequest</a></p>
             <p class="mb-4">Represents next-hop group request.</p>
             
               <div class="table-container">
@@ -2672,7 +2681,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>group_info</td>
-                        <td><a href="#ndk.NextHopGroupInfo">NextHopGroupInfo</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroupInfo">NextHopGroupInfo</a></td>
                         <td>repeated</td>
                         <td><p>Next-hop group details </p></td>
                       </tr>
@@ -2685,7 +2694,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupResponse" href="#ndk.NextHopGroupResponse">NextHopGroupResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupResponse" href="#srlinux.sdk.NextHopGroupResponse">NextHopGroupResponse</a></p>
             <p class="mb-4">Represents next-hop group response.</p>
             
               <div class="table-container">
@@ -2702,7 +2711,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Response for next-hop group request </p></td>
                       </tr>
@@ -2722,7 +2731,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHopGroupSubscriptionRequest" href="#ndk.NextHopGroupSubscriptionRequest">NextHopGroupSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHopGroupSubscriptionRequest" href="#srlinux.sdk.NextHopGroupSubscriptionRequest">NextHopGroupSubscriptionRequest</a></p>
             <p class="mb-4">Represents next-hop group subscription request.</p>
             
               <div class="table-container">
@@ -2739,7 +2748,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.NextHopGroupKey">NextHopGroupKey</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroupKey">NextHopGroupKey</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -2754,7 +2763,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHop.ResolutionType" href="#ndk.NextHop.ResolutionType">NextHop.ResolutionType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHop.ResolutionType" href="#srlinux.sdk.NextHop.ResolutionType">NextHop.ResolutionType</a></p>
             <p class="mb-4">Represents resolution type.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -2785,7 +2794,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NextHop.ResolveToType" href="#ndk.NextHop.ResolveToType">NextHop.ResolveToType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NextHop.ResolveToType" href="#srlinux.sdk.NextHop.ResolveToType">NextHop.ResolveToType</a></p>
             <p class="mb-4">Represents resolve-to type.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -2820,7 +2829,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrNextHopGroupService" href="#ndk.SdkMgrNextHopGroupService">SdkMgrNextHopGroupService</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrNextHopGroupService" href="#srlinux.sdk.SdkMgrNextHopGroupService">SdkMgrNextHopGroupService</a></p>
             <p class="mb-4">Represents service for next-hop group operations.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -2831,29 +2840,29 @@ Session type </p></td>
                   
                     <tr>
                       <td>NextHopGroupAddOrUpdate</td>
-                      <td><a href="#ndk.NextHopGroupRequest">NextHopGroupRequest</a></td>
-                      <td><a href="#ndk.NextHopGroupResponse">NextHopGroupResponse</a></td>
+                      <td><a href="#srlinux.sdk.NextHopGroupRequest">NextHopGroupRequest</a></td>
+                      <td><a href="#srlinux.sdk.NextHopGroupResponse">NextHopGroupResponse</a></td>
                       <td><p>Add or update one or more next-hop groups.</p></td>
                     </tr>
                   
                     <tr>
                       <td>NextHopGroupDelete</td>
-                      <td><a href="#ndk.NextHopGroupDeleteRequest">NextHopGroupDeleteRequest</a></td>
-                      <td><a href="#ndk.NextHopGroupDeleteResponse">NextHopGroupDeleteResponse</a></td>
+                      <td><a href="#srlinux.sdk.NextHopGroupDeleteRequest">NextHopGroupDeleteRequest</a></td>
+                      <td><a href="#srlinux.sdk.NextHopGroupDeleteResponse">NextHopGroupDeleteResponse</a></td>
                       <td><p>Delete next-hop group.</p></td>
                     </tr>
                   
                     <tr>
                       <td>SyncStart</td>
-                      <td><a href="#ndk.SyncRequest">SyncRequest</a></td>
-                      <td><a href="#ndk.SyncResponse">SyncResponse</a></td>
+                      <td><a href="#srlinux.sdk.SyncRequest">SyncRequest</a></td>
+                      <td><a href="#srlinux.sdk.SyncResponse">SyncResponse</a></td>
                       <td><p>Synchronization start to open synchronization operation.</p></td>
                     </tr>
                   
                     <tr>
                       <td>SyncEnd</td>
-                      <td><a href="#ndk.SyncRequest">SyncRequest</a></td>
-                      <td><a href="#ndk.SyncResponse">SyncResponse</a></td>
+                      <td><a href="#srlinux.sdk.SyncRequest">SyncRequest</a></td>
+                      <td><a href="#srlinux.sdk.SyncResponse">SyncResponse</a></td>
                       <td><p>Synchronization end to close synchronization operation.</p></td>
                     </tr>
                   
@@ -2873,7 +2882,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IpRouteNotification" href="#ndk.IpRouteNotification">IpRouteNotification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IpRouteNotification" href="#srlinux.sdk.IpRouteNotification">IpRouteNotification</a></p>
             <p class="mb-4">Represents IP route notification.</p>
             
               <div class="table-container">
@@ -2890,21 +2899,21 @@ Session type </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.SdkMgrOperation">SdkMgrOperation</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></td>
                         <td></td>
                         <td><p>Operation such as create, delete, or update </p></td>
                       </tr>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.RouteKeyPb">RouteKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.RouteKeyPb">RouteKeyPb</a></td>
                         <td></td>
                         <td><p>IP route key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.RoutePb">RoutePb</a></td>
+                        <td><a href="#srlinux.sdk.RoutePb">RoutePb</a></td>
                         <td></td>
                         <td><p>IP route data </p></td>
                       </tr>
@@ -2917,7 +2926,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IpRouteSubscriptionRequest" href="#ndk.IpRouteSubscriptionRequest">IpRouteSubscriptionRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IpRouteSubscriptionRequest" href="#srlinux.sdk.IpRouteSubscriptionRequest">IpRouteSubscriptionRequest</a></p>
             <p class="mb-4">Represents IP route subscription request.</p>
             
               <div class="table-container">
@@ -2934,7 +2943,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.RouteKeyPb">RouteKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.RouteKeyPb">RouteKeyPb</a></td>
                         <td></td>
                         <td><p>Optional, to filter on name </p></td>
                       </tr>
@@ -2947,7 +2956,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RouteAddRequest" href="#ndk.RouteAddRequest">RouteAddRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RouteAddRequest" href="#srlinux.sdk.RouteAddRequest">RouteAddRequest</a></p>
             <p class="mb-4">Represents route add request; can contain more than one route.</p>
             
               <div class="table-container">
@@ -2964,7 +2973,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>routes</td>
-                        <td><a href="#ndk.RouteInfo">RouteInfo</a></td>
+                        <td><a href="#srlinux.sdk.RouteInfo">RouteInfo</a></td>
                         <td>repeated</td>
                         <td><p>IP routes </p></td>
                       </tr>
@@ -2977,7 +2986,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RouteAddResponse" href="#ndk.RouteAddResponse">RouteAddResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RouteAddResponse" href="#srlinux.sdk.RouteAddResponse">RouteAddResponse</a></p>
             <p class="mb-4">Represents route add response.</p>
             
               <div class="table-container">
@@ -2994,7 +3003,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of route add operation </p></td>
                       </tr>
@@ -3014,7 +3023,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RouteDeleteRequest" href="#ndk.RouteDeleteRequest">RouteDeleteRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RouteDeleteRequest" href="#srlinux.sdk.RouteDeleteRequest">RouteDeleteRequest</a></p>
             <p class="mb-4">Represents route delete request; can contain more than one route.</p>
             
               <div class="table-container">
@@ -3031,7 +3040,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>routes</td>
-                        <td><a href="#ndk.RouteKeyPb">RouteKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.RouteKeyPb">RouteKeyPb</a></td>
                         <td>repeated</td>
                         <td><p>IP routes </p></td>
                       </tr>
@@ -3044,7 +3053,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RouteDeleteResponse" href="#ndk.RouteDeleteResponse">RouteDeleteResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RouteDeleteResponse" href="#srlinux.sdk.RouteDeleteResponse">RouteDeleteResponse</a></p>
             <p class="mb-4">Represents route delete response.</p>
             
               <div class="table-container">
@@ -3061,7 +3070,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of route delete operation </p></td>
                       </tr>
@@ -3081,7 +3090,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RouteInfo" href="#ndk.RouteInfo">RouteInfo</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RouteInfo" href="#srlinux.sdk.RouteInfo">RouteInfo</a></p>
             <p class="mb-4">Represents route information.</p>
             
               <div class="table-container">
@@ -3098,14 +3107,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.RouteKeyPb">RouteKeyPb</a></td>
+                        <td><a href="#srlinux.sdk.RouteKeyPb">RouteKeyPb</a></td>
                         <td></td>
                         <td><p>Route key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.RoutePb">RoutePb</a></td>
+                        <td><a href="#srlinux.sdk.RoutePb">RoutePb</a></td>
                         <td></td>
                         <td><p>Route data </p></td>
                       </tr>
@@ -3118,7 +3127,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RouteKeyPb" href="#ndk.RouteKeyPb">RouteKeyPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RouteKeyPb" href="#srlinux.sdk.RouteKeyPb">RouteKeyPb</a></p>
             <p class="mb-4">Represents route key.</p>
             
               <div class="table-container">
@@ -3142,7 +3151,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>ip_prefix</td>
-                        <td><a href="#ndk.IpAddrPrefLenPb">IpAddrPrefLenPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddrPrefLenPb">IpAddrPrefLenPb</a></td>
                         <td></td>
                         <td><p>IP prefix </p></td>
                       </tr>
@@ -3155,7 +3164,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.RoutePb" href="#ndk.RoutePb">RoutePb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.RoutePb" href="#srlinux.sdk.RoutePb">RoutePb</a></p>
             <p class="mb-4">Represents route data.</p>
             
               <div class="table-container">
@@ -3193,7 +3202,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>nexthop</td>
-                        <td><a href="#ndk.NextHop">NextHop</a></td>
+                        <td><a href="#srlinux.sdk.NextHop">NextHop</a></td>
                         <td>repeated</td>
                         <td><p>List of next hops </p></td>
                       </tr>
@@ -3226,7 +3235,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrRouteService" href="#ndk.SdkMgrRouteService">SdkMgrRouteService</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrRouteService" href="#srlinux.sdk.SdkMgrRouteService">SdkMgrRouteService</a></p>
             <p class="mb-4">Represents service for IP route operations.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -3237,29 +3246,29 @@ Session type </p></td>
                   
                     <tr>
                       <td>RouteAddOrUpdate</td>
-                      <td><a href="#ndk.RouteAddRequest">RouteAddRequest</a></td>
-                      <td><a href="#ndk.RouteAddResponse">RouteAddResponse</a></td>
+                      <td><a href="#srlinux.sdk.RouteAddRequest">RouteAddRequest</a></td>
+                      <td><a href="#srlinux.sdk.RouteAddResponse">RouteAddResponse</a></td>
                       <td><p>Add or update IP routes.</p></td>
                     </tr>
                   
                     <tr>
                       <td>RouteDelete</td>
-                      <td><a href="#ndk.RouteDeleteRequest">RouteDeleteRequest</a></td>
-                      <td><a href="#ndk.RouteDeleteResponse">RouteDeleteResponse</a></td>
+                      <td><a href="#srlinux.sdk.RouteDeleteRequest">RouteDeleteRequest</a></td>
+                      <td><a href="#srlinux.sdk.RouteDeleteResponse">RouteDeleteResponse</a></td>
                       <td><p>Delete IP routes.</p></td>
                     </tr>
                   
                     <tr>
                       <td>SyncStart</td>
-                      <td><a href="#ndk.SyncRequest">SyncRequest</a></td>
-                      <td><a href="#ndk.SyncResponse">SyncResponse</a></td>
+                      <td><a href="#srlinux.sdk.SyncRequest">SyncRequest</a></td>
+                      <td><a href="#srlinux.sdk.SyncResponse">SyncResponse</a></td>
                       <td><p>Synchronization start for IP routes</p></td>
                     </tr>
                   
                     <tr>
                       <td>SyncEnd</td>
-                      <td><a href="#ndk.SyncRequest">SyncRequest</a></td>
-                      <td><a href="#ndk.SyncResponse">SyncResponse</a></td>
+                      <td><a href="#srlinux.sdk.SyncRequest">SyncRequest</a></td>
+                      <td><a href="#srlinux.sdk.SyncResponse">SyncResponse</a></td>
                       <td><p>Synchronization end for IP routes</p></td>
                     </tr>
                   
@@ -3279,13 +3288,13 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AgentReply" href="#ndk.AgentReply">AgentReply</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AgentReply" href="#srlinux.sdk.AgentReply">AgentReply</a></p>
             <p class="mb-4">Empty message from agent.</p>
             
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.EvpnEthSegIdPb" href="#ndk.EvpnEthSegIdPb">EvpnEthSegIdPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.EvpnEthSegIdPb" href="#srlinux.sdk.EvpnEthSegIdPb">EvpnEthSegIdPb</a></p>
             <p class="mb-4"></p>
             
               <div class="table-container">
@@ -3315,7 +3324,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.GlobalIfId" href="#ndk.GlobalIfId">GlobalIfId</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.GlobalIfId" href="#srlinux.sdk.GlobalIfId">GlobalIfId</a></p>
             <p class="mb-4">Represents global interface identifier.</p>
             
               <div class="table-container">
@@ -3345,7 +3354,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IpAddrPrefLenPb" href="#ndk.IpAddrPrefLenPb">IpAddrPrefLenPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IpAddrPrefLenPb" href="#srlinux.sdk.IpAddrPrefLenPb">IpAddrPrefLenPb</a></p>
             <p class="mb-4">Represents IP prefix.</p>
             
               <div class="table-container">
@@ -3362,7 +3371,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>ip_addr</td>
-                        <td><a href="#ndk.IpAddressPb">IpAddressPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></td>
                         <td></td>
                         <td><p>IP address </p></td>
                       </tr>
@@ -3382,7 +3391,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IpAddressPb" href="#ndk.IpAddressPb">IpAddressPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IpAddressPb" href="#srlinux.sdk.IpAddressPb">IpAddressPb</a></p>
             <p class="mb-4">Represents IP address.</p>
             
               <div class="table-container">
@@ -3412,7 +3421,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IpInterfaceAddrPrefixPb" href="#ndk.IpInterfaceAddrPrefixPb">IpInterfaceAddrPrefixPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IpInterfaceAddrPrefixPb" href="#srlinux.sdk.IpInterfaceAddrPrefixPb">IpInterfaceAddrPrefixPb</a></p>
             <p class="mb-4">Represents IP prefix state.</p>
             
               <div class="table-container">
@@ -3429,14 +3438,14 @@ Session type </p></td>
                     
                       <tr>
                         <td>prefix</td>
-                        <td><a href="#ndk.IpAddrPrefLenPb">IpAddrPrefLenPb</a></td>
+                        <td><a href="#srlinux.sdk.IpAddrPrefLenPb">IpAddrPrefLenPb</a></td>
                         <td></td>
                         <td><p>IP prefix </p></td>
                       </tr>
                     
                       <tr>
                         <td>state</td>
-                        <td><a href="#ndk.IpAddressState">IpAddressState</a></td>
+                        <td><a href="#srlinux.sdk.IpAddressState">IpAddressState</a></td>
                         <td></td>
                         <td><p>IP prefix state </p></td>
                       </tr>
@@ -3449,7 +3458,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MacAddressPb" href="#ndk.MacAddressPb">MacAddressPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MacAddressPb" href="#srlinux.sdk.MacAddressPb">MacAddressPb</a></p>
             <p class="mb-4">Represents MAC address.</p>
             
               <div class="table-container">
@@ -3479,7 +3488,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.MplsLabel" href="#ndk.MplsLabel">MplsLabel</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.MplsLabel" href="#srlinux.sdk.MplsLabel">MplsLabel</a></p>
             <p class="mb-4">Represents MPLS label.</p>
             
               <div class="table-container">
@@ -3509,7 +3518,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NetInstanceId" href="#ndk.NetInstanceId">NetInstanceId</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NetInstanceId" href="#srlinux.sdk.NetInstanceId">NetInstanceId</a></p>
             <p class="mb-4">Represents network instance identifier.</p>
             
               <div class="table-container">
@@ -3539,7 +3548,7 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.PortIdPb" href="#ndk.PortIdPb">PortIdPb</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.PortIdPb" href="#srlinux.sdk.PortIdPb">PortIdPb</a></p>
             <p class="mb-4">Represents port identifier.</p>
             
               <div class="table-container">
@@ -3569,13 +3578,13 @@ Session type </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SyncRequest" href="#ndk.SyncRequest">SyncRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SyncRequest" href="#srlinux.sdk.SyncRequest">SyncRequest</a></p>
             <p class="mb-4">Empty message for synchronization request.</p>
             
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SyncResponse" href="#ndk.SyncResponse">SyncResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SyncResponse" href="#srlinux.sdk.SyncResponse">SyncResponse</a></p>
             <p class="mb-4">Empty message for synchronization end.</p>
             
               <div class="table-container">
@@ -3592,7 +3601,7 @@ Session type </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Error code </p></td>
                       </tr>
@@ -3614,7 +3623,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IfEthernetDuplexModeType" href="#ndk.IfEthernetDuplexModeType">IfEthernetDuplexModeType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfEthernetDuplexModeType" href="#srlinux.sdk.IfEthernetDuplexModeType">IfEthernetDuplexModeType</a></p>
             <p class="mb-4">Represents interface ethernet duplex mode. Corresponds to yang values</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -3645,7 +3654,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IfEthernetPortSpeedType" href="#ndk.IfEthernetPortSpeedType">IfEthernetPortSpeedType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfEthernetPortSpeedType" href="#srlinux.sdk.IfEthernetPortSpeedType">IfEthernetPortSpeedType</a></p>
             <p class="mb-4">Represents interface ethernet port speed. Corresponds to yang values</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -3730,7 +3739,44 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IfMgrIfType" href="#ndk.IfMgrIfType">IfMgrIfType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfLoopbackModeType" href="#srlinux.sdk.IfLoopbackModeType">IfLoopbackModeType</a></p>
+            <p class="mb-4">Represents interface loopback mode. Corresponds to yang values</p>
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+                      <td>IF_LOOPBACK_MODE_UNSET</td>
+                      <td>0</td>
+                      <td><p>loopback mode not supported</p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>IF_LOOPBACK_MODE_NONE</td>
+                      <td>1</td>
+                      <td><p></p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>IF_LOOPBACK_MODE_FACILITY</td>
+                      <td>2</td>
+                      <td><p></p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>IF_LOOPBACK_MODE_TERMINAL</td>
+                      <td>3</td>
+                      <td><p></p></td>
+                    </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfMgrIfType" href="#srlinux.sdk.IfMgrIfType">IfMgrIfType</a></p>
             <p class="mb-4">Represents interface type.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -3806,7 +3852,7 @@ Session type </p></td>
                     </tr>
                   
                     <tr>
-                      <td>MAX</td>
+                      <td>IF_TYPE_MAX</td>
                       <td>11</td>
                       <td><p></p></td>
                     </tr>
@@ -3815,7 +3861,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IfOperDownReason" href="#ndk.IfOperDownReason">IfOperDownReason</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfOperDownReason" href="#srlinux.sdk.IfOperDownReason">IfOperDownReason</a></p>
             <p class="mb-4"></p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -3867,124 +3913,124 @@ Session type </p></td>
                     </tr>
                   
                     <tr>
-                      <td>IF_OPER_DOWN_LOOPBACK</td>
+                      <td>IF_OPER_DOWN_LOWER_LAYER_DOWN</td>
                       <td>7</td>
                       <td><p></p></td>
                     </tr>
                   
                     <tr>
-                      <td>IF_OPER_DOWN_LOWER_LAYER_DOWN</td>
+                      <td>IF_OPER_DOWN_MTU_RESOURCES</td>
                       <td>8</td>
                       <td><p></p></td>
                     </tr>
                   
                     <tr>
-                      <td>IF_OPER_DOWN_MTU_RESOURCES</td>
+                      <td>IF_OPER_DOWN_UNSUPPORTED_SPEED</td>
                       <td>9</td>
                       <td><p></p></td>
                     </tr>
                   
                     <tr>
-                      <td>IF_OPER_DOWN_UNSUPPORTED_SPEED</td>
+                      <td>IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC</td>
                       <td>10</td>
                       <td><p></p></td>
                     </tr>
                   
                     <tr>
-                      <td>IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC</td>
+                      <td>IF_OPER_DOWN_OTHER</td>
                       <td>11</td>
                       <td><p></p></td>
                     </tr>
                   
                     <tr>
-                      <td>IF_OPER_DOWN_OTHER</td>
-                      <td>12</td>
-                      <td><p></p></td>
-                    </tr>
-                  
-                    <tr>
                       <td>IF_OPER_DOWN_PORT_NOT_PRESENT</td>
-                      <td>13</td>
+                      <td>12</td>
                       <td><p>used internally by chassis mgr only - xdp never publish to IDB!</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_FABRIC_AVAILABILITY</td>
-                      <td>14</td>
+                      <td>13</td>
                       <td><p>used internally by chassis mgr only - xdp never publish to IDB!</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_NO_ACTIVE_LINKS</td>
-                      <td>15</td>
+                      <td>14</td>
                       <td><p>lag interface only</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_MIN_LINK_THRESHOLD</td>
-                      <td>16</td>
+                      <td>15</td>
                       <td><p>lag interface only</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_9_12_SPEED_MISMATCH</td>
-                      <td>17</td>
+                      <td>16</td>
                       <td><p>Vodka port 9-12 must all be same speed as port 9</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_LAG_RESOURCES</td>
-                      <td>18</td>
+                      <td>17</td>
                       <td><p>lag interface only</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_LAG_MEMBER_RESOURCES</td>
-                      <td>19</td>
+                      <td>18</td>
                       <td><p>lag member interface only</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_STANDBY_SIGNALING</td>
-                      <td>20</td>
+                      <td>19</td>
                       <td><p>ESM multihoming</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE</td>
-                      <td>21</td>
+                      <td>20</td>
                       <td><p>interface hold-time up is actively holding the interface down</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_RELOAD_TIME_ACTIVE</td>
-                      <td>22</td>
+                      <td>21</td>
                       <td><p>interface reload time is actively holding the interface down</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_CONNECTOR_DOWN</td>
-                      <td>23</td>
+                      <td>22</td>
                       <td><p>parent connector oper down forces breakout port oper down</p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_AUTO_NEG_MISMATCH</td>
-                      <td>24</td>
+                      <td>23</td>
                       <td><p></p></td>
                     </tr>
                   
                     <tr>
                       <td>IF_OPER_DOWN_EVENT_HANDLER</td>
-                      <td>25</td>
+                      <td>24</td>
                       <td><p>used internally by chassis mgr only - xdp never publish to IDB!</p></td>
+                    </tr>
+                  
+                    <tr>
+                      <td>IF_OPER_DOWN_UNSUPPORTED_BREAKOUT</td>
+                      <td>25</td>
+                      <td><p>interface doesn't support breakout config</p></td>
                     </tr>
                   
                 </tbody>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IfOperStateType" href="#ndk.IfOperStateType">IfOperStateType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfOperStateType" href="#srlinux.sdk.IfOperStateType">IfOperStateType</a></p>
             <p class="mb-4">Represents interface operational state.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4039,7 +4085,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IfTransceiverFecType" href="#ndk.IfTransceiverFecType">IfTransceiverFecType</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IfTransceiverFecType" href="#srlinux.sdk.IfTransceiverFecType">IfTransceiverFecType</a></p>
             <p class="mb-4">Represents interface transceiver fec. Corresponds to yang values</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4088,7 +4134,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.IpAddressState" href="#ndk.IpAddressState">IpAddressState</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.IpAddressState" href="#srlinux.sdk.IpAddressState">IpAddressState</a></p>
             <p class="mb-4">Represents IP address state.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4137,7 +4183,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrOperation" href="#ndk.SdkMgrOperation">SdkMgrOperation</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrOperation" href="#srlinux.sdk.SdkMgrOperation">SdkMgrOperation</a></p>
             <p class="mb-4">Represents enumeration value for operation in subscription.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4168,7 +4214,7 @@ Session type </p></td>
               </table>
             </div>
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrStatus" href="#ndk.SdkMgrStatus">SdkMgrStatus</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrStatus" href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></p>
             <p class="mb-4">Represents status of network programming service calls.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4210,7 +4256,7 @@ Session type </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AgentRegistrationRequest" href="#ndk.AgentRegistrationRequest">AgentRegistrationRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AgentRegistrationRequest" href="#srlinux.sdk.AgentRegistrationRequest">AgentRegistrationRequest</a></p>
             <p class="mb-4">Represents registration request message used in agent register and unregister.</p>
             
               <div class="table-container">
@@ -4251,7 +4297,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AgentRegistrationResponse" href="#ndk.AgentRegistrationResponse">AgentRegistrationResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AgentRegistrationResponse" href="#srlinux.sdk.AgentRegistrationResponse">AgentRegistrationResponse</a></p>
             <p class="mb-4">Represents registration response in reply to registration request.</p>
             
               <div class="table-container">
@@ -4268,7 +4314,7 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of the register; for example: kOk, kFailed </p></td>
                       </tr>
@@ -4295,7 +4341,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AppIdRequest" href="#ndk.AppIdRequest">AppIdRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AppIdRequest" href="#srlinux.sdk.AppIdRequest">AppIdRequest</a></p>
             <p class="mb-4">Represents application identifier request from agent. All applications are assigned an identifier by IDB.</p>
             
               <div class="table-container">
@@ -4325,7 +4371,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.AppIdResponse" href="#ndk.AppIdResponse">AppIdResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.AppIdResponse" href="#srlinux.sdk.AppIdResponse">AppIdResponse</a></p>
             <p class="mb-4">Represents application identifier response to agent.</p>
             
               <div class="table-container">
@@ -4342,7 +4388,7 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of the call; for example, kOk, kFailed </p></td>
                       </tr>
@@ -4362,13 +4408,13 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.KeepAliveRequest" href="#ndk.KeepAliveRequest">KeepAliveRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.KeepAliveRequest" href="#srlinux.sdk.KeepAliveRequest">KeepAliveRequest</a></p>
             <p class="mb-4">Represents keep alive request from agent to refresh liveliness of the agent.</p>
             
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.KeepAliveResponse" href="#ndk.KeepAliveResponse">KeepAliveResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.KeepAliveResponse" href="#srlinux.sdk.KeepAliveResponse">KeepAliveResponse</a></p>
             <p class="mb-4">Represents keepalive response.</p>
             
               <div class="table-container">
@@ -4385,7 +4431,7 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of keepalive; for example, kOk or kFailed </p></td>
                       </tr>
@@ -4398,7 +4444,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.Notification" href="#ndk.Notification">Notification</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.Notification" href="#srlinux.sdk.Notification">Notification</a></p>
             <p class="mb-4">Represents notification stream response.</p>
             
               <div class="table-container">
@@ -4422,56 +4468,56 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>intf</td>
-                        <td><a href="#ndk.InterfaceNotification">InterfaceNotification</a></td>
+                        <td><a href="#srlinux.sdk.InterfaceNotification">InterfaceNotification</a></td>
                         <td></td>
                         <td><p>Interface details </p></td>
                       </tr>
                     
                       <tr>
                         <td>nw_inst</td>
-                        <td><a href="#ndk.NetworkInstanceNotification">NetworkInstanceNotification</a></td>
+                        <td><a href="#srlinux.sdk.NetworkInstanceNotification">NetworkInstanceNotification</a></td>
                         <td></td>
                         <td><p>Network instance details </p></td>
                       </tr>
                     
                       <tr>
                         <td>lldp_neighbor</td>
-                        <td><a href="#ndk.LldpNeighborNotification">LldpNeighborNotification</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborNotification">LldpNeighborNotification</a></td>
                         <td></td>
                         <td><p>LLDP neighbor details </p></td>
                       </tr>
                     
                       <tr>
                         <td>config</td>
-                        <td><a href="#ndk.ConfigNotification">ConfigNotification</a></td>
+                        <td><a href="#srlinux.sdk.ConfigNotification">ConfigNotification</a></td>
                         <td></td>
                         <td><p>Configuration notification </p></td>
                       </tr>
                     
                       <tr>
                         <td>bfd_session</td>
-                        <td><a href="#ndk.BfdSessionNotification">BfdSessionNotification</a></td>
+                        <td><a href="#srlinux.sdk.BfdSessionNotification">BfdSessionNotification</a></td>
                         <td></td>
                         <td><p>BFD session details </p></td>
                       </tr>
                     
                       <tr>
                         <td>route</td>
-                        <td><a href="#ndk.IpRouteNotification">IpRouteNotification</a></td>
+                        <td><a href="#srlinux.sdk.IpRouteNotification">IpRouteNotification</a></td>
                         <td></td>
                         <td><p>IP route details </p></td>
                       </tr>
                     
                       <tr>
                         <td>appid</td>
-                        <td><a href="#ndk.AppIdentNotification">AppIdentNotification</a></td>
+                        <td><a href="#srlinux.sdk.AppIdentNotification">AppIdentNotification</a></td>
                         <td></td>
                         <td><p>App identification details </p></td>
                       </tr>
                     
                       <tr>
                         <td>nhg</td>
-                        <td><a href="#ndk.NextHopGroupNotification">NextHopGroupNotification</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroupNotification">NextHopGroupNotification</a></td>
                         <td></td>
                         <td><p>Next-hop group details </p></td>
                       </tr>
@@ -4484,7 +4530,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationQueryRequest" href="#ndk.NotificationQueryRequest">NotificationQueryRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationQueryRequest" href="#srlinux.sdk.NotificationQueryRequest">NotificationQueryRequest</a></p>
             <p class="mb-4">Represents notification query to return specific subscription details.</p>
             
               <div class="table-container">
@@ -4514,7 +4560,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationQueryResponse" href="#ndk.NotificationQueryResponse">NotificationQueryResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationQueryResponse" href="#srlinux.sdk.NotificationQueryResponse">NotificationQueryResponse</a></p>
             <p class="mb-4">Represents notification query response.</p>
             
               <div class="table-container">
@@ -4531,14 +4577,14 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>subscriptions</td>
-                        <td><a href="#ndk.NotificationQuerySubscription">NotificationQuerySubscription</a></td>
+                        <td><a href="#srlinux.sdk.NotificationQuerySubscription">NotificationQuerySubscription</a></td>
                         <td>repeated</td>
                         <td><p>List of subscription details </p></td>
                       </tr>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of the query </p></td>
                       </tr>
@@ -4551,7 +4597,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationQuerySubscription" href="#ndk.NotificationQuerySubscription">NotificationQuerySubscription</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationQuerySubscription" href="#srlinux.sdk.NotificationQuerySubscription">NotificationQuerySubscription</a></p>
             <p class="mb-4">Represents notification subscription.</p>
             
               <div class="table-container">
@@ -4588,7 +4634,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationRegisterRequest" href="#ndk.NotificationRegisterRequest">NotificationRegisterRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationRegisterRequest" href="#srlinux.sdk.NotificationRegisterRequest">NotificationRegisterRequest</a></p>
             <p class="mb-4">Represents notification request from agent. Agent uses this message to subscribe to router events such as interface create, delete, or update, as well as LLDP neighbor create, delete, or update, and so on.</p>
             
               <div class="table-container">
@@ -4612,7 +4658,7 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>op</td>
-                        <td><a href="#ndk.NotificationRegisterRequest.Operation">NotificationRegisterRequest.Operation</a></td>
+                        <td><a href="#srlinux.sdk.NotificationRegisterRequest.Operation">NotificationRegisterRequest.Operation</a></td>
                         <td></td>
                         <td><p>Specific operation in the notification register request </p></td>
                       </tr>
@@ -4626,56 +4672,56 @@ means do not monitor this agent for liveliness. </p></td>
                     
                       <tr>
                         <td>intf</td>
-                        <td><a href="#ndk.InterfaceSubscriptionRequest">InterfaceSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.InterfaceSubscriptionRequest">InterfaceSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>Interface subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>nw_inst</td>
-                        <td><a href="#ndk.NetworkInstanceSubscriptionRequest">NetworkInstanceSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.NetworkInstanceSubscriptionRequest">NetworkInstanceSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>Network instance subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>lldp_neighbor</td>
-                        <td><a href="#ndk.LldpNeighborSubscriptionRequest">LldpNeighborSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.LldpNeighborSubscriptionRequest">LldpNeighborSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>LLDP neighbor subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>config</td>
-                        <td><a href="#ndk.ConfigSubscriptionRequest">ConfigSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.ConfigSubscriptionRequest">ConfigSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>Configuration subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>bfd_session</td>
-                        <td><a href="#ndk.BfdSessionSubscriptionRequest">BfdSessionSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.BfdSessionSubscriptionRequest">BfdSessionSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>BFD session subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>route</td>
-                        <td><a href="#ndk.IpRouteSubscriptionRequest">IpRouteSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.IpRouteSubscriptionRequest">IpRouteSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>IP route subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>appid</td>
-                        <td><a href="#ndk.AppIdentSubscriptionRequest">AppIdentSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.AppIdentSubscriptionRequest">AppIdentSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>App identification subscription request </p></td>
                       </tr>
                     
                       <tr>
                         <td>nhg</td>
-                        <td><a href="#ndk.NextHopGroupSubscriptionRequest">NextHopGroupSubscriptionRequest</a></td>
+                        <td><a href="#srlinux.sdk.NextHopGroupSubscriptionRequest">NextHopGroupSubscriptionRequest</a></td>
                         <td></td>
                         <td><p>Nexthop Group subscription request </p></td>
                       </tr>
@@ -4688,7 +4734,7 @@ means do not monitor this agent for liveliness. </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationRegisterResponse" href="#ndk.NotificationRegisterResponse">NotificationRegisterResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationRegisterResponse" href="#srlinux.sdk.NotificationRegisterResponse">NotificationRegisterResponse</a></p>
             <p class="mb-4">Represents notification response.</p>
             
               <div class="table-container">
@@ -4720,7 +4766,7 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of subscription </p></td>
                       </tr>
@@ -4733,7 +4779,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationStreamRequest" href="#ndk.NotificationStreamRequest">NotificationStreamRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationStreamRequest" href="#srlinux.sdk.NotificationStreamRequest">NotificationStreamRequest</a></p>
             <p class="mb-4">Represents notification stream request.</p>
             
               <div class="table-container">
@@ -4763,7 +4809,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationStreamResponse" href="#ndk.NotificationStreamResponse">NotificationStreamResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationStreamResponse" href="#srlinux.sdk.NotificationStreamResponse">NotificationStreamResponse</a></p>
             <p class="mb-4">Represents notification stream response that contains one or more notification.</p>
             
               <div class="table-container">
@@ -4780,7 +4826,7 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>notification</td>
-                        <td><a href="#ndk.Notification">Notification</a></td>
+                        <td><a href="#srlinux.sdk.Notification">Notification</a></td>
                         <td>repeated</td>
                         <td><p>Notification details </p></td>
                       </tr>
@@ -4795,7 +4841,7 @@ subscription changes specific to the current subscription </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.NotificationRegisterRequest.Operation" href="#ndk.NotificationRegisterRequest.Operation">NotificationRegisterRequest.Operation</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.NotificationRegisterRequest.Operation" href="#srlinux.sdk.NotificationRegisterRequest.Operation">NotificationRegisterRequest.Operation</a></p>
             <p class="mb-4">Represents notification stream subscription request operation.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4836,7 +4882,7 @@ subscription changes specific to the current subscription </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrService" href="#ndk.SdkMgrService">SdkMgrService</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrService" href="#srlinux.sdk.SdkMgrService">SdkMgrService</a></p>
             <p class="mb-4">Represents base service that defines agent registration, unregistration, notification subscriptions, and keepalive messages.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4847,43 +4893,43 @@ subscription changes specific to the current subscription </p></td>
                   
                     <tr>
                       <td>AgentRegister</td>
-                      <td><a href="#ndk.AgentRegistrationRequest">AgentRegistrationRequest</a></td>
-                      <td><a href="#ndk.AgentRegistrationResponse">AgentRegistrationResponse</a></td>
+                      <td><a href="#srlinux.sdk.AgentRegistrationRequest">AgentRegistrationRequest</a></td>
+                      <td><a href="#srlinux.sdk.AgentRegistrationResponse">AgentRegistrationResponse</a></td>
                       <td><p>Register agent</p></td>
                     </tr>
                   
                     <tr>
                       <td>AgentUnRegister</td>
-                      <td><a href="#ndk.AgentRegistrationRequest">AgentRegistrationRequest</a></td>
-                      <td><a href="#ndk.AgentRegistrationResponse">AgentRegistrationResponse</a></td>
+                      <td><a href="#srlinux.sdk.AgentRegistrationRequest">AgentRegistrationRequest</a></td>
+                      <td><a href="#srlinux.sdk.AgentRegistrationResponse">AgentRegistrationResponse</a></td>
                       <td><p>Unregister agent</p></td>
                     </tr>
                   
                     <tr>
                       <td>NotificationRegister</td>
-                      <td><a href="#ndk.NotificationRegisterRequest">NotificationRegisterRequest</a></td>
-                      <td><a href="#ndk.NotificationRegisterResponse">NotificationRegisterResponse</a></td>
+                      <td><a href="#srlinux.sdk.NotificationRegisterRequest">NotificationRegisterRequest</a></td>
+                      <td><a href="#srlinux.sdk.NotificationRegisterResponse">NotificationRegisterResponse</a></td>
                       <td><p>Register for event notifications</p></td>
                     </tr>
                   
                     <tr>
                       <td>NotificationQuery</td>
-                      <td><a href="#ndk.NotificationQueryRequest">NotificationQueryRequest</a></td>
-                      <td><a href="#ndk.NotificationQueryResponse">NotificationQueryResponse</a></td>
+                      <td><a href="#srlinux.sdk.NotificationQueryRequest">NotificationQueryRequest</a></td>
+                      <td><a href="#srlinux.sdk.NotificationQueryResponse">NotificationQueryResponse</a></td>
                       <td><p>Returns current or specific notification subscription details</p></td>
                     </tr>
                   
                     <tr>
                       <td>KeepAlive</td>
-                      <td><a href="#ndk.KeepAliveRequest">KeepAliveRequest</a></td>
-                      <td><a href="#ndk.KeepAliveResponse">KeepAliveResponse</a></td>
+                      <td><a href="#srlinux.sdk.KeepAliveRequest">KeepAliveRequest</a></td>
+                      <td><a href="#srlinux.sdk.KeepAliveResponse">KeepAliveResponse</a></td>
                       <td><p>Send periodic keepalive message</p></td>
                     </tr>
                   
                     <tr>
                       <td>GetAppId</td>
-                      <td><a href="#ndk.AppIdRequest">AppIdRequest</a></td>
-                      <td><a href="#ndk.AppIdResponse">AppIdResponse</a></td>
+                      <td><a href="#srlinux.sdk.AppIdRequest">AppIdRequest</a></td>
+                      <td><a href="#srlinux.sdk.AppIdResponse">AppIdResponse</a></td>
                       <td><p>Get application name from application identifier</p></td>
                     </tr>
                   
@@ -4892,7 +4938,7 @@ subscription changes specific to the current subscription </p></td>
             </div>
 
             
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkNotificationService" href="#ndk.SdkNotificationService">SdkNotificationService</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkNotificationService" href="#srlinux.sdk.SdkNotificationService">SdkNotificationService</a></p>
             <p class="mb-4">Represents service for handling notifications.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -4903,8 +4949,8 @@ subscription changes specific to the current subscription </p></td>
                   
                     <tr>
                       <td>NotificationStream</td>
-                      <td><a href="#ndk.NotificationStreamRequest">NotificationStreamRequest</a></td>
-                      <td><a href="#ndk.NotificationStreamResponse">NotificationStreamResponse</a> stream</td>
+                      <td><a href="#srlinux.sdk.NotificationStreamRequest">NotificationStreamRequest</a></td>
+                      <td><a href="#srlinux.sdk.NotificationStreamResponse">NotificationStreamResponse</a> stream</td>
                       <td><p>Send stream of event notifications based on the agent subscriptions</p></td>
                     </tr>
                   
@@ -4924,7 +4970,7 @@ subscription changes specific to the current subscription </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryData" href="#ndk.TelemetryData">TelemetryData</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryData" href="#srlinux.sdk.TelemetryData">TelemetryData</a></p>
             <p class="mb-4">Represents telemetry data.</p>
             
               <div class="table-container">
@@ -4954,7 +5000,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryDeleteRequest" href="#ndk.TelemetryDeleteRequest">TelemetryDeleteRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryDeleteRequest" href="#srlinux.sdk.TelemetryDeleteRequest">TelemetryDeleteRequest</a></p>
             <p class="mb-4">Represents telemetry delete request.</p>
             
               <div class="table-container">
@@ -4971,7 +5017,7 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.TelemetryKey">TelemetryKey</a></td>
+                        <td><a href="#srlinux.sdk.TelemetryKey">TelemetryKey</a></td>
                         <td>repeated</td>
                         <td><p>Telemetry key </p></td>
                       </tr>
@@ -4984,7 +5030,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryDeleteResponse" href="#ndk.TelemetryDeleteResponse">TelemetryDeleteResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryDeleteResponse" href="#srlinux.sdk.TelemetryDeleteResponse">TelemetryDeleteResponse</a></p>
             <p class="mb-4">Represents telemetry delete response.</p>
             
               <div class="table-container">
@@ -5001,7 +5047,7 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of delete request </p></td>
                       </tr>
@@ -5021,7 +5067,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryInfo" href="#ndk.TelemetryInfo">TelemetryInfo</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryInfo" href="#srlinux.sdk.TelemetryInfo">TelemetryInfo</a></p>
             <p class="mb-4">Represents telemetry information.</p>
             
               <div class="table-container">
@@ -5038,14 +5084,14 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>key</td>
-                        <td><a href="#ndk.TelemetryKey">TelemetryKey</a></td>
+                        <td><a href="#srlinux.sdk.TelemetryKey">TelemetryKey</a></td>
                         <td></td>
                         <td><p>Telemetry key </p></td>
                       </tr>
                     
                       <tr>
                         <td>data</td>
-                        <td><a href="#ndk.TelemetryData">TelemetryData</a></td>
+                        <td><a href="#srlinux.sdk.TelemetryData">TelemetryData</a></td>
                         <td></td>
                         <td><p>Telemetry data </p></td>
                       </tr>
@@ -5058,7 +5104,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryKey" href="#ndk.TelemetryKey">TelemetryKey</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryKey" href="#srlinux.sdk.TelemetryKey">TelemetryKey</a></p>
             <p class="mb-4">Represents telemetry key.</p>
             
               <div class="table-container">
@@ -5088,7 +5134,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryUpdateRequest" href="#ndk.TelemetryUpdateRequest">TelemetryUpdateRequest</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryUpdateRequest" href="#srlinux.sdk.TelemetryUpdateRequest">TelemetryUpdateRequest</a></p>
             <p class="mb-4">Represents telemetry update request.</p>
             
               <div class="table-container">
@@ -5105,7 +5151,7 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>state</td>
-                        <td><a href="#ndk.TelemetryInfo">TelemetryInfo</a></td>
+                        <td><a href="#srlinux.sdk.TelemetryInfo">TelemetryInfo</a></td>
                         <td>repeated</td>
                         <td><p>State of application </p></td>
                       </tr>
@@ -5118,7 +5164,7 @@ subscription changes specific to the current subscription </p></td>
 
             
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.TelemetryUpdateResponse" href="#ndk.TelemetryUpdateResponse">TelemetryUpdateResponse</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.TelemetryUpdateResponse" href="#srlinux.sdk.TelemetryUpdateResponse">TelemetryUpdateResponse</a></p>
             <p class="mb-4">Represents telemetry update response.</p>
             
               <div class="table-container">
@@ -5135,7 +5181,7 @@ subscription changes specific to the current subscription </p></td>
                     
                       <tr>
                         <td>status</td>
-                        <td><a href="#ndk.SdkMgrStatus">SdkMgrStatus</a></td>
+                        <td><a href="#srlinux.sdk.SdkMgrStatus">SdkMgrStatus</a></td>
                         <td></td>
                         <td><p>Status of telemetry update request </p></td>
                       </tr>
@@ -5161,7 +5207,7 @@ subscription changes specific to the current subscription </p></td>
           
 
           
-            <p class="is-size-5"><a class="menu-item has-fira" id="ndk.SdkMgrTelemetryService" href="#ndk.SdkMgrTelemetryService">SdkMgrTelemetryService</a></p>
+            <p class="is-size-5"><a class="menu-item has-fira" id="srlinux.sdk.SdkMgrTelemetryService" href="#srlinux.sdk.SdkMgrTelemetryService">SdkMgrTelemetryService</a></p>
             <p class="mb-4">Represents service for telemetry service to store state data.</p>
             <div class="table-container">
               <table class="table is-fullwidth">
@@ -5172,15 +5218,15 @@ subscription changes specific to the current subscription </p></td>
                   
                     <tr>
                       <td>TelemetryAddOrUpdate</td>
-                      <td><a href="#ndk.TelemetryUpdateRequest">TelemetryUpdateRequest</a></td>
-                      <td><a href="#ndk.TelemetryUpdateResponse">TelemetryUpdateResponse</a></td>
+                      <td><a href="#srlinux.sdk.TelemetryUpdateRequest">TelemetryUpdateRequest</a></td>
+                      <td><a href="#srlinux.sdk.TelemetryUpdateResponse">TelemetryUpdateResponse</a></td>
                       <td><p>Add or update telemetry data</p></td>
                     </tr>
                   
                     <tr>
                       <td>TelemetryDelete</td>
-                      <td><a href="#ndk.TelemetryDeleteRequest">TelemetryDeleteRequest</a></td>
-                      <td><a href="#ndk.TelemetryDeleteResponse">TelemetryDeleteResponse</a></td>
+                      <td><a href="#srlinux.sdk.TelemetryDeleteRequest">TelemetryDeleteRequest</a></td>
+                      <td><a href="#srlinux.sdk.TelemetryDeleteResponse">TelemetryDeleteResponse</a></td>
                       <td><p>Delete telemetry data</p></td>
                     </tr>
                   

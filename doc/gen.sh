@@ -13,8 +13,8 @@ docker run --rm \
   -v $(pwd)/doc:/out \
   -v $(pwd):/protos \
   --entrypoint '' \
-  pseudomuto/protoc-gen-doc \
-  bash -c "protoc -I /protos --doc_out=/out /protos/ndk/*.proto --doc_opt=/out/doc.tmpl,index.html"
+  ghcr.io/srl-labs/protoc \
+  ash -c "protoc -I /protos --doc_out=/out /protos/ndk/*.proto --doc_opt=/out/doc.tmpl,index.html"
 
 # change the NDK version accordingly
 sed -i "s|__NDK_VER__|$1|g" ./doc/index.html
