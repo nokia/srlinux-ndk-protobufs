@@ -12,7 +12,7 @@ NDK protobufs are common across all SR Linux hardware platforms.
 
 The `main` branch of this repository contains only the documentation. To reveal the proto files for a given NDK release, select the matching tag in GitHub UI.
 
-In addition to the proto source files, the repository contains the generated [NDK Protobuf documentation](https://rawcdn.githack.com/nokia/srlinux-ndk-protobufs/v0.1.0/doc/index.html) for each tagged release.
+In addition to the proto source files, the repository contains the generated [NDK Protobuf documentation](https://rawcdn.githack.com/nokia/srlinux-ndk-protobufs/v0.2.0/doc/index.html) for each tagged release.
 
 ## Code generation
 
