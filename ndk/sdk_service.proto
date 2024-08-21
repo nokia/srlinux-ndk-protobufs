@@ -4,6 +4,8 @@
  *  Copyright (c) 2018 Nokia
  ***********************************************************************************************************************/
 
+// NDK Version: v0.3.0
+
 /**
  *  Network programming APIs and messages. This is the base layer for agent registration, router event notifications such as interface, LLDP, BFD, and so on; also provides keepalive functionality to detect agent liveliness
  */
@@ -60,6 +62,7 @@ message AgentRegistrationRequest
     uint32 agent_liveliness = 2; /* Kill this agent unless a keepalive is received within this many seconds.  Value of 0
                                   * means do not monitor this agent for liveliness.
                                   */
+    bool wait_config_ack = 3; /* Indicate if SRLinux should wait for explicit ack from app after delivering configuration. */
 }
 
 /**

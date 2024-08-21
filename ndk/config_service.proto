@@ -4,48 +4,85 @@
  *  Copyright (c) 2018 Nokia
  ***********************************************************************************************************************/
 
+// NDK Version: v0.3.0
+
 syntax = "proto3";
 
 package srlinux.sdk;
-option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
 
 import "ndk/sdk_common.proto";
+
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
+
+/**
+ * Represents service for config operations.
+ */
+service SdkMgrConfigService {
+  // Acknowledge received configuration.
+  // When agent is registered with `wait_config_ack` flag set to true,
+  // it needs to acknowledge received configuration.
+  rpc AcknowledgeConfig(AcknowledgeConfigRequest) returns (AcknowledgeConfigResponse) {}
+}
 
 /**
  * Represents configuration subscription request.
  */
-message ConfigSubscriptionRequest
-{
-    ConfigKey key                               = 1; // Optional, to filter on name
+message ConfigSubscriptionRequest {
+  ConfigKey key = 1; // Optional, to filter on name
 }
 
 /**
  * Represents configuration key.
  */
-message ConfigKey
-{
-    string js_path                              = 1;  // JSON path formatted string from YANG; for example, interface.my_field
-    repeated string keys                        = 2;  // Value for keys
-    string js_path_with_keys                    = 3;  // JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field
+message ConfigKey {
+  string js_path = 1; // JSON path formatted string from YANG; for example, interface.my_field
+  repeated string keys = 2; // Value for keys
+  string js_path_with_keys = 3; // JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field
 }
 
 /**
  * Represents configuration data.
  */
-message ConfigData
-{
-    oneof data_type {
-        string json = 1;  // Entire configuration fragment as JSON string
-        bytes data = 2;   // Entire configuration fragment as binary data
-    }
+message ConfigData {
+  oneof data_type {
+    string json = 1; // Entire configuration fragment as JSON string
+    bytes data = 2; // Entire configuration fragment as binary data
+  }
 }
 
 /**
  * Represents configuration notification message to subscribe to configuration events
  */
-message ConfigNotification
-{
-    SdkMgrOperation op                          = 1;  // Operation indicating create, delete, or update
-    ConfigKey  key                              = 2;  // Configuration key
-    ConfigData data                             = 3;  // Configuration data
+message ConfigNotification {
+  SdkMgrOperation op = 1; // Operation indicating create, delete, or update
+  ConfigKey key = 2; // Configuration key
+  ConfigData data = 3; // Configuration data
+}
+
+/**
+ * Represents configuration acknowledgment request;
+ * Each config notification requires its own acknowledgement.
+ */
+message AcknowledgeConfigRequest {
+  repeated AcknowledgeConfigRequestInfo infos = 1;
+}
+
+/**
+ * Represents configuration acknowledgement response.
+ */
+message AcknowledgeConfigResponse {
+  SdkMgrStatus status = 1; // Status of acknowledge config request operation
+  string error_str = 2; // Detailed error string
+}
+
+/**
+ * Represents configuration acknowledgment request information.
+ */
+message AcknowledgeConfigRequestInfo {
+  string js_path_with_keys = 1; // JSON path formatted string from YANG; for example, interface{.name==ethernet1/1}.my_field
+  oneof result {
+    string error = 2;
+    string warning = 3;
+    string output = 4;
+  }
 }

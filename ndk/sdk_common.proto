@@ -4,6 +4,8 @@
  *  Copyright (c) 2018 Nokia
  ***********************************************************************************************************************/
 
+// NDK Version: v0.3.0
+
 syntax = "proto3";
 
 package srlinux.sdk;
@@ -24,7 +26,8 @@ enum IfMgrIfType {
     VHOST = 8;       // vhost-net interface, vhn-<name> name for sock-path
     KKLIF = 9;       // temp name for new style of lif interface
     KKVHOST = 10;    // temp name for new style of vhost interface
-    IF_TYPE_MAX = 11;
+    SYNC = 11;       // 1588 sync interface
+    IF_TYPE_MAX = 12;
 }
 
 /**
@@ -96,6 +99,9 @@ enum IfOperDownReason {
     IF_OPER_DOWN_AUTO_NEG_MISMATCH      = 23;
     IF_OPER_DOWN_EVENT_HANDLER          = 24; // used internally by chassis mgr only - xdp never publish to IDB!
     IF_OPER_DOWN_UNSUPPORTED_BREAKOUT   = 25; // interface doesn't support breakout config
+    IF_OPER_DOWN_CFM_CCM_DEFECT         = 26;
+    IF_OPER_DOWN_CRC_MON_FAIL_THRESH    = 27; // crc-monitor signal failure threshold exceeded
+    IF_OPER_DOWN_SYMBOL_MON_FAIL_THRESH = 28; // symbol-monitor signal failure threshold exceeded
 }
 
 /**
@@ -114,6 +120,7 @@ enum IfEthernetPortSpeedType {
     IF_ETH_PORT_SPEED_200G         = 9;
     IF_ETH_PORT_SPEED_400G         = 10;
     IF_ETH_PORT_SPEED_1T           = 11;
+    IF_ETH_PORT_SPEED_800G         = 12;
 }
 
 /**
