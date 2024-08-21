@@ -4,7 +4,7 @@
  *  Copyright (c) 2018 Nokia
  ***********************************************************************************************************************/
 
-// NDK Version: v0.3.0
+// NDK Version: v0.4.0
 
 syntax = "proto3";
 
@@ -73,35 +73,39 @@ enum IfOperStateType {
 }
 
 enum IfOperDownReason {
-    IF_OPER_DOWN_NONE                   = 0;
-    IF_OPER_DOWN_PORT_ADMIN_DISABLED    = 1;
-    IF_OPER_DOWN_MDA_ADMIN_DISABLED     = 2;
-    IF_OPER_DOWN_TRANS_LASER_DISABLED   = 3;
-    IF_OPER_DOWN_MDA_NOT_PRESENT        = 4;
-    IF_OPER_DOWN_TRANS_NOT_PRESENT      = 5;
-    IF_OPER_DOWN_PHY_INIT               = 6;
-    IF_OPER_DOWN_LOWER_LAYER_DOWN       = 7;
-    IF_OPER_DOWN_MTU_RESOURCES          = 8;
-    IF_OPER_DOWN_UNSUPPORTED_SPEED      = 9;
-    IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC  = 10;
-    IF_OPER_DOWN_OTHER                  = 11;
-    IF_OPER_DOWN_PORT_NOT_PRESENT       = 12; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_FABRIC_AVAILABILITY    = 13; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_NO_ACTIVE_LINKS        = 14; // lag interface only
-    IF_OPER_DOWN_MIN_LINK_THRESHOLD     = 15; // lag interface only
-    IF_OPER_DOWN_9_12_SPEED_MISMATCH    = 16; // Vodka port 9-12 must all be same speed as port 9
-    IF_OPER_DOWN_LAG_RESOURCES          = 17; // lag interface only
-    IF_OPER_DOWN_LAG_MEMBER_RESOURCES   = 18; // lag member interface only
-    IF_OPER_DOWN_STANDBY_SIGNALING      = 19; // ESM multihoming
-    IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE    = 20; // interface hold-time up is actively holding the interface down
-    IF_OPER_DOWN_RELOAD_TIME_ACTIVE     = 21; // interface reload time is actively holding the interface down
-    IF_OPER_DOWN_CONNECTOR_DOWN         = 22; // parent connector oper down forces breakout port oper down
-    IF_OPER_DOWN_AUTO_NEG_MISMATCH      = 23;
-    IF_OPER_DOWN_EVENT_HANDLER          = 24; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_UNSUPPORTED_BREAKOUT   = 25; // interface doesn't support breakout config
-    IF_OPER_DOWN_CFM_CCM_DEFECT         = 26;
-    IF_OPER_DOWN_CRC_MON_FAIL_THRESH    = 27; // crc-monitor signal failure threshold exceeded
-    IF_OPER_DOWN_SYMBOL_MON_FAIL_THRESH = 28; // symbol-monitor signal failure threshold exceeded
+    IF_OPER_DOWN_NONE                               = 0;
+    IF_OPER_DOWN_PORT_ADMIN_DISABLED                = 1;
+    IF_OPER_DOWN_MDA_ADMIN_DISABLED                 = 2;
+    IF_OPER_DOWN_TRANS_LASER_DISABLED               = 3;
+    IF_OPER_DOWN_MDA_NOT_PRESENT                    = 4;
+    IF_OPER_DOWN_TRANS_NOT_PRESENT                  = 5;
+    IF_OPER_DOWN_PHY_INIT                           = 6;
+    IF_OPER_DOWN_LOWER_LAYER_DOWN                   = 7;
+    IF_OPER_DOWN_MTU_RESOURCES                      = 8;
+    IF_OPER_DOWN_UNSUPPORTED_SPEED                  = 9;
+    IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC              = 10;
+    IF_OPER_DOWN_OTHER                              = 11;
+    IF_OPER_DOWN_PORT_NOT_PRESENT                   = 12; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_FABRIC_AVAILABILITY                = 13; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_NO_ACTIVE_LINKS                    = 14; // lag interface only
+    IF_OPER_DOWN_MIN_LINK_THRESHOLD                 = 15; // lag interface only
+    IF_OPER_DOWN_9_12_SPEED_MISMATCH                = 16; // Vodka port 9-12 must all be same speed as port 9
+    IF_OPER_DOWN_LAG_RESOURCES                      = 17; // lag interface only
+    IF_OPER_DOWN_LAG_MEMBER_RESOURCES               = 18; // lag member interface only
+    IF_OPER_DOWN_STANDBY_SIGNALING                  = 19; // ESM multihoming
+    IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE                = 20; // interface hold-time up is actively holding the interface down
+    IF_OPER_DOWN_RELOAD_TIME_ACTIVE                 = 21; // interface reload time is actively holding the interface down
+    IF_OPER_DOWN_CONNECTOR_DOWN                     = 22; // parent connector oper down forces breakout port oper down
+    IF_OPER_DOWN_AUTO_NEG_MISMATCH                  = 23;
+    IF_OPER_DOWN_EVENT_HANDLER                      = 24; // used internally by chassis mgr only - xdp never publish to IDB!
+    IF_OPER_DOWN_UNSUPPORTED_BREAKOUT               = 25; // interface doesn't support breakout config
+    IF_OPER_DOWN_CFM_CCM_DEFECT                     = 26;
+    IF_OPER_DOWN_CRC_MON_FAIL_THRESH                = 27; // crc-monitor signal failure threshold exceeded
+    IF_OPER_DOWN_SYMBOL_MON_FAIL_THRESH             = 28; // symbol-monitor signal failure threshold exceeded
+    IF_OPER_DOWN_LINK_LOSS_FORWARDING               = 29; // related to evpn-vpws mpls
+    IF_OPER_DOWN_TRANS_DOWN                         = 30;
+    IF_OPER_DOWN_STORM_CONTROL_ACTION               = 31;
+    IF_OPER_DOWN_UNSUPPORTED_NUM_CHANNELS_FOR_SPEED = 32;
 }
 
 /**
@@ -208,9 +212,10 @@ message MplsLabel
  */
 enum SdkMgrOperation
 {
-    Create = 0;  // Create operation
-    Update = 1;  // Update operation
+    Create = 0;  // Create operation; returned if caching is enabled
+    Update = 1;  // Update operation; returned if caching is enabled
     Delete = 2;  // Delete operation
+    CreateOrUpdate = 3; // returned if caching is disabled; App can cache streaming data, if needed.
 }
 
 /**
@@ -247,5 +252,34 @@ message SyncResponse
 
 message EvpnEthSegIdPb
 {
-    bytes es_id = 1; //Type 0 for now. hard-coded id 
+    bytes es_id = 1; //Type 0 for now. hard-coded id
+}
+
+/**
+ * Various reasons for port being operationally down.
+ */
+enum PortOperDownReason {
+     PORT_OPER_DOWN_NONE                           = 0;
+     PORT_OPER_DOWN_PORT_ADMIN_DISABLED            = 1; // Admin disabled (out of service). E.g lanes not created in physical layer devices
+     PORT_OPER_DOWN_PORT_OPER_DISABLED             = 2; // Admin enabled but operationally disabled. E.g lanes created but serdes are off
+     PORT_OPER_DOWN_MDA_DISABLED                   = 3; // Parent MDA is disabled
+     PORT_OPER_DOWN_MDA_FAILED                     = 4; // Parent MDA failed
+     PORT_OPER_DOWN_LINK_DOWN                      = 5; // Operationally enabled but link/carrier down
+     PORT_OPER_DOWN_TRANS_NOT_PRESENT              = 6; // Transceiver is not plugged in or is dead (undetected)
+     PORT_OPER_DOWN_TRANS_LASER_DISABLED           = 7; // Transceiver laser is disabled
+     PORT_OPER_DOWN_INCOMPATIBLE_CONNECTOR         = 8; // Parent connector configuration does not match with this breakout port
+     PORT_OPER_DOWN_PHY_UNSUPPORTED_FEC_CFG        = 9; // A physical layer device on the port does not support configured FEC
+     PORT_OPER_DOWN_PHY_UNSUPPORTED_TRANS_FEC      = 10;// A physical layer device on the port does not support FEC configured on the transceiver
+     PORT_OPER_DOWN_PHY_INTERNAL_FEC_ISSUE         = 11;// A physical layer device has internal/hardware problem on employing FEC
+}
+
+/**
+ * Various warnings on port while it stays operational.
+ */
+enum PortWarningReason {
+    PORT_WARNING_NONE                              = 0;
+    PORT_WARNING_TRANS_RX_LOS                      = 1; // Transceiver reported RxLos
+    PORT_WARNING_TRANS_UNSUPPORTED_SYNCE_CFG       = 2; // Transceiver does not support synce configuration (e.g cannot do clock squelching on RxLos)
+    PORT_WARNING_PHY_UNSUPPORTED_SYNCE_CFG         = 3; // A physical layer device does not support synce configuration
+    PORT_WARNING_PHY_UNSUPPORTED_PTP_CFG           = 4; // A physical layer device does not support PTP configuration
 }

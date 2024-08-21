@@ -21,13 +21,13 @@ TMP_PROTO_DIR=/tmp/ndkprotos
 # if pull is not successfull, assume that image is present locally
 docker pull ghcr.io/nokia/srlinux:$1 || echo "using local image"
 id=$(docker create ghcr.io/nokia/srlinux:$SRL_VER foo)
-# remove prev yang files
+# remove prev proto files
 rm -rf $TMP_PROTO_DIR
 mkdir -p $TMP_PROTO_DIR
 docker cp $id:/opt/srlinux/protos/ndk/. $TMP_PROTO_DIR
 
 
-# fix proto files to conform with pacakge/naming convention used when publishing Go/Py packages
+# fix proto files to conform with package/naming convention used when publishing Go/Py packages
 sed -i -- 's|option go_package = "nokia.com/srlinux/sdk/protos";|option go_package = "github.com/nokia/srlinux-ndk-go/ndk";|g' ${TMP_PROTO_DIR}/*.proto
 sed -i -- 's|import "|import "ndk/|g' ${TMP_PROTO_DIR}/*.proto
 
