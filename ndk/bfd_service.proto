@@ -4,6 +4,8 @@
  *  Copyright (c) 2018 Nokia
  ***********************************************************************************************************************/
 
+// NDK Version: v0.3.0
+
 syntax = "proto3";
 
 package srlinux.sdk;
@@ -63,7 +65,8 @@ message BfdmgrGeneralSessionKeyPb
         IpAddressPb src_ip_addr                     = 1;  // Source IP address of the session
         IpAddressPb dst_ip_addr                     = 2;  // Destination IP address of the session
         uint32      instance_id                     = 3;  // Network instance identifier
-        uint32      ipv6_ll_if_id                   = 4;  // Global if id for ipv6 link local session, otherwise 0
+        uint32      ipv4_unnum_or_ipv6_ll_if_id     = 4;  // Global if id for ipv4 unnumbered or ipv6 link local
+                                                          // session, otherwise 0
         bool        specified_discr                 = 5;  // True if discriminators are specified
     }
 
@@ -74,10 +77,17 @@ message BfdmgrGeneralSessionKeyPb
 
     message SbfdechoKey
     {
-        uint32      instance_id                     = 1;  // Network instance identifier
-        uint32      sr_policy_segment_list_id       = 2;
-        uint32      sr_policy_color                 = 3;
-        IpAddressPb sr_policy_endpoint              = 4;
+        enum SrpolicyUserType
+        {
+            TYPE_LOCAL = 0;
+            TYPE_PCEP = 1;
+        }
+    
+        uint32           instance_id                     = 1;  // Network instance identifier
+        uint32           sr_policy_segment_list_id       = 2;
+        string           policy_name                     = 3;
+        SrpolicyUserType user_type                       = 4;
+        IpAddressPb      sr_policy_endpoint              = 5;
     }
 
     // type is always present, other key field presence is determined by type
