@@ -271,6 +271,7 @@ enum PortOperDownReason {
      PORT_OPER_DOWN_PHY_UNSUPPORTED_FEC_CFG        = 9; // A physical layer device on the port does not support configured FEC
      PORT_OPER_DOWN_PHY_UNSUPPORTED_TRANS_FEC      = 10;// A physical layer device on the port does not support FEC configured on the transceiver
      PORT_OPER_DOWN_PHY_INTERNAL_FEC_ISSUE         = 11;// A physical layer device has internal/hardware problem on employing FEC
+     PORT_OPER_DOWN_UNSUPPORTED_BREAKOUT           = 12;// Connector does not support the configured breakout mode.
 }
 
 /**
