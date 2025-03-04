@@ -2,9 +2,9 @@
  *  Description: interface between router agents and SDK service manager
  *
  *  Copyright (c) 2018 Nokia
- ***********************************************************************************************************************/
+ **********************************************************************************************************************/
 
-// NDK Version: v0.4.0
+// NDK Version: v0.5.0
 
 syntax = "proto3";
 
@@ -19,7 +19,7 @@ option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
  */
 service SdkMgrConfigService {
   // Acknowledge received configuration.
-  // When agent is registered with `wait_config_ack` flag set to true,
+  // When agent is registered with `wait_config_ack` flag set to true
   // it needs to acknowledge received configuration.
   rpc AcknowledgeConfig(AcknowledgeConfigRequest) returns (AcknowledgeConfigResponse) {}
 }
@@ -60,18 +60,18 @@ message ConfigNotification {
 }
 
 /**
- * Represents configuration acknowledgment request;
- * Each config notification requires its own acknowledgement.
- */
+   Represents config acknowledgment request;
+   each config notification requires its own acknowledgement.
+*/
 message AcknowledgeConfigRequest {
   repeated AcknowledgeConfigRequestInfo infos = 1;
 }
 
 /**
- * Represents configuration acknowledgement response.
+ * Represents config complete response.
  */
 message AcknowledgeConfigResponse {
-  SdkMgrStatus status = 1; // Status of acknowledge config request operation
+  SdkMgrStatus status = 1; // Status of commit complete request operation
   string error_str = 2; // Detailed error string
 }
 
