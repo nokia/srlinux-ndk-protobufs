@@ -18,7 +18,7 @@ fi
 SRL_VER=$1
 
 TMP_PROTO_DIR=/tmp/ndkprotos
-# if pull is not successfull, assume that image is present locally
+# if pull is not successful, assume that image is present locally
 docker pull ghcr.io/nokia/srlinux:$1 || echo "using local image"
 id=$(docker create ghcr.io/nokia/srlinux:$SRL_VER foo)
 # remove prev proto files
