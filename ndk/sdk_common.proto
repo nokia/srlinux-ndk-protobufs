@@ -2,285 +2,273 @@
  *  Description: interface between router agents and SDK service manager
  *
  *  Copyright (c) 2018 Nokia
- ***********************************************************************************************************************/
+ **********************************************************************************************************************/
 
-// NDK Version: v0.4.0
+// NDK Version: v0.5.0
 
 syntax = "proto3";
 
 package srlinux.sdk;
+
 option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
 
 /**
  * Represents interface type.
  */
 enum IfMgrIfType {
-    ETHERNET = 0;    // Ethernet interface
-    LOOPBACK = 1;    // Loopback interface
-    MANAGEMENT = 2;  // Management interface
-    AGGREGATE = 3;   // Aggregate(LAG) interface
-    IRB = 4;         // Integrated Routing and Bridging (IRB) interface
-    SYSTEM = 5;      // System interface
-    LIF = 6;         // linux interface
-    NIC = 7;         // linux nic interface (bus/dev/fn)
-    VHOST = 8;       // vhost-net interface, vhn-<name> name for sock-path
-    KKLIF = 9;       // temp name for new style of lif interface
-    KKVHOST = 10;    // temp name for new style of vhost interface
-    SYNC = 11;       // 1588 sync interface
-    IF_TYPE_MAX = 12;
+  ETHERNET = 0; // Ethernet interface
+  LOOPBACK = 1; // Loopback interface
+  MANAGEMENT = 2; // Management interface
+  AGGREGATE = 3; // Aggregate(LAG) interface
+  IRB = 4; // Integrated Routing and Bridging (IRB) interface
+  SYSTEM = 5; // System interface
+  LIF = 6; // linux interface
+  NIC = 7; // linux nic interface (bus/dev/fn)
+  VHOST = 8; // vhost-net interface, vhn-<name> name for sock-path
+  KKLIF = 9; // temp name for new style of lif interface
+  KKVHOST = 10; // temp name for new style of vhost interface
+  SYNC = 11; // 1588 sync interface
+  IF_TYPE_MAX = 12;
 }
 
 /**
  * Represents IP address.
  */
-message IpAddressPb
-{
-    bytes addr                                  = 1;  // IP address
+message IpAddressPb {
+  bytes ip_address = 1; // IP address
 }
 
 /**
  * Represents IP prefix.
  */
-message IpAddrPrefLenPb
-{
-    IpAddressPb ip_addr                         = 1;  // IP address
-    uint32      prefix_length                   = 2;  // IP address prefix length
+message IpAddrPrefLenPb {
+  IpAddressPb ip_addr = 1; // IP address
+  uint32 prefix_length = 2; // IP address prefix length
 }
 
 /**
  * Represents IP address state.
  */
 enum IpAddressState {
-    IPADDR_STATE_UNKNOWN      = 0;  // IP address state unknown
-    IPADDR_STATE_TENTATIVE    = 1;  // IP address state tentative
-    IPADDR_STATE_DUPLICATED   = 2;  // IP address state duplicated
-    IPADDR_STATE_INACCESSIBLE = 3;  // IP address state inaccessible
-    IPADDR_STATE_DEPRECATED   = 4;  // IP address state deprecated
-    IPADDR_STATE_PREFERRED    = 5;  // IP address state preferred
+  IPADDR_STATE_UNKNOWN = 0; // IP address state unknown
+  IPADDR_STATE_TENTATIVE = 1; // IP address state tentative
+  IPADDR_STATE_DUPLICATED = 2; // IP address state duplicated
+  IPADDR_STATE_INACCESSIBLE = 3; // IP address state inaccessible
+  IPADDR_STATE_DEPRECATED = 4; // IP address state deprecated
+  IPADDR_STATE_PREFERRED = 5; // IP address state preferred
 }
 
 /**
  * Represents interface operational state.
  */
 enum IfOperStateType {
-    IF_OPER_STATE_UP               = 0;  // Interface operational state up
-    IF_OPER_STATE_DOWN             = 1;  // Interface operational state down
-    IF_OPER_STATE_TESTING          = 2;  // Interface operational state testing
-    IF_OPER_STATE_UNKNOWN          = 3;  // Interface operational state unknown
-    IF_OPER_STATE_DORMANT          = 4;  // Interface operational state dormant
-    IF_OPER_STATE_NOT_PRESENT      = 5;  // Interface operational state not present
-    IF_OPER_STATE_LOWER_LAYER_DOWN = 6;  // Interface operational state lower layer down
+  IF_OPER_STATE_UP = 0; // Interface operational state up
+  IF_OPER_STATE_DOWN = 1; // Interface operational state down
+  IF_OPER_STATE_TESTING = 2; // Interface operational state testing
+  IF_OPER_STATE_UNKNOWN = 3; // Interface operational state unknown
+  IF_OPER_STATE_DORMANT = 4; // Interface operational state dormant
+  IF_OPER_STATE_NOT_PRESENT = 5; // Interface operational state not present
+  IF_OPER_STATE_LOWER_LAYER_DOWN = 6; // Interface operational state lower layer down
 }
 
 enum IfOperDownReason {
-    IF_OPER_DOWN_NONE                               = 0;
-    IF_OPER_DOWN_PORT_ADMIN_DISABLED                = 1;
-    IF_OPER_DOWN_MDA_ADMIN_DISABLED                 = 2;
-    IF_OPER_DOWN_TRANS_LASER_DISABLED               = 3;
-    IF_OPER_DOWN_MDA_NOT_PRESENT                    = 4;
-    IF_OPER_DOWN_TRANS_NOT_PRESENT                  = 5;
-    IF_OPER_DOWN_PHY_INIT                           = 6;
-    IF_OPER_DOWN_LOWER_LAYER_DOWN                   = 7;
-    IF_OPER_DOWN_MTU_RESOURCES                      = 8;
-    IF_OPER_DOWN_UNSUPPORTED_SPEED                  = 9;
-    IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC              = 10;
-    IF_OPER_DOWN_OTHER                              = 11;
-    IF_OPER_DOWN_PORT_NOT_PRESENT                   = 12; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_FABRIC_AVAILABILITY                = 13; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_NO_ACTIVE_LINKS                    = 14; // lag interface only
-    IF_OPER_DOWN_MIN_LINK_THRESHOLD                 = 15; // lag interface only
-    IF_OPER_DOWN_9_12_SPEED_MISMATCH                = 16; // Vodka port 9-12 must all be same speed as port 9
-    IF_OPER_DOWN_LAG_RESOURCES                      = 17; // lag interface only
-    IF_OPER_DOWN_LAG_MEMBER_RESOURCES               = 18; // lag member interface only
-    IF_OPER_DOWN_STANDBY_SIGNALING                  = 19; // ESM multihoming
-    IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE                = 20; // interface hold-time up is actively holding the interface down
-    IF_OPER_DOWN_RELOAD_TIME_ACTIVE                 = 21; // interface reload time is actively holding the interface down
-    IF_OPER_DOWN_CONNECTOR_DOWN                     = 22; // parent connector oper down forces breakout port oper down
-    IF_OPER_DOWN_AUTO_NEG_MISMATCH                  = 23;
-    IF_OPER_DOWN_EVENT_HANDLER                      = 24; // used internally by chassis mgr only - xdp never publish to IDB!
-    IF_OPER_DOWN_UNSUPPORTED_BREAKOUT               = 25; // interface doesn't support breakout config
-    IF_OPER_DOWN_CFM_CCM_DEFECT                     = 26;
-    IF_OPER_DOWN_CRC_MON_FAIL_THRESH                = 27; // crc-monitor signal failure threshold exceeded
-    IF_OPER_DOWN_SYMBOL_MON_FAIL_THRESH             = 28; // symbol-monitor signal failure threshold exceeded
-    IF_OPER_DOWN_LINK_LOSS_FORWARDING               = 29; // related to evpn-vpws mpls
-    IF_OPER_DOWN_TRANS_DOWN                         = 30;
-    IF_OPER_DOWN_STORM_CONTROL_ACTION               = 31;
-    IF_OPER_DOWN_UNSUPPORTED_NUM_CHANNELS_FOR_SPEED = 32;
+  IF_OPER_DOWN_NONE = 0;
+  IF_OPER_DOWN_PORT_ADMIN_DISABLED = 1;
+  IF_OPER_DOWN_MDA_ADMIN_DISABLED = 2;
+  IF_OPER_DOWN_TRANS_LASER_DISABLED = 3;
+  IF_OPER_DOWN_MDA_NOT_PRESENT = 4;
+  IF_OPER_DOWN_TRANS_NOT_PRESENT = 5;
+  IF_OPER_DOWN_PHY_INIT = 6;
+  IF_OPER_DOWN_LOWER_LAYER_DOWN = 7;
+  IF_OPER_DOWN_MTU_RESOURCES = 8;
+  IF_OPER_DOWN_UNSUPPORTED_SPEED = 9;
+  IF_OPER_DOWN_UNSUPPORTED_TRANS_FEC = 10;
+  IF_OPER_DOWN_OTHER = 11;
+  IF_OPER_DOWN_PORT_NOT_PRESENT = 12; // used internally by chassis mgr only - xdp never publish to IDB!
+  IF_OPER_DOWN_FABRIC_AVAILABILITY = 13; // used internally by chassis mgr only - xdp never publish to IDB!
+  IF_OPER_DOWN_NO_ACTIVE_LINKS = 14; // lag interface only
+  IF_OPER_DOWN_MIN_LINK_THRESHOLD = 15; // lag interface only
+  IF_OPER_DOWN_9_12_SPEED_MISMATCH = 16; // Vodka port 9-12 must all be same speed as port 9
+  IF_OPER_DOWN_LAG_RESOURCES = 17; // lag interface only
+  IF_OPER_DOWN_LAG_MEMBER_RESOURCES = 18; // lag member interface only
+  IF_OPER_DOWN_STANDBY_SIGNALING = 19; // ESM multihoming
+  IF_OPER_DOWN_HOLD_TIME_UP_ACTIVE = 20; // interface hold-time up is actively holding the interface down
+  IF_OPER_DOWN_RELOAD_TIME_ACTIVE = 21; // interface reload time is actively holding the interface down
+  IF_OPER_DOWN_CONNECTOR_DOWN = 22; // parent connector oper down forces breakout port oper down
+  IF_OPER_DOWN_AUTO_NEG_MISMATCH = 23;
+  IF_OPER_DOWN_EVENT_HANDLER = 24; // used internally by chassis mgr only - xdp never publish to IDB!
+  IF_OPER_DOWN_UNSUPPORTED_BREAKOUT = 25; // interface doesn't support breakout config
+  IF_OPER_DOWN_CFM_CCM_DEFECT = 26;
+  IF_OPER_DOWN_CRC_MON_FAIL_THRESH = 27; // crc-monitor signal failure threshold exceeded
+  IF_OPER_DOWN_SYMBOL_MON_FAIL_THRESH = 28; // symbol-monitor signal failure threshold exceeded
+  IF_OPER_DOWN_LINK_LOSS_FORWARDING = 29; // related to evpn-vpws mpls
+  IF_OPER_DOWN_TRANS_DOWN = 30;
+  IF_OPER_DOWN_STORM_CONTROL_ACTION = 31;
+  IF_OPER_DOWN_UNSUPPORTED_NUM_CHANNELS_FOR_SPEED = 32;
 }
 
 /**
  * Represents interface ethernet port speed. Corresponds to yang values
  */
 enum IfEthernetPortSpeedType {
-    IF_ETH_PORT_SPEED_UNSET        = 0;  // Speed unknown
-    IF_ETH_PORT_SPEED_10M          = 1;
-    IF_ETH_PORT_SPEED_100M         = 2;
-    IF_ETH_PORT_SPEED_1G           = 3;
-    IF_ETH_PORT_SPEED_10G          = 4;
-    IF_ETH_PORT_SPEED_25G          = 5;
-    IF_ETH_PORT_SPEED_40G          = 6;
-    IF_ETH_PORT_SPEED_50G          = 7;
-    IF_ETH_PORT_SPEED_100G         = 8;
-    IF_ETH_PORT_SPEED_200G         = 9;
-    IF_ETH_PORT_SPEED_400G         = 10;
-    IF_ETH_PORT_SPEED_1T           = 11;
-    IF_ETH_PORT_SPEED_800G         = 12;
+  IF_ETH_PORT_SPEED_UNSET = 0; // Speed unknown
+  IF_ETH_PORT_SPEED_10M = 1;
+  IF_ETH_PORT_SPEED_100M = 2;
+  IF_ETH_PORT_SPEED_1G = 3;
+  IF_ETH_PORT_SPEED_10G = 4;
+  IF_ETH_PORT_SPEED_25G = 5;
+  IF_ETH_PORT_SPEED_40G = 6;
+  IF_ETH_PORT_SPEED_50G = 7;
+  IF_ETH_PORT_SPEED_100G = 8;
+  IF_ETH_PORT_SPEED_200G = 9;
+  IF_ETH_PORT_SPEED_400G = 10;
+  IF_ETH_PORT_SPEED_1T = 11;
+  IF_ETH_PORT_SPEED_800G = 12;
 }
 
 /**
  * Represents interface ethernet duplex mode. Corresponds to yang values
  */
 enum IfEthernetDuplexModeType {
-    IF_ETH_DUPLEX_MODE_UNSET        = 0;  // duplex mode not supported
-    IF_ETH_DUPLEX_MODE_FULL         = 1;
-    IF_ETH_DUPLEX_MODE_HALF         = 2;
+  IF_ETH_DUPLEX_MODE_UNSET = 0; // duplex mode not supported
+  IF_ETH_DUPLEX_MODE_FULL = 1;
+  IF_ETH_DUPLEX_MODE_HALF = 2;
 }
 
 /**
  * Represents interface loopback mode. Corresponds to yang values
  */
 enum IfLoopbackModeType {
-    IF_LOOPBACK_MODE_UNSET       = 0;  // loopback mode not supported
-    IF_LOOPBACK_MODE_NONE        = 1;
-    IF_LOOPBACK_MODE_FACILITY    = 2;
-    IF_LOOPBACK_MODE_TERMINAL    = 3;
+  IF_LOOPBACK_MODE_UNSET = 0; // loopback mode not supported
+  IF_LOOPBACK_MODE_NONE = 1;
+  IF_LOOPBACK_MODE_FACILITY = 2;
+  IF_LOOPBACK_MODE_TERMINAL = 3;
 }
 
 /**
  * Represents interface transceiver fec. Corresponds to yang values
  */
 enum IfTransceiverFecType {
-    IF_TRANS_FEC_UNSET        = 0;  // Fec unknown
-    IF_TRANS_FEC_DISABLED     = 1;
-    IF_TRANS_FEC_RS528        = 2;
-    IF_TRANS_FEC_RS544        = 3;
-    IF_TRANS_FEC_BASER        = 4;
-    IF_TRANS_FEC_RS108        = 5;
+  IF_TRANS_FEC_UNSET = 0; // Fec unknown
+  IF_TRANS_FEC_DISABLED = 1;
+  IF_TRANS_FEC_CL91_RS528 = 2;
+  IF_TRANS_FEC_RS544 = 3; // Deprecated as a state value, but still used by devmgr/txr code to represent any rs544 flavor
+  IF_TRANS_FEC_BASER = 4;
+  IF_TRANS_FEC_CL108_RS528 = 5;
+  IF_TRANS_FEC_CL91_RS544 = 6;
+  IF_TRANS_FEC_CL119_RS544 = 7;
+  IF_TRANS_FEC_CL134_RS544 = 8;
 }
 
 /**
  * Represents IP prefix state.
  */
-message IpInterfaceAddrPrefixPb
-{
-    IpAddrPrefLenPb prefix                      = 1;  // IP prefix
-    IpAddressState  state                       = 2;  // IP prefix state
+message IpInterfaceAddrPrefixPb {
+  IpAddrPrefLenPb prefix = 1; // IP prefix
+  IpAddressState state = 2; // IP prefix state
 }
 
 /**
  * Represents MAC address.
  */
-message MacAddressPb
-{
-    bytes mac_address                           = 1;  // MAC address
+message MacAddressPb {
+  bytes mac_address = 1; // MAC address
 }
 
 /**
  * Represents global interface identifier.
  */
-message GlobalIfId
-{
-    uint32 global_if_id                         = 1;  // Global interface identifier
+message GlobalIfId {
+  uint32 global_if_id = 1; // Global interface identifier
 }
 
 /**
  * Represents network instance identifier.
  */
-message NetInstanceId
-{
-    uint32 instance_id                          = 1;  // Network instance identifier
+message NetInstanceId {
+  uint32 instance_id = 1; // Network instance identifier
 }
 
 /**
  * Represents port identifier.
  */
-message PortIdPb
-{
-    uint64 port_id                              = 1;  // Port identifier
+message PortIdPb {
+  uint64 port_id = 1; // Port identifier
 }
 
 /**
  * Represents MPLS label.
  */
-message MplsLabel
-{
-    uint32 mpls_label                           = 1;  // MPLS label
+message MplsLabel {
+  uint32 mpls_label = 1; // MPLS label
 }
 
 /**
  * Represents enumeration value for operation in subscription.
  */
-enum SdkMgrOperation
-{
-    Create = 0;  // Create operation; returned if caching is enabled
-    Update = 1;  // Update operation; returned if caching is enabled
-    Delete = 2;  // Delete operation
-    CreateOrUpdate = 3; // returned if caching is disabled; App can cache streaming data, if needed.
+enum SdkMgrOperation {
+  SDK_MGR_OPERATION_CREATE = 0; // Create operation; returned if caching is enabled
+  SDK_MGR_OPERATION_UPDATE = 1; // Update operation; returned if caching is enabled
+  SDK_MGR_OPERATION_DELETE = 2; // Delete operation
+  SDK_MGR_OPERATION_CREATE_OR_UPDATE = 3; // returned if caching is disabled; App can cache streaming data, if needed.
 }
 
 /**
  * Represents status of network programming service calls.
  */
-enum SdkMgrStatus
-{
-    kSdkMgrSuccess = 0;  // Successful service call
-    kSdkMgrFailed  = 1;  // Failed service call
+enum SdkMgrStatus {
+  SDK_MGR_STATUS_SUCCESS = 0; // Successful service call
+  SDK_MGR_STATUS_FAILED = 1; // Failed service call
 }
 
 /**
  * Empty message from agent.
  */
-message AgentReply
-{
-}
+message AgentReply {}
 
 /**
  * Empty message for synchronization request.
  */
-message SyncRequest
-{
-}
+message SyncRequest {}
 
 /**
  * Empty message for synchronization end.
  */
-message SyncResponse
-{
-    SdkMgrStatus  status    = 1;  // Error code
-    string        error_str = 2;  // Detailed error string
+message SyncResponse {
+  SdkMgrStatus status = 1; // Error code
+  string error_str = 2; // Detailed error string
 }
 
-message EvpnEthSegIdPb
-{
-    bytes es_id = 1; //Type 0 for now. hard-coded id
+message EvpnEthSegIdPb {
+  bytes es_id = 1; //Type 0 for now. hard-coded id
 }
 
 /**
  * Various reasons for port being operationally down.
  */
 enum PortOperDownReason {
-     PORT_OPER_DOWN_NONE                           = 0;
-     PORT_OPER_DOWN_PORT_ADMIN_DISABLED            = 1; // Admin disabled (out of service). E.g lanes not created in physical layer devices
-     PORT_OPER_DOWN_PORT_OPER_DISABLED             = 2; // Admin enabled but operationally disabled. E.g lanes created but serdes are off
-     PORT_OPER_DOWN_MDA_DISABLED                   = 3; // Parent MDA is disabled
-     PORT_OPER_DOWN_MDA_FAILED                     = 4; // Parent MDA failed
-     PORT_OPER_DOWN_LINK_DOWN                      = 5; // Operationally enabled but link/carrier down
-     PORT_OPER_DOWN_TRANS_NOT_PRESENT              = 6; // Transceiver is not plugged in or is dead (undetected)
-     PORT_OPER_DOWN_TRANS_LASER_DISABLED           = 7; // Transceiver laser is disabled
-     PORT_OPER_DOWN_INCOMPATIBLE_CONNECTOR         = 8; // Parent connector configuration does not match with this breakout port
-     PORT_OPER_DOWN_PHY_UNSUPPORTED_FEC_CFG        = 9; // A physical layer device on the port does not support configured FEC
-     PORT_OPER_DOWN_PHY_UNSUPPORTED_TRANS_FEC      = 10;// A physical layer device on the port does not support FEC configured on the transceiver
-     PORT_OPER_DOWN_PHY_INTERNAL_FEC_ISSUE         = 11;// A physical layer device has internal/hardware problem on employing FEC
-     PORT_OPER_DOWN_UNSUPPORTED_BREAKOUT           = 12;// Connector does not support the configured breakout mode.
+  PORT_OPER_DOWN_NONE = 0;
+  PORT_OPER_DOWN_PORT_ADMIN_DISABLED = 1; // Admin disabled (out of service). E.g lanes not created in physical layer devices
+  PORT_OPER_DOWN_PORT_OPER_DISABLED = 2; // Admin enabled but operationally disabled. E.g lanes created but serdes are off
+  PORT_OPER_DOWN_MDA_DISABLED = 3; // Parent MDA is disabled
+  PORT_OPER_DOWN_MDA_FAILED = 4; // Parent MDA failed
+  PORT_OPER_DOWN_LINK_DOWN = 5; // Operationally enabled but link/carrier down
+  PORT_OPER_DOWN_TRANS_NOT_PRESENT = 6; // Transceiver is not plugged in or is dead (undetected)
+  PORT_OPER_DOWN_TRANS_LASER_DISABLED = 7; // Transceiver laser is disabled
+  PORT_OPER_DOWN_INCOMPATIBLE_CONNECTOR = 8; // Parent connector configuration does not match with this breakout port
+  PORT_OPER_DOWN_PHY_UNSUPPORTED_FEC_CFG = 9; // A physical layer device on the port does not support configured FEC
+  PORT_OPER_DOWN_PHY_UNSUPPORTED_TRANS_FEC = 10; // A physical layer device on the port does not support FEC configured on the transceiver
+  PORT_OPER_DOWN_PHY_INTERNAL_FEC_ISSUE = 11; // A physical layer device has internal/hardware problem on employing FEC
+  PORT_OPER_DOWN_UNSUPPORTED_BREAKOUT = 12; // Connector does not support the configured breakout mode.
 }
 
 /**
  * Various warnings on port while it stays operational.
  */
 enum PortWarningReason {
-    PORT_WARNING_NONE                              = 0;
-    PORT_WARNING_TRANS_RX_LOS                      = 1; // Transceiver reported RxLos
-    PORT_WARNING_TRANS_UNSUPPORTED_SYNCE_CFG       = 2; // Transceiver does not support synce configuration (e.g cannot do clock squelching on RxLos)
-    PORT_WARNING_PHY_UNSUPPORTED_SYNCE_CFG         = 3; // A physical layer device does not support synce configuration
-    PORT_WARNING_PHY_UNSUPPORTED_PTP_CFG           = 4; // A physical layer device does not support PTP configuration
+  PORT_WARNING_NONE = 0;
+  PORT_WARNING_TRANS_RX_LOS = 1; // Transceiver reported RxLos
+  PORT_WARNING_TRANS_UNSUPPORTED_SYNCE_CFG = 2; // Transceiver does not support synce configuration (e.g cannot do clock squelching on RxLos)
+  PORT_WARNING_PHY_UNSUPPORTED_SYNCE_CFG = 3; // A physical layer device does not support synce configuration
+  PORT_WARNING_PHY_UNSUPPORTED_PTP_CFG = 4; // A physical layer device does not support PTP configuration
 }

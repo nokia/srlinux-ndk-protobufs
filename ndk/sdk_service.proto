@@ -2,185 +2,168 @@
  *  Description: interface between router agents and SDK service manager
  *
  *  Copyright (c) 2018 Nokia
- ***********************************************************************************************************************/
+ **********************************************************************************************************************/
 
-// NDK Version: v0.4.0
+// NDK Version: v0.5.0
 
 /**
  *  Network programming APIs and messages. This is the base layer for agent registration, router event notifications such as interface, LLDP, BFD, and so on; also provides keepalive functionality to detect agent liveliness
  */
 syntax = "proto3";
 
-
 package srlinux.sdk;
-option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
 
-import "ndk/sdk_common.proto";
+import "ndk/appid_service.proto";
+import "ndk/bfd_service.proto";
 import "ndk/config_service.proto";
 import "ndk/interface_service.proto";
-import "ndk/networkinstance_service.proto";
-import "ndk/route_service.proto";
 import "ndk/lldp_service.proto";
-import "ndk/bfd_service.proto";
-import "ndk/appid_service.proto";
+import "ndk/networkinstance_service.proto";
 import "ndk/nexthop_group_service.proto";
+import "ndk/route_service.proto";
+import "ndk/sdk_common.proto";
+
+option go_package = "github.com/nokia/srlinux-ndk-go/ndk";
 
 /**
  * Represents base service that defines agent registration, unregistration, notification subscriptions, and keepalive messages.
  */
-service SdkMgrService
-{
-    /// Register agent
-    rpc AgentRegister (AgentRegistrationRequest) returns (AgentRegistrationResponse) {}
+service SdkMgrService {
+  // Register agent
+  rpc AgentRegister(AgentRegistrationRequest) returns (AgentRegistrationResponse) {}
 
-    /// Unregister agent
-    rpc AgentUnRegister (AgentRegistrationRequest) returns (AgentRegistrationResponse) {}
+  // Unregister agent
+  rpc AgentUnRegister(AgentRegistrationRequest) returns (AgentRegistrationResponse) {}
 
-    /// Register for event notifications
-    rpc NotificationRegister (NotificationRegisterRequest) returns (NotificationRegisterResponse) {}
+  // Register for event notifications
+  rpc NotificationRegister(NotificationRegisterRequest) returns (NotificationRegisterResponse) {}
 
-    /// Returns current or specific notification subscription details
-    rpc NotificationQuery (NotificationQueryRequest) returns (NotificationQueryResponse) {}
+  // Returns current or specific notification subscription details
+  rpc NotificationQuery(NotificationQueryRequest) returns (NotificationQueryResponse) {}
 
-    /// Send periodic keepalive message
-    rpc KeepAlive(KeepAliveRequest) returns (KeepAliveResponse) {}
+  // Send periodic keepalive message
+  rpc KeepAlive(KeepAliveRequest) returns (KeepAliveResponse) {}
 
-    /// Get application name from application identifier
-    rpc GetAppId(AppIdRequest) returns (AppIdResponse) {}
+  // Get application name from application identifier
+  rpc GetAppId(AppIdRequest) returns (AppIdResponse) {}
 }
 
 /**
  * Represents registration request message used in agent register and unregister.
  */
-message AgentRegistrationRequest
-{
-    repeated string js_path = 1;  /* Optional, JSON path formatted strings, which are used in telemetry. Format of js_path follows hierarchical YANG. for example:
-                                   * .interface{.name==*}.my_app.
-                                   * .my_app.tunnel{.name==*}
-                                   * '*'' needs to be replaced with a specific key.
-                                   */
-    uint32 agent_liveliness = 2; /* Kill this agent unless a keepalive is received within this many seconds.  Value of 0
-                                  * means do not monitor this agent for liveliness.
-                                  */
-    bool wait_config_ack = 3; /* Indicate if SRLinux should wait for explicit ack from app after delivering configuration. */
-    bool enable_cache = 4;  /* Indicate if SRLinux should cache streaming notification response in ndk mgr.
-                            * By default, caching is disabled.
-                            */
-    bool auto_telemetry_state = 5; /* Indicate if SRLinux should automatically push configs as state.
-                                    * By default, auto_telemetry_state is disabled.
-                                    */
+message AgentRegistrationRequest {
+  repeated string js_paths = 1; /* Optional, JSON path formatted strings, which are used in telemetry. Format of js_path follows hierarchical YANG. for example:
+   * .interface{.name==*}.my_app.
+   * .my_app.tunnel{.name==*}
+   * '*'' needs to be replaced with a specific key.
+   */
+  uint32 agent_liveliness = 2; /* Kill this agent unless a keepalive is received within this many seconds.  Value of 0
+   * means do not monitor this agent for liveliness.
+   */
+  bool wait_config_ack = 3; /* Indicate if SRLinux should wait for explicit ack from app after delivering configuration. */
+  bool enable_cache = 4; /* Indicate if SRLinux should cache streaming notification response in ndk mgr.
+   * By default, caching is disabled.
+   */
+  bool auto_telemetry_state = 5; /* Indicate if SRLinux should automatically push configs as state.
+   * By default, auto_telemetry_state is disabled.
+   */
 }
 
 /**
  * Represents registration response in reply to registration request.
  */
-message AgentRegistrationResponse
-{
-    SdkMgrStatus  status       = 1;  // Status of the register; for example: kOk, kFailed
-    string error_str           = 2;  // Detailed error text
-    uint32 app_id              = 3;  // Application ID assigned by SDK manager.
+message AgentRegistrationResponse {
+  SdkMgrStatus status = 1; // Status of the register; for example: kOk, kFailed
+  string error_str = 2; // Detailed error text
+  uint32 app_id = 3; // Application ID assigned by SDK manager.
 }
 
 /**
  * Represents keep alive request from agent to refresh liveliness of the agent.
  */
-message KeepAliveRequest
-{
-}
+message KeepAliveRequest {}
 
 /**
  * Represents keepalive response.
  */
-message KeepAliveResponse
-{
-    SdkMgrStatus  status       = 1;  // Status of keepalive; for example, kOk or kFailed
+message KeepAliveResponse {
+  SdkMgrStatus status = 1; // Status of keepalive; for example, kOk or kFailed
 }
-
 
 /**
  * Represents application identifier request from agent. All applications are assigned an identifier by IDB.
  */
-message AppIdRequest
-{
-    string name  = 1;  // Application name
+message AppIdRequest {
+  string name = 1; // Application name
 }
 
-/** 
+/**
  * Represents application identifier response to agent.
  */
-message AppIdResponse
-{
-    SdkMgrStatus  status       = 1;  // Status of the call; for example, kOk, kFailed
-    uint32 id                  = 2;  // Identifier for the given application name
+message AppIdResponse {
+  SdkMgrStatus status = 1; // Status of the call; for example, kOk, kFailed
+  uint32 id = 2; // Identifier for the given application name
 }
 
 /**
  * Represents notification request from agent. Agent uses this message to subscribe to router events such as interface create, delete, or update, as well as LLDP neighbor create, delete, or update, and so on.
  */
-message NotificationRegisterRequest
-{
-    /// Represents notification stream subscription request operation.
-    enum Operation
-    {
-        Create                                        = 0;   // Create a subscription
-        Delete                                        = 1;   // Delete all subscriptions
-        AddSubscription                               = 2;   // Add subscription to existing subscriptions
-        DeleteSubscription                            = 3;   // Delete one subscription from existing subscriptions
-    }
-    uint64 stream_id                                  = 1;   // Unset on create, set otherwise
-    Operation op                                      = 2;   // Specific operation in the notification register request
+message NotificationRegisterRequest {
+  // Represents notification stream subscription request operation.
+  enum Operation {
+    OPERATION_CREATE = 0; // Create a subscription
+    OPERATION_DELETE = 1; // Delete all subscriptions
+    OPERATION_ADD_SUBSCRIPTION = 2; // Add subscription to existing subscriptions
+    OPERATION_DELETE_SUBSCRIPTION = 3; // Delete one subscription from existing subscriptions
+  }
+  uint64 stream_id = 1; // Unset on create, set otherwise
+  Operation op = 2; // Specific operation in the notification register request
 
-    uint64 sub_id                                     = 3;   // Set for delete subscription, unset otherwise
-    oneof subscription_types
-    {
-        InterfaceSubscriptionRequest intf             = 10;  // Interface subscription request
-        NetworkInstanceSubscriptionRequest nw_inst    = 11;  // Network instance subscription request
-        LldpNeighborSubscriptionRequest lldp_neighbor = 12;  // LLDP neighbor subscription request
-        ConfigSubscriptionRequest config              = 13;  // Configuration subscription request
-        BfdSessionSubscriptionRequest bfd_session     = 14;  // BFD session subscription request
-        IpRouteSubscriptionRequest route              = 15;  // IP route subscription request
-        AppIdentSubscriptionRequest appid             = 16;  // App identification subscription request
-        NextHopGroupSubscriptionRequest nhg           = 17;  // Nexthop Group subscription request
-    }
+  uint64 subscription_id = 3; // Set for delete subscription, unset otherwise
+  oneof subscription_types {
+    InterfaceSubscriptionRequest interface = 10; // Interface subscription request
+    NetworkInstanceSubscriptionRequest network_instance = 11; // Network instance subscription request
+    LldpNeighborSubscriptionRequest lldp_neighbor = 12; // LLDP neighbor subscription request
+    ConfigSubscriptionRequest config = 13; // Configuration subscription request
+    BfdSessionSubscriptionRequest bfd_session = 14; // BFD session subscription request
+    IpRouteSubscriptionRequest route = 15; // IP route subscription request
+    AppIdentSubscriptionRequest app_id = 16; // App identification subscription request
+    NextHopGroupSubscriptionRequest nexthop_group = 17; // Nexthop Group subscription request
+  }
 }
-
 
 /**
  * Represents notification response.
  */
-message NotificationRegisterResponse
-{
-    uint64 stream_id            = 1;  /* Stream identifier. This needs to be passed to the SDK manager for further notification
-                                       * subscription changes specific to the current subscription
-                                       */
-    uint64 sub_id               = 2;  // Subscription identifier. Each subscription gets an identifier, which can be used to delete a subscription
-    SdkMgrStatus  status        = 3;  // Status of subscription
+message NotificationRegisterResponse {
+  uint64 stream_id = 1; /* Stream identifier. This needs to be passed to the SDK manager for further notification
+   * subscription changes specific to the current subscription
+   */
+  uint64 subscription_id = 2; // Subscription identifier. Each subscription gets an identifier, which can be used to delete a subscription
+  SdkMgrStatus status = 3; // Status of subscription
 }
 
 /**
  * Represents notification query to return specific subscription details.
  */
-message NotificationQueryRequest
-{
-    uint64 stream_id            = 1;  // Stream identifier, in NotificationRegisterResponse
+message NotificationQueryRequest {
+  uint64 stream_id = 1; // Stream identifier, in NotificationRegisterResponse
 }
 
 /**
  * Represents notification subscription.
  */
-message NotificationQuerySubscription
-{
-    uint64 sub_id               = 1;  // Subscription identifier
-    string description          = 2;  // Subscription description
+message NotificationQuerySubscription {
+  uint64 subscription_id = 1; // Subscription identifier
+  string description = 2; // Subscription description
 }
 
 /**
  * Represents notification query response.
  */
-message NotificationQueryResponse
-{
-    repeated NotificationQuerySubscription subscriptions = 1;  // List of subscription details
-    SdkMgrStatus  status                                 = 2;  // Status of the query
+message NotificationQueryResponse {
+  repeated NotificationQuerySubscription subscriptions = 1; // List of subscription details
+  SdkMgrStatus status = 2; // Status of the query
 }
 
 /**********************************************************************************************************************
@@ -190,43 +173,38 @@ message NotificationQueryResponse
 /**
  * Represents service for handling notifications.
  */
-service SdkNotificationService
-{
-    /// Send stream of event notifications based on the agent subscriptions
-    rpc NotificationStream (NotificationStreamRequest) returns (stream NotificationStreamResponse) {}
+service SdkNotificationService {
+  // Send stream of event notifications based on the agent subscriptions
+  rpc NotificationStream(NotificationStreamRequest) returns (stream NotificationStreamResponse) {}
 }
 
 /**
  * Represents notification stream request.
  */
-message NotificationStreamRequest
-{
-    uint64 stream_id            = 1;  // Stream identifier
+message NotificationStreamRequest {
+  uint64 stream_id = 1; // Stream identifier
 }
 
 /**
  * Represents notification stream response.
  */
-message Notification
-{
-    uint64 sub_id                              = 1;  /* Subscription identifier */
-    oneof subscription_types
-    {
-        InterfaceNotification intf             = 10;  // Interface details
-        NetworkInstanceNotification nw_inst    = 11;  // Network instance details
-        LldpNeighborNotification lldp_neighbor = 12;  // LLDP neighbor details
-        ConfigNotification config              = 13;  // Configuration notification
-        BfdSessionNotification bfd_session     = 14;  // BFD session details
-        IpRouteNotification route              = 15;  // IP route details
-        AppIdentNotification appid             = 16;  // App identification details
-        NextHopGroupNotification nhg           = 17;  // Next-hop group details
-    }
+message Notification {
+  uint64 subscription_id = 1; // Subscription identifier
+  oneof subscription_types {
+    InterfaceNotification interface = 10; // Interface details
+    NetworkInstanceNotification network_instance = 11; // Network instance details
+    LldpNeighborNotification lldp_neighbor = 12; // LLDP neighbor details
+    ConfigNotification config = 13; // Configuration notification
+    BfdSessionNotification bfd_session = 14; // BFD session details
+    IpRouteNotification route = 15; // IP route details
+    AppIdentNotification app_id = 16; // App identification details
+    NextHopGroupNotification nexthop_group = 17; // Next-hop group details
+  }
 }
 
 /**
  * Represents notification stream response that contains one or more notification.
  */
-message NotificationStreamResponse
-{
-    repeated Notification notification = 1;  /* Notification details */
+message NotificationStreamResponse {
+  repeated Notification notifications = 1; // Notification details
 }
